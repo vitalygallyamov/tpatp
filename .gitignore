@@ -1,2 +1,4 @@
-uploadfiles/
-userfiles/
+uploadfiles/*
+userfiles/*
+Capfile
+config/*
