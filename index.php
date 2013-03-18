@@ -7,8 +7,8 @@
 	if( $r==20 ){ $r=33; }
 //	if( $r==7 ){ $r=26; }
 	if( !isset( $_GET["page"] ) ){ $page=0; }else{ $page=$_GET["page"]; }
-	$view_page=4;	// количество выводимых записей по умолчанию
-	$extrapage="";	// дополнительные параметры в выводе страниц, для передачи в гет запрос
+	$view_page=4;	// РєРѕР»РёС‡РµСЃС‚РІРѕ РІС‹РІРѕРґРёРјС‹С… Р·Р°РїРёСЃРµР№ РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ
+	$extrapage="";	// РґРѕРїРѕР»РЅРёС‚РµР»СЊРЅС‹Рµ РїР°СЂР°РјРµС‚СЂС‹ РІ РІС‹РІРѕРґРµ СЃС‚СЂР°РЅРёС†, РґР»СЏ РїРµСЂРµРґР°С‡Рё РІ РіРµС‚ Р·Р°РїСЂРѕСЃ
 	require_once("admin/config.php");
 	$query="select name, content, title, description, keywords, razdel from pages where id='$r'";
 	$result=mysql_query($query);
@@ -24,10 +24,276 @@
 	}
 	if( $number==0 ){ header( "location: index.php" ); }
 ?>
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+	<meta name="author" content="vitaly" />
+
+    <link href="css/reset.css" rel="stylesheet"/>
+    <link href="js/formstyler/jquery.formstyler.css" rel="stylesheet" />
+    <link href="js/slider/css/slider.css" rel="stylesheet" />
+    
+    <link href="css/styles.css" rel="stylesheet" type="text/css" />
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script src="js/formstyler/jquery.formstyler.min.js"></script>
+    <script src="js/slider/slider.jquery.js"></script>
+    
+    <script>
+    (function($){
+        $(function(){
+            $('#schedule-form select, #schedule-form input:checkbox').styler();
+            $('#slider-box').slider({width: 714, height: 240});
+        });
+    })(jQuery);
+    </script>
+
+	<title>РўРџРђРўРџ</title>
+</head>
+
+<body>
+
+<div id="main">
+    <div class="center-block">
+        <header>
+            <a href="/"><img alt="РўРџРђРўРџ" src="images/logo.png"/></a>
+            <a class="contact-butt" href="#contacts">РљРѕРЅС‚Р°РєС‚С‹</a>
+            <div class="phones">
+                <div>РўРµР»РµС„РѕРЅ / С„Р°РєСЃ РїСЂРёРµРјРЅРѕР№:&nbsp;&nbsp;&nbsp;&nbsp;<span>8 (3456) <span>25-26-37</span></span></div>
+                <div>РўРµР»РµС„РѕРЅ / С„Р°РєСЃ РїСЂРёРµРјРЅРѕР№:&nbsp;&nbsp;&nbsp;&nbsp;<span>8 (3456) <span>25-26-37</span></span></div>
+            </div>
+        </header>
+        <div id="content">
+            <div id="left-block">
+                <nav>
+                    <ul class="root">
+                        <li class="root-item"><a href="#menu">Рћ РєРѕРјРїР°РЅРёРё</a></li>
+                        <li class="root-item"><a href="#menu">Рћ РєРѕРјРїР°РЅРёРё</a></li>
+                        <li class="root-item root-active">
+                            <a href="#menu">РџР°СЃСЃР°Р¶РёСЂР°Рј</a>
+                            <ul class="sub-menu">
+                                <li class="sub-item sub-item-active">
+                                    <a href="#menu">&mdash;&nbsp;&nbsp;Р Р°СЃРїРёСЃР°РЅРёРµ РґРІРёР¶РµРЅРёСЏ</a>
+                                    <ul class="sub-sub-menu">
+                                        <li class="sub-sub-item"><a href="#menu">&ndash;&nbsp;&nbsp;Р Р°СЃРїРёСЃР°РЅРёРµ РґРІРёР¶РµРЅРёСЏ</a></li>
+                                        <li class="sub-sub-item"><a href="#menu">&ndash;&nbsp;&nbsp;Р Р°СЃРїРёСЃР°РЅРёРµ РґРІРёР¶РµРЅРёСЏ</a></li>
+                                        <li class="sub-sub-item"><a href="#menu">&ndash;&nbsp;&nbsp;Р Р°СЃРїРёСЃР°РЅРёРµ РґРІРёР¶РµРЅРёСЏ</a></li>
+                                    </ul>
+                                </li>
+                                <li class="sub-item"><a href="#menu">&mdash;&nbsp;&nbsp;Р Р°СЃРїРёСЃР°РЅРёРµ РґРІРёР¶РµРЅРёСЏ</a></li>
+                                <li class="sub-item"><a href="#menu">&mdash;&nbsp;&nbsp;Р Р°СЃРїРёСЃР°РЅРёРµ РґРІРёР¶РµРЅРёСЏ</a></li>
+                            </ul>
+                        </li>
+                        <li class="root-item"><a href="#menu">Рћ РєРѕРјРїР°РЅРёРё</a></li>
+                        <li class="root-item"><a href="#menu">Рћ РєРѕРјРїР°РЅРёРё</a></li>
+                        <li class="root-item"><a href="#menu">Рћ РєРѕРјРїР°РЅРёРё</a></li>
+                        <li class="root-item"><a href="#menu">Рћ РєРѕРјРїР°РЅРёРё</a></li>
+                        <li class="root-item"><a href="#menu">Рћ РєРѕРјРїР°РЅРёРё</a></li>
+                        <li class="root-item"><a href="#menu">Рћ РєРѕРјРїР°РЅРёРё</a></li>
+                    </ul>
+                </nav>
+                <section>
+                    <h2>РџРѕР·РґСЂР°РІР»СЏРµРј!</h2>
+                    <img src="images/tmp/happy.jpg" width="229" height="229" />
+                    <p>РџРѕР·РґСЂР°РІР»СЏРµРј РІСЃРµС… РґРµРІСѓС€РµРє Рё Р¶РµРЅС‰РёРЅ СЃ РїСЂР°Р·РґРЅРёРєРѕРј 8 РјР°СЂС‚Р°! Р’СЃРµРіРґР° Р±СѓРґСЊС‚Рµ С‚Р°РєРёРјРё Р¶Рµ РєСЂР°СЃРёРІС‹РјРё, Р»СЋР±РёРјС‹РјРё Рё Р·Р°РјРµС‡Р°С‚РµР»СЊРЅС‹РјРё!</p>
+                </section>
+            </div>
+            <div id="content-block">
+            	<?if($r==1) {?>
+                <section id="schedule-block">
+                    <h2>Р Р°СЃРїРёСЃР°РЅРёРµ</h2>
+                    <div class="shedule-text"><span>РџРѕРёСЃРє РЅРµРѕР±С…РѕРґРёРјРѕРіРѕ СЂРµР№СЃР°</span><br/>Р’СЂРµРјСЏ РІ СЂР°СЃРїРёСЃР°РЅРёРё СѓРєР°Р·Р°РЅРѕ РјРµСЃС‚РЅРѕРµ</div>
+                    <form id="schedule-form">
+                        <table>
+                            <tr>
+                                <td class="label"><label>РџСѓРЅРєС‚ РѕС‚РїСЂР°РІР»РµРЅРёСЏ</label></td>
+                                <td>
+                                    <select class="select-field">
+                                        <option value="0">Р§С‚Рѕ С‚Рѕ</option>
+                                        <option value="1">Р§С‚Рѕ С‚Рѕ</option>
+                                        <option value="2">Р§С‚Рѕ С‚Рѕ</option>
+                                        <option value="3">Р§С‚Рѕ С‚Рѕ</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="label"><label>РќРѕРјРµСЂ РјР°СЂС€СЂСѓС‚Р°</label></td>
+                                <td>
+                                    <select class="select-field">
+                                        <option value="0">Р§С‚Рѕ С‚Рѕ</option>
+                                        <option value="1">Р§С‚Рѕ С‚Рѕ</option>
+                                        <option value="2">Р§С‚Рѕ С‚Рѕ</option>
+                                        <option value="3">Р§С‚Рѕ С‚Рѕ</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="label"><label>РџСѓРЅРєС‚ РЅР°Р·РЅР°С‡РµРЅРёСЏ</label></td>
+                                <td><input class="styler" type="text" /></td>
+                            </tr>
+                            <tr>
+                                <td class="label"><label>РўСѓРґР°-РѕР±СЂР°С‚РЅРѕ</label></td>
+                                <td><input type="checkbox" /></td>
+                            </tr>
+                        </table>
+                        <div class="submit">
+                            <div>
+                                <a class="grey" href="#reset">РЎР±СЂРѕСЃ</a>
+                                <a class="green" href="#submit">РСЃРєР°С‚СЊ &rarr;</a>
+                            </div>
+                        </div>
+                    </form>
+                </section>
+                <section id="buses">
+                    <h2>РќР°С€Рё Р°РІС‚РѕР±СѓСЃС‹</h2>
+                    <div class="slider">
+                        <img style="float: left;" alt="РђРІС‚РѕР±СѓСЃ" src="images/bus.jpg" width="225" height="181" />
+                        <div style="clear: both;" class="arrows">РїРѕС‚РѕРј</div>
+                    </div>
+                </section>
+                <div class="both"></div>
+                <div id="main-slider">
+                    <div id="slider-box">
+                        <div class="move-left"><img src="images/left_arrow.png" /></div>
+                        <div class="move-right"><img src="images/right_arrow.png" /></div>
+                        <div class="slider-nav"></div>
+                        <div class="slider">
+                            <div class="s-item"><img src="images/slider-image.jpg" /></div>
+                            <div class="s-item"><img src="images/slider-image.jpg" /></div>
+                            <div class="s-item"><img src="images/slider-image.jpg" /></div>
+                            <div class="s-item"><img src="images/slider-image.jpg" /></div>
+                        </div>
+                    </div>
+                </div>
+                <section id="news-block">
+                    <h2>РќРѕРІРѕСЃС‚Рё</h2>
+                    <article>
+                        <a href=""><img src="images/tmp/news_img.jpg" width="95" height="69" /></a>
+                        <div class="news-date">16.01.2013 / 15:26</div>
+                        <h3><a href="#news">Р”РѕРїРѕР»РЅРёС‚РµР»СЊРЅС‹Рµ СЂРµР№СЃС‹ РІ РєСЂРµС‰РµРЅРёРµ</a></h3>
+                        <p>РЈРІР°Р¶Р°РµРјС‹Рµ РїР°СЃСЃР°Р¶РёСЂС‹!!! Р’ СЃРІСЏР·Рё СЃ РїСЂР°РІРѕСЃР»Р°РІРЅС‹Рј РїСЂР°Р·РґРЅРёРєРѕРј РљСЂРµС‰РµРЅРёРµ Р“РѕСЃРїРѕРґРЅРµ 19 СЏРЅРІР°СЂСЏ 2013 РіРѕРґР° СЃ 12...</p>
+                        <div class="both"></div>
+                    </article>
+                    <article style="border: none;">
+                        <a href=""><img src="images/tmp/news_img.jpg" width="95" height="69" /></a>
+                        <div class="news-date">16.01.2013 / 15:26</div>
+                        <h3><a href="#news">Р”РѕРїРѕР»РЅРёС‚РµР»СЊРЅС‹Рµ СЂРµР№СЃС‹ РІ РєСЂРµС‰РµРЅРёРµ</a></h3>
+                        <p>РџСЂРѕРґРѕР»Р¶Р°СЏ РґРѕР±СЂСѓСЋ С‚СЂР°РґРёС†РёСЋ РўРѕР±РѕР»СЊСЃРєРѕРіРѕ РџРђРўРџ, 26 РґРµРєСЏР±СЂСЏ 2012 Рі. РІ Р°РІС‚РѕР±СѓСЃР°С… РіРѕСЂРѕРґСЃРєРёС… РјР°СЂС€СЂСѓС‚РѕРІ РїРѕСЏРІРё...</p>
+                        <div class="both"></div>
+                    </article>
+                    <div><a class="more-link" href="#more">Р’СЃРµ РЅРѕРІРѕСЃС‚Рё</a></div>
+                </section>
+                <section id="jobs-block">
+                    <h2>Р’Р°РєР°РЅСЃРёРё</h2>
+                    <p>РџСЂРёРіР»Р°С€Р°РµРј РЅР° СЂР°Р±РѕС‚Сѓ:</p>
+                    <ul>
+                        <li>РёРЅР¶РµРЅРµСЂР° СЌР»РµРєС‚СЂРѕСЃРІСЏР·Рё</li>
+                        <li>РґРёСЃРїРµС‚С‡РµСЂР° (РїСЂРёРІРµС‚СЃС‚РІСѓРµС‚СЃСЏ РїСЂРѕС„РёР»СЊРЅРѕРµ РѕР±СЂР°Р·РѕРІР°РЅРёРµ)</li>
+                        <li>Р»РёРЅРµР№РЅРѕРіРѕ РєРѕРЅС‚СЂРѕР»РµСЂР°</li>
+                        <li>СЌР»РµРєС‚СЂРѕРіР°Р·РѕСЃРІР°СЂС‰РёРєР°</li>
+                    </ul>
+                    <div class="more-block"><a class="more-link" href="#more">Р’СЃРµ РІР°РєР°РЅСЃРёРё</a></div>
+                    <div><a class="green" href="#submit">РџСЂРёСЃР»Р°С‚СЊ СЃРІРѕРµ СЂРµР·СЋРјРµ</a></div>
+                </section>
+                <div class="both"></div>
+                <?}else{?>
+                <div id="breadcrumbs">
+                    <ul>
+                        <li><a href="/">Р“Р»Р°РІРЅР°СЏ</a></li>
+                        <li>&gt;</li>
+                        <li>РќРѕРІРѕСЃС‚Рё</li>
+                    </ul>
+                </div>
+                <section id="text">
+                    <a class="green" href="#submit">Р—Р°РїРёСЃР°С‚СЊСЃСЏ РЅР° РўРћ</a>
+                    <h1>РўРµС…РЅРёС‡РµСЃРєРёР№ РѕСЃРјРѕС‚СЂ</h1>
+                    <h2>РћР±С‰РёРµ РїРѕР»РѕР¶РµРЅРёСЏ</h2>
+                    <p>РЎРѕРіР»Р°СЃРЅРѕ Р¤РµРґРµСЂР°Р»СЊРЅРѕРјСѓ Р·Р°РєРѕРЅСѓ Р РѕСЃСЃРёР№СЃРєРѕР№ Р¤РµРґРµСЂР°С†РёРё РѕС‚ 01.07.2011 РіРѕРґР° в„– 170-Р¤Р— В«Рћ С‚РµС…РЅРёС‡РµСЃРєРѕРј РѕСЃРјРѕС‚СЂРµ С‚СЂР°РЅСЃРїРѕСЂС‚РЅС‹С… СЃСЂРµРґСЃС‚РІвЂ¦В» РЅР°С…РѕРґСЏС‰РёРµСЃСЏ РІ СЌРєСЃРїР»СѓР°С‚Р°С†РёРё РЅР° С‚РµСЂСЂРёС‚РѕСЂРёРё Р РѕСЃСЃРёР№СЃРєРѕР№ Р¤РµРґРµСЂР°С†РёРё Рё Р·Р°СЂРµРіРёСЃС‚СЂРёСЂРѕРІР°РЅРЅС‹Рµ РІ СѓСЃС‚Р°РЅРѕРІР»РµРЅРЅРѕРј РїРѕСЂСЏРґРєРµ С‚СЂР°РЅСЃРїРѕСЂС‚РЅС‹Рµ СЃСЂРµРґСЃС‚РІР° РїРѕРґР»РµР¶Р°С‚ РѕР±СЏР·Р°С‚РµР»СЊРЅРѕРјСѓ С‚РµС…РЅРёС‡РµСЃРєРѕРјСѓ РѕСЃРјРѕС‚СЂСѓ.</p>
+                    <p>
+                        <ul>
+                            <li>Р»РµРіРєРѕРІС‹Рµ С‚Р°РєСЃРё;</li>
+                            <li><a href="#bus">Р°РІС‚РѕР±СѓСЃС‹;</a></li>
+                            <li>РіСЂСѓР·РѕРІС‹Рµ Р°РІС‚РѕРјРѕР±РёР»Рё, РїСЂРµРґРЅР°Р·РЅР°С‡РµРЅРЅС‹Рµ Рё РѕР±РѕСЂСѓРґРѕРІР°РЅРЅС‹Рµ РґР»СЏ РїРµСЂРµРІРѕР·РѕРє РїР°СЃСЃР°Р¶РёСЂРѕРІ, СЃ С‡РёСЃР»РѕРј РјРµСЃС‚ РґР»СЏ СЃРёРґРµРЅРёСЏ Р±РѕР»РµРµ С‡РµРј РІРѕСЃРµРјСЊ (Р·Р° РёСЃРєР»СЋС‡РµРЅРёРµРј РјРµСЃС‚Р° РґР»СЏ РІРѕРґРёС‚РµР»СЏ);</li>
+                            <li>СЃРїРµС†РёР°Р»РёР·РёСЂРѕРІР°РЅРЅС‹Рµ С‚СЂР°РЅСЃРїРѕСЂС‚РЅС‹Рµ СЃСЂРµРґСЃС‚РІР° Рё РїСЂРёС†РµРїС‹ Рє РЅРёРј, РїСЂРµРґРЅР°Р·РЅР°С‡РµРЅРЅС‹Рµ Рё РѕР±РѕСЂСѓРґРѕРІР°РЅРЅС‹Рµ РґР»СЏ РїРµСЂРµРІРѕР·РѕРє РѕРїР°СЃРЅС‹С… РіСЂСѓР·РѕРІ;</li>
+                        </ul>
+                    </p>
+                    <p>РџСЂР°РІРёС‚РµР»СЊСЃС‚РІРѕРј Р РѕСЃСЃРёР№СЃРєРѕР№ Р¤РµРґРµСЂР°С†РёРё РїСЂРёРЅСЏС‚Рѕ РџРѕСЃС‚Р°РЅРѕРІР»РµРЅРёРµ РѕС‚ 5 РґРµРєР°Р±СЂСЏ 2011 РіРѕРґР° в„– 1008 В«Рћ РїСЂРѕРІРµРґРµРЅРёРё С‚РµС…РЅРёС‡РµСЃРєРѕРіРѕ РѕСЃРјРѕС‚СЂР° С‚СЂР°РЅСЃРїРѕСЂС‚РЅС‹С… СЃСЂРµРґСЃС‚РІВ»,  СѓС‚РІРµСЂРґРёРІС€РµРµ РџСЂР°РІРёР»Р°  РїСЂРѕРІРµРґРµРЅРёСЏ С‚РµС…РЅРёС‡РµСЃРєРѕРіРѕ РѕСЃРјРѕС‚СЂР° С‚СЂР°РЅСЃРїРѕСЂС‚РЅС‹С… СЃСЂРµРґСЃС‚РІ.</p>                    <p>РўРµС…РЅРёС‡РµСЃРєРёР№ РѕСЃРјРѕС‚СЂ РїСЂРѕРІРѕРґРёС‚СЃСЏ РїРѕ РІС‹Р±РѕСЂСѓ РІР»Р°РґРµР»СЊС†Р° С‚СЂР°РЅСЃРїРѕСЂС‚РЅРѕРіРѕ СЃСЂРµРґСЃС‚РІР° РёР»Рё РµРіРѕ РїСЂРµРґСЃС‚Р°РІРёС‚РµР»СЏ Р»СЋР±С‹Рј РѕРїРµСЂР°С‚РѕСЂРѕРј С‚РµС…РЅРёС‡РµСЃРєРѕРіРѕ РѕСЃРјРѕС‚СЂР° РІ Р»СЋР±РѕРј РїСѓРЅРєС‚Рµ С‚РµС…РЅРёС‡РµСЃРєРѕРіРѕ РѕСЃРјРѕС‚СЂР° РІРЅРµ Р·Р°РІРёСЃРёРјРѕСЃС‚Рё РѕС‚ РјРµСЃС‚Р° СЂРµРіРёСЃС‚СЂР°С†РёРё С‚СЂР°РЅСЃРїРѕСЂС‚РЅРѕРіРѕ СЃСЂРµРґСЃС‚РІР°.</p>
+                    <p><strong>РўСЂР°РЅСЃРїРѕСЂС‚РЅС‹Рµ СЃСЂРµРґСЃС‚РІР° РїРѕРґР»РµР¶Р°С‚ РіРѕСЃСѓРґР°СЂСЃС‚РІРµРЅРЅРѕРјСѓ С‚РµС…РЅРёС‡РµСЃРєРѕРјСѓ РѕСЃРјРѕС‚СЂСѓ СЃРѕ СЃР»РµРґСѓСЋС‰РµР№ РїРµСЂРёРѕРґРёС‡РЅРѕСЃС‚СЊСЋ:</strong>
+                        <ol>
+                            <li>Р•СЃР»Рё РёРЅРѕРµ РЅРµ СѓСЃС‚Р°РЅРѕРІР»РµРЅРѕ С„РµРґРµСЂР°Р»СЊРЅС‹РјРё Р·Р°РєРѕРЅР°РјРё, С‚СЂР°РЅСЃРїРѕСЂС‚РЅС‹Рµ СЃСЂРµРґСЃС‚РІР° РїРѕРґР»РµР¶Р°С‚ С‚РµС…РЅРёС‡РµСЃРєРѕРјСѓ РѕСЃРјРѕС‚СЂСѓ СЃРѕ СЃР»РµРґСѓСЋС‰РµР№ РїРµСЂРёРѕРґРёС‡РЅРѕСЃС‚СЊСЋ:
+                                <ol>
+                                    <li>Р»РµРіРєРѕРІС‹Рµ С‚Р°РєСЃРё;</li>
+                                    <li><a href="#bus">Р°РІС‚РѕР±СѓСЃС‹;</a></li>
+                                    <li>РіСЂСѓР·РѕРІС‹Рµ Р°РІС‚РѕРјРѕР±РёР»Рё, РїСЂРµРґРЅР°Р·РЅР°С‡РµРЅРЅС‹Рµ Рё РѕР±РѕСЂСѓРґРѕРІР°РЅРЅС‹Рµ РґР»СЏ РїРµСЂРµРІРѕР·РѕРє РїР°СЃСЃР°Р¶РёСЂРѕРІ, СЃ С‡РёСЃР»РѕРј РјРµСЃС‚ РґР»СЏ СЃРёРґРµРЅРёСЏ Р±РѕР»РµРµ С‡РµРј РІРѕСЃРµРјСЊ (Р·Р° РёСЃРєР»СЋС‡РµРЅРёРµРј РјРµСЃС‚Р° РґР»СЏ РІРѕРґРёС‚РµР»СЏ);</li>
+                                    <li>СЃРїРµС†РёР°Р»РёР·РёСЂРѕРІР°РЅРЅС‹Рµ С‚СЂР°РЅСЃРїРѕСЂС‚РЅС‹Рµ СЃСЂРµРґСЃС‚РІР° Рё РїСЂРёС†РµРїС‹ Рє РЅРёРј, РїСЂРµРґРЅР°Р·РЅР°С‡РµРЅРЅС‹Рµ Рё РѕР±РѕСЂСѓРґРѕРІР°РЅРЅС‹Рµ РґР»СЏ РїРµСЂРµРІРѕР·РѕРє РѕРїР°СЃРЅС‹С… РіСЂСѓР·РѕРІ;</li>
+                                </ol>
+                            </li>
+                            <li>РљР°Р¶РґС‹Рµ РґРІРµРЅР°РґС†Р°С‚СЊ РјРµСЃСЏС†РµРІ РІ РѕС‚РЅРѕС€РµРЅРёРё СЃР»РµРґСѓСЋС‰РёС… С‚СЂР°РЅСЃРїРѕСЂС‚РЅС‹С… СЃСЂРµРґСЃС‚РІ, СЃ РіРѕРґР° РІС‹РїСѓСЃРєР° РІ РѕР±СЂР°С‰РµРЅРёРµ РєРѕС‚РѕСЂС‹С… РїСЂРѕС€Р»Рѕ Р±РѕР»РµРµ С‡РµРј СЃРµРјСЊ Р»РµС‚,   РІРєР»СЋС‡Р°СЏ РіРѕРґ РёС… РІС‹РїСѓСЃРєР° РІ РѕР±СЂР°С‰РµРЅРёРµ (Р·Р° РёСЃРєР»СЋС‡РµРЅРёРµРј С‚СЂР°РЅСЃРїРѕСЂС‚РЅС‹С… СЃСЂРµРґСЃС‚РІ, СѓРєР°Р·Р°РЅРЅС‹С… РІ РїСѓРЅРєС‚Р°С… 1 Рё 3 РЅР°СЃС‚РѕСЏС‰РµР№ С‡Р°СЃС‚Рё):
+                                <ol>
+                                    <li>Р»РµРіРєРѕРІС‹Рµ Р°РІС‚РѕРјРѕР±РёР»Рё, СЂР°Р·СЂРµС€РµРЅРЅР°СЏ РјР°РєСЃРёРјР°Р»СЊРЅР°СЏ РјР°СЃСЃР° РєРѕС‚РѕСЂС‹С… СЃРѕСЃС‚Р°РІР»СЏРµС‚ РґРѕ С‚СЂРµС… С‚РѕРЅРЅ РїСЏС‚РёСЃРѕС‚ РєРёР»РѕРіСЂР°РјРј;</li>
+                                    <li>РіСЂСѓР·РѕРІС‹Рµ Р°РІС‚РѕРјРѕР±РёР»Рё, СЂР°Р·СЂРµС€РµРЅРЅР°СЏ РјР°РєСЃРёРјР°Р»СЊРЅР°СЏ РјР°СЃСЃР° РєРѕС‚РѕСЂС‹С… СЃРѕСЃС‚Р°РІР»СЏРµС‚ РґРѕ С‚СЂРµС… С‚РѕРЅРЅ РїСЏС‚РёСЃРѕС‚ РєРёР»РѕРіСЂР°РјРј;</li>
+                                    <li>РіСЂСѓР·РѕРІС‹Рµ Р°РІС‚РѕРјРѕР±РёР»Рё, РїСЂРµРґРЅР°Р·РЅР°С‡РµРЅРЅС‹Рµ Рё РѕР±РѕСЂСѓРґРѕРІР°РЅРЅС‹Рµ РґР»СЏ РїРµСЂРµРІРѕР·РѕРє РїР°СЃСЃР°Р¶РёСЂРѕРІ, СЃ С‡РёСЃР»РѕРј РјРµСЃС‚ РґР»СЏ СЃРёРґРµРЅРёСЏ Р±РѕР»РµРµ С‡РµРј РІРѕСЃРµРјСЊ (Р·Р° РёСЃРєР»СЋС‡РµРЅРёРµРј РјРµСЃС‚Р° РґР»СЏ РІРѕРґРёС‚РµР»СЏ);</li>
+                                    <li>СЃРїРµС†РёР°Р»РёР·РёСЂРѕРІР°РЅРЅС‹Рµ С‚СЂР°РЅСЃРїРѕСЂС‚РЅС‹Рµ СЃСЂРµРґСЃС‚РІР° Рё РїСЂРёС†РµРїС‹ Рє РЅРёРј, РїСЂРµРґРЅР°Р·РЅР°С‡РµРЅРЅС‹Рµ Рё РѕР±РѕСЂСѓРґРѕРІР°РЅРЅС‹Рµ РґР»СЏ РїРµСЂРµРІРѕР·РѕРє РѕРїР°СЃРЅС‹С… РіСЂСѓР·РѕРІ;</li>
+                                </ol>
+                            </li>
+                        </ol>
+                    </p>
+                    <h2>РџРµСЂРµС‡РµРЅСЊ СЃС‚Р°С†РёРѕРЅР°СЂРЅС‹С… РїСѓРЅРєС‚РѕРІ С‚РµС…РЅРёС‡РµСЃРєРѕРіРѕ РѕСЃРјРѕС‚СЂР°</h2>
+                    <table>
+                        <tr>
+                            <th>РџРѕР»РЅРѕРµ РЅР°РёРјРµРЅРѕРІР°РЅРёРµ</th>
+                            <th>Р®СЂРёРґРёС‡РµСЃРєРёР№ Р°РґСЂРµСЃ</th>
+                            <th>РўРёРїС‹ РїСЂРѕРІРµСЂСЏРµРјС‹С… С‚СЂР°РЅСЃРїРѕСЂС‚РЅС‹С… СЃСЂРµРґСЃС‚РІ</th>
+                        </tr>
+                        <tr>
+                            <td>РћРћРћ В«РђРІС‚РѕРґРёР°РіРЅРѕСЃС‚В»</td>
+                            <td>Рі. РўРѕР±РѕР»СЊСЃРє,<br />СѓР». РЎ. Р РµРјРµР·РѕРІР°, 89.<br />С‚РµР». (3456) 249-002</td>
+                            <td>Р’СЃРµ С‚РёРїС‹ С‚СЂР°РЅСЃРїРѕСЂС‚РЅС‹С… СЃСЂРµРґСЃС‚РІ.<br />РћРіСЂР°РЅРёС‡РµРЅРёРµ РїРѕ РІС‹СЃРѕС‚Рµ  - 3.7Рј.</td>
+                        </tr>
+                        <tr>
+                            <td>РћРћРћ В«РђРІС‚РѕРґРёР°РіРЅРѕСЃС‚В»</td>
+                            <td>Рі. РўРѕР±РѕР»СЊСЃРє,<br />СѓР». РЎ. Р РµРјРµР·РѕРІР°, 89.<br />С‚РµР». (3456) 249-002</td>
+                            <td>Р›РµРіРєРѕРІС‹Рµ Р°РІС‚РѕРјРѕР±РёР»Рё Рё РїСЂРёС†РµРїС‹ Рє РЅРёРј,<br />РіСЂСѓР·РѕРІС‹Рµ Р°РІС‚РѕРјРѕР±РёР»Рё СЃ СЂР°Р·СЂРµС€РµРЅРЅРѕР№ РјР°РєСЃРёРјР°Р»СЊРЅРѕР№ РјР°СЃСЃРѕР№ РґРѕ 3,5 С‚.</td>
+                        </tr>
+                    </table>
+                    <p>
+                        <ol>
+                            <li>РљР°Р¶РґС‹Рµ РґРІРµРЅР°РґС†Р°С‚СЊ РјРµСЃСЏС†РµРІ РІ РѕС‚РЅРѕС€РµРЅРёРё СЃР»РµРґСѓСЋС‰РёС… С‚СЂР°РЅСЃРїРѕСЂС‚РЅС‹С… СЃСЂРµРґСЃС‚РІ, СЃ РіРѕРґР° РІС‹РїСѓСЃРєР° РІ РѕР±СЂР°С‰РµРЅРёРµ РєРѕС‚РѕСЂС‹С… РїСЂРѕС€Р»Рѕ Р±РѕР»РµРµ С‡РµРј СЃРµРјСЊ Р»РµС‚,   РІРєР»СЋС‡Р°СЏ РіРѕРґ РёС… РІС‹РїСѓСЃРєР° РІ РѕР±СЂР°С‰РµРЅРёРµ (Р·Р° РёСЃРєР»СЋС‡РµРЅРёРµРј С‚СЂР°РЅСЃРїРѕСЂС‚РЅС‹С… СЃСЂРµРґСЃС‚РІ, СѓРєР°Р·Р°РЅРЅС‹С… РІ РїСѓРЅРєС‚Р°С… 1 Рё 3 РЅР°СЃС‚РѕСЏС‰РµР№ С‡Р°СЃС‚Рё):
+                                <ol>
+                                    <li>Р»РµРіРєРѕРІС‹Рµ Р°РІС‚РѕРјРѕР±РёР»Рё, СЂР°Р·СЂРµС€РµРЅРЅР°СЏ РјР°РєСЃРёРјР°Р»СЊРЅР°СЏ РјР°СЃСЃР° РєРѕС‚РѕСЂС‹С… СЃРѕСЃС‚Р°РІР»СЏРµС‚ РґРѕ С‚СЂРµС… С‚РѕРЅРЅ РїСЏС‚РёСЃРѕС‚ РєРёР»РѕРіСЂР°РјРј;</li>
+                                    <li>РіСЂСѓР·РѕРІС‹Рµ Р°РІС‚РѕРјРѕР±РёР»Рё, СЂР°Р·СЂРµС€РµРЅРЅР°СЏ РјР°РєСЃРёРјР°Р»СЊРЅР°СЏ РјР°СЃСЃР° РєРѕС‚РѕСЂС‹С… СЃРѕСЃС‚Р°РІР»СЏРµС‚ РґРѕ С‚СЂРµС… С‚РѕРЅРЅ РїСЏС‚РёСЃРѕС‚ РєРёР»РѕРіСЂР°РјРј;</li>
+                                    <li>РіСЂСѓР·РѕРІС‹Рµ Р°РІС‚РѕРјРѕР±РёР»Рё, РїСЂРµРґРЅР°Р·РЅР°С‡РµРЅРЅС‹Рµ Рё РѕР±РѕСЂСѓРґРѕРІР°РЅРЅС‹Рµ РґР»СЏ РїРµСЂРµРІРѕР·РѕРє РїР°СЃСЃР°Р¶РёСЂРѕРІ, СЃ С‡РёСЃР»РѕРј РјРµСЃС‚ РґР»СЏ СЃРёРґРµРЅРёСЏ Р±РѕР»РµРµ С‡РµРј РІРѕСЃРµРјСЊ (Р·Р° РёСЃРєР»СЋС‡РµРЅРёРµРј РјРµСЃС‚Р° РґР»СЏ РІРѕРґРёС‚РµР»СЏ);</li>
+                                    <li>СЃРїРµС†РёР°Р»РёР·РёСЂРѕРІР°РЅРЅС‹Рµ С‚СЂР°РЅСЃРїРѕСЂС‚РЅС‹Рµ СЃСЂРµРґСЃС‚РІР° Рё РїСЂРёС†РµРїС‹ Рє РЅРёРј, РїСЂРµРґРЅР°Р·РЅР°С‡РµРЅРЅС‹Рµ Рё РѕР±РѕСЂСѓРґРѕРІР°РЅРЅС‹Рµ РґР»СЏ РїРµСЂРµРІРѕР·РѕРє РѕРїР°СЃРЅС‹С… РіСЂСѓР·РѕРІ;</li>
+                                </ol>
+                            </li>
+                        </ol>
+                    </p>
+                </section>
+                <?}?>
+            </div>
+            <div class="both"></div>
+        </div> 
+    </div>
+    <footer>
+        <div class="center-block">
+            <p>РЎРїСЂР°РІРѕС‡РЅР°СЏ Р°РІС‚РѕРІРѕРєР·Р°Р»Р°: 8 (3456) <span>25-84-53, 25-65-55</span><br />Р РѕСЃСЃРёСЏ, 626150 Рі.РўРѕР±РѕР»СЊСЃРє 6 РјРєСЂ. СЃС‚СЂРѕРµРЅРёРµ 44</p>
+            <img src="images/tmp/counter.gif" width="88" height="31" />
+        </div>
+    </footer>
+</div>
+
+</body>
+</html>
+<?/*
 <html>
 	<head>
 		<base href='http://tpatp.ru/' >
-		<title><?=$title?> | Пассажирское автотранспортное предприятие</title>
+		<title><?=$title?> | РџР°СЃСЃР°Р¶РёСЂСЃРєРѕРµ Р°РІС‚РѕС‚СЂР°РЅСЃРїРѕСЂС‚РЅРѕРµ РїСЂРµРґРїСЂРёСЏС‚РёРµ</title>
 		<meta name='title' content='<?=$title?>'>
 		<meta name='description' content='<?=$description?>'>
 		<meta name='keywords' content='<?=$keywords?>'>
@@ -46,35 +312,35 @@
 							<td class='main'>
 								<table width=944 align=center>
 									<tr valign=top height=270>
-										<td colspan=8><a href=index.php title='На главную'><img src=images/logo.jpg style='margin-left: 170px;'></a></td>
+										<td colspan=8><a href=index.php title='РќР° РіР»Р°РІРЅСѓСЋ'><img src=images/logo.jpg style='margin-left: 170px;'></a></td>
 									</tr>
 									<tr align=center valign=top>
-										<td width=114 rowspan=7><a href=index.php?r=2 title='О компании' id=about_big></a></td>
+										<td width=114 rowspan=7><a href=index.php?r=2 title='Рћ РєРѕРјРїР°РЅРёРё' id=about_big></a></td>
 										<td height=30 colspan=7></td>
 									</tr>
 									<tr align=center valign=top>
 										<td height=20 colspan=6></td>
-										<td width=125 rowspan=6><a href=index.php?r=3 title='Гостевая книга' id=contacts_big></a></td>
+										<td width=125 rowspan=6><a href=index.php?r=3 title='Р“РѕСЃС‚РµРІР°СЏ РєРЅРёРіР°' id=contacts_big></a></td>
 									</tr>
 									<tr align=center valign=top>
-										<td width=114 rowspan=5><a href=index.php?r=4 title='Расписание движения' id=drive_big></a></td>
+										<td width=114 rowspan=5><a href=index.php?r=4 title='Р Р°СЃРїРёСЃР°РЅРёРµ РґРІРёР¶РµРЅРёСЏ' id=drive_big></a></td>
 										<td height=25 colspan=5></td>
 									</tr>
 									<tr align=center valign=top>
 										<td height=10 colspan=4></td>
-										<td width=114 rowspan=4><a href=index.php?r=5 title='Новости' id=news_big></a></td>
+										<td width=114 rowspan=4><a href=index.php?r=5 title='РќРѕРІРѕСЃС‚Рё' id=news_big></a></td>
 									</tr>
 									<tr align=center valign=top>
-										<td width=114 rowspan=3><a href=index.php?r=6 title='Заказ автобусов' id=order_big></a></td>
+										<td width=114 rowspan=3><a href=index.php?r=6 title='Р—Р°РєР°Р· Р°РІС‚РѕР±СѓСЃРѕРІ' id=order_big></a></td>
 										<td height=10 colspan=3></td>
 									</tr>
 									<tr align=center valign=top>
 										<td height=10 colspan=2></td>
-										<td width=114 rowspan=2><a href=index.php?r=7 title='Карьера' id=carier_big></a></td>
+										<td width=114 rowspan=2><a href=index.php?r=7 title='РљР°СЂСЊРµСЂР°' id=carier_big></a></td>
 									</tr>
 									<tr align=center valign=top>
-										<td width=135><a href=index.php?r=8 title='Дополнительные услуги' id=extras_big></a></td>
-										<td width=114><a href=index.php?r=9 title='Снабжение нелеквиды' id=money_big></a></td>
+										<td width=135><a href=index.php?r=8 title='Р”РѕРїРѕР»РЅРёС‚РµР»СЊРЅС‹Рµ СѓСЃР»СѓРіРё' id=extras_big></a></td>
+										<td width=114><a href=index.php?r=9 title='РЎРЅР°Р±Р¶РµРЅРёРµ РЅРµР»РµРєРІРёРґС‹' id=money_big></a></td>
 									</tr>
 									<tr height=130>
 										<td colspan=8></td>
@@ -135,8 +401,8 @@
 						<td style='background: url(images/shadow_left.jpg) right top repeat-y;'>&nbsp;</td>
 						<td width=1000 bgcolor=#f7f7f7 align=center>
 							<table width=940 align=center>
-								<td><a href=index.php title='На главную'><img src=images/logo_white.jpg></a></td>
-								<td valign=bottom align=right class=help_of_station>Телефон / факс приемной: 8 (3456) 25-26-37<br>Заказ автобусов: 8 (3456) 25-97-07</td>
+								<td><a href=index.php title='РќР° РіР»Р°РІРЅСѓСЋ'><img src=images/logo_white.jpg></a></td>
+								<td valign=bottom align=right class=help_of_station>РўРµР»РµС„РѕРЅ / С„Р°РєСЃ РїСЂРёРµРјРЅРѕР№: 8 (3456) 25-26-37<br>Р—Р°РєР°Р· Р°РІС‚РѕР±СѓСЃРѕРІ: 8 (3456) 25-97-07</td>
 							</table>
 						</td>
 						<td style='background: url(images/shadow_right.jpg) left top repeat-y;'>&nbsp;</td>
@@ -157,29 +423,29 @@
 									<td rowspan=2>
 										<div class=content "; if( $r==4 ){ print"style='width: 720px;'"; } print">";
 
-											if( $r==36 ){ print"<a href=index.php?r=4 class=name style='color: #b3b3b3; border-bottom: 1px dashed #b3b3b3;'>Расписание движения</a>&nbsp; &nbsp; &nbsp; &nbsp; "; }
-											if( $r==24 ){ print"<a href=index.php?r=6 class=name style='color: #b3b3b3; border-bottom: 1px dashed #b3b3b3;'>Заказ автобусов</a>&nbsp; &nbsp; &nbsp; &nbsp; "; }
-											if( $r==25 ){ print"<a href=index.php?r=3 class=name style='color: #b3b3b3; border-bottom: 1px dashed #b3b3b3;'>Книга жалоб и предложений</a>&nbsp; &nbsp; &nbsp;"; }
+											if( $r==36 ){ print"<a href=index.php?r=4 class=name style='color: #b3b3b3; border-bottom: 1px dashed #b3b3b3;'>Р Р°СЃРїРёСЃР°РЅРёРµ РґРІРёР¶РµРЅРёСЏ</a>&nbsp; &nbsp; &nbsp; &nbsp; "; }
+											if( $r==24 ){ print"<a href=index.php?r=6 class=name style='color: #b3b3b3; border-bottom: 1px dashed #b3b3b3;'>Р—Р°РєР°Р· Р°РІС‚РѕР±СѓСЃРѕРІ</a>&nbsp; &nbsp; &nbsp; &nbsp; "; }
+											if( $r==25 ){ print"<a href=index.php?r=3 class=name style='color: #b3b3b3; border-bottom: 1px dashed #b3b3b3;'>РљРЅРёРіР° Р¶Р°Р»РѕР± Рё РїСЂРµРґР»РѕР¶РµРЅРёР№</a>&nbsp; &nbsp; &nbsp;"; }
 											if( $r!=33 && $r!=34 && $r!=35 && $r!=25 ){ print"<span class=name>$name</span>"; }
-											if( $r==4 ){ print"&nbsp; &nbsp; &nbsp; &nbsp; <a href=index.php?r=36 class=name style='color: #b3b3b3; border-bottom: 1px dashed #b3b3b3;'>Схемы городских автобусных маршрутов</a>"; }
-											if( $r==6 ){ print"&nbsp; &nbsp; &nbsp; &nbsp; <a href=index.php?r=24 class=name style='color: #b3b3b3; border-bottom: 1px dashed #b3b3b3;'>Экскурсионные автобусы</a>"; }
+											if( $r==4 ){ print"&nbsp; &nbsp; &nbsp; &nbsp; <a href=index.php?r=36 class=name style='color: #b3b3b3; border-bottom: 1px dashed #b3b3b3;'>РЎС…РµРјС‹ РіРѕСЂРѕРґСЃРєРёС… Р°РІС‚РѕР±СѓСЃРЅС‹С… РјР°СЂС€СЂСѓС‚РѕРІ</a>"; }
+											if( $r==6 ){ print"&nbsp; &nbsp; &nbsp; &nbsp; <a href=index.php?r=24 class=name style='color: #b3b3b3; border-bottom: 1px dashed #b3b3b3;'>Р­РєСЃРєСѓСЂСЃРёРѕРЅРЅС‹Рµ Р°РІС‚РѕР±СѓСЃС‹</a>"; }
 											if( $r==3 ){
-												print"&nbsp; &nbsp; &nbsp;<a href=index.php?r=25 class=name style='color: #b3b3b3; border-bottom: 1px dashed #b3b3b3;'>Часто задаваемые вопросы</a>
-												&nbsp; &nbsp; &nbsp;<a href='forum/' class=name target='_blank' style='color: #b3b3b3; border-bottom: 1px dashed #b3b3b3;'>Форум</a>"; 
+												print"&nbsp; &nbsp; &nbsp;<a href=index.php?r=25 class=name style='color: #b3b3b3; border-bottom: 1px dashed #b3b3b3;'>Р§Р°СЃС‚Рѕ Р·Р°РґР°РІР°РµРјС‹Рµ РІРѕРїСЂРѕСЃС‹</a>
+												&nbsp; &nbsp; &nbsp;<a href='forum/' class=name target='_blank' style='color: #b3b3b3; border-bottom: 1px dashed #b3b3b3;'>Р¤РѕСЂСѓРј</a>"; 
 											}
 											if( $r==33 || $r==34 || $r==35 )
 											{
-												print"<a href=index.php?r=33 class=name2 style='"; if( $r!=33 ){ print"color: #b3b3b3; border-bottom: 1px dashed #b3b3b3;"; } print"'>Общие положения</a>
-												&nbsp; &nbsp; &nbsp;<a href=index.php?r=34 class=name2 style='"; if( $r!=34 ){ print"color: #b3b3b3; border-bottom: 1px dashed #b3b3b3;"; } print"'>Предъявляемые документы</a>
-												&nbsp; &nbsp; &nbsp;<a href=index.php?r=35 class=name2 style='"; if( $r!=35 ){ print"color: #b3b3b3; border-bottom: 1px dashed #b3b3b3;"; } print"'>Предварительная запись на ГТО</a>";
+												print"<a href=index.php?r=33 class=name2 style='"; if( $r!=33 ){ print"color: #b3b3b3; border-bottom: 1px dashed #b3b3b3;"; } print"'>РћР±С‰РёРµ РїРѕР»РѕР¶РµРЅРёСЏ</a>
+												&nbsp; &nbsp; &nbsp;<a href=index.php?r=34 class=name2 style='"; if( $r!=34 ){ print"color: #b3b3b3; border-bottom: 1px dashed #b3b3b3;"; } print"'>РџСЂРµРґСЉСЏРІР»СЏРµРјС‹Рµ РґРѕРєСѓРјРµРЅС‚С‹</a>
+												&nbsp; &nbsp; &nbsp;<a href=index.php?r=35 class=name2 style='"; if( $r!=35 ){ print"color: #b3b3b3; border-bottom: 1px dashed #b3b3b3;"; } print"'>РџСЂРµРґРІР°СЂРёС‚РµР»СЊРЅР°СЏ Р·Р°РїРёСЃСЊ РЅР° Р“РўРћ</a>";
 											}
 											if( $r==25 ){
-												print "<a href=index.php?r=25 class=name>Часто задаваемые вопросы</a>
-												&nbsp; &nbsp; &nbsp;<a href='forum/' target='_blank' class=name style='color: #b3b3b3; border-bottom: 1px dashed #b3b3b3;'>Форум</a>";
+												print "<a href=index.php?r=25 class=name>Р§Р°СЃС‚Рѕ Р·Р°РґР°РІР°РµРјС‹Рµ РІРѕРїСЂРѕСЃС‹</a>
+												&nbsp; &nbsp; &nbsp;<a href='forum/' target='_blank' class=name style='color: #b3b3b3; border-bottom: 1px dashed #b3b3b3;'>Р¤РѕСЂСѓРј</a>";
 											}
 
 											print"<br><br>";
-											if( $r==17 )	// акционерам и инвесторам
+											if( $r==17 )	// Р°РєС†РёРѕРЅРµСЂР°Рј Рё РёРЅРІРµСЃС‚РѕСЂР°Рј
 											{
 												$view_page=20;
 												$query="select id, name from file_razdel order by id desc limit $page, $view_page";
@@ -208,7 +474,7 @@
 												}
 												if( $number!=0 ){ print"</table>"; }
 											}
-											elseif( $r==16 || $r==19 )	// законодательство
+											elseif( $r==16 || $r==19 )	// Р·Р°РєРѕРЅРѕРґР°С‚РµР»СЊСЃС‚РІРѕ
 											{
 												$view_page=20;
 												if( $r==19 ){ $view_page=5; }
@@ -229,11 +495,11 @@
 													$name=mysql_result($result,$i,'name');
 													$content=mysql_result($result,$i,'content');
 													print"<tr><td><a href=index.php?r=$r&n=$id "; if( $r==19 ){ print"onclick='return false;'"; } print" >$name</a></td></tr>"; if( $r==19 ){ print"<tr><td>$content</td></tr>"; } print"<tr height=10><td></td></tr>";
-													if( isset( $_GET["n"] ) ){ print"<tr><td>$content <div style='text-align: right;'><a href=index.php?r=$r title='Назад' onclick='window.history.back(); return false;'>назад</a></div></td></tr>"; }
+													if( isset( $_GET["n"] ) ){ print"<tr><td>$content <div style='text-align: right;'><a href=index.php?r=$r title='РќР°Р·Р°Рґ' onclick='window.history.back(); return false;'>РЅР°Р·Р°Рґ</a></div></td></tr>"; }
 												}
 												if( $number!=0 ){ print"</table>"; }
 											}
-											elseif( $r==15 )	// книга почета
+											elseif( $r==15 )	// РєРЅРёРіР° РїРѕС‡РµС‚Р°
 											{
 												$query="select name, content, picture from book order by id desc limit $page, $view_page";
 												$result=mysql_query($query);
@@ -270,7 +536,7 @@
 												}
 												if( $number!=0 ){ print"</table>"; }
 											}
-											elseif( $r==4 )	// расписание движения
+											elseif( $r==4 )	// СЂР°СЃРїРёСЃР°РЅРёРµ РґРІРёР¶РµРЅРёСЏ
 											{
 												if( !isset( $_POST["point_otp"] ) ){ $point_otp=24; }else{ $point_otp=$_POST["point_otp"]; }
 												if( !isset( $_POST["point_prib"] ) ){ $point_prib=0; }else{ $point_prib=$_POST["point_prib"]; }
@@ -296,18 +562,18 @@
 														$number=mysql_numrows($result);
 														if( $number!=0 )
 														{
-															if( $j==0 ){ print"<b class=blue>Результат поиска</b><br><br>"; }else{ print"<br><b class=blue>Обратный рейс</b><br><br>"; }
+															if( $j==0 ){ print"<b class=blue>Р РµР·СѓР»СЊС‚Р°С‚ РїРѕРёСЃРєР°</b><br><br>"; }else{ print"<br><b class=blue>РћР±СЂР°С‚РЅС‹Р№ СЂРµР№СЃ</b><br><br>"; }
 															print"<table class=ticket>
 															<tr class=ticket_head height=4><td colspan=8></td></tr>
 															<tr class=ticket_head>
-																<td width=50> &nbsp; №</td>
-																<td width=130>Отправление</td>
-																<td width=50>Время</td>
-																<td width=130>Прибытие</td>
-																<td width=50>Время</td>
-																<td width=150>Дни следования</td>
-																<td width=100>Расстояние, км.</td>
-																<td>Цена, руб.</td>
+																<td width=50> &nbsp; в„–</td>
+																<td width=130>РћС‚РїСЂР°РІР»РµРЅРёРµ</td>
+																<td width=50>Р’СЂРµРјСЏ</td>
+																<td width=130>РџСЂРёР±С‹С‚РёРµ</td>
+																<td width=50>Р’СЂРµРјСЏ</td>
+																<td width=150>Р”РЅРё СЃР»РµРґРѕРІР°РЅРёСЏ</td>
+																<td width=100>Р Р°СЃСЃС‚РѕСЏРЅРёРµ, РєРј.</td>
+																<td>Р¦РµРЅР°, СЂСѓР±.</td>
 															</tr>
 															<tr class=ticket_head height=4><td colspan=8></td></tr>
 															<tr height=4><td colspan=8></td></tr>";
@@ -342,17 +608,17 @@
 												}
 
 												print"<form action=index.php?r=$r method=post>
-													<span class=blue><b class=blue>Поиск необходимого рейса</b><br>Время в расписании указано местное</span><br><br>
+													<span class=blue><b class=blue>РџРѕРёСЃРє РЅРµРѕР±С…РѕРґРёРјРѕРіРѕ СЂРµР№СЃР°</b><br>Р’СЂРµРјСЏ РІ СЂР°СЃРїРёСЃР°РЅРёРё СѓРєР°Р·Р°РЅРѕ РјРµСЃС‚РЅРѕРµ</span><br><br>
 													<div class=right>
-														<a href=index.php?r=29>Город</a><br><br>
-														<a href=index.php?r=30>Пригород</a><br><br>
-														<a href=index.php?r=31>Дачные</a><br><br>
-														<!--<a href=index.php?r=32>Межгород</a><br><br>-->
+														<a href=index.php?r=29>Р“РѕСЂРѕРґ</a><br><br>
+														<a href=index.php?r=30>РџСЂРёРіРѕСЂРѕРґ</a><br><br>
+														<a href=index.php?r=31>Р”Р°С‡РЅС‹Рµ</a><br><br>
+														<!--<a href=index.php?r=32>РњРµР¶РіРѕСЂРѕРґ</a><br><br>-->
 													</div>
-													<div class=left>Пункт отправления</div>
+													<div class=left>РџСѓРЅРєС‚ РѕС‚РїСЂР°РІР»РµРЅРёСЏ</div>
 													<div>
 														<select name=point_otp>
-															<option value=0>Не учитывать пункт отправления</option>";
+															<option value=0>РќРµ СѓС‡РёС‚С‹РІР°С‚СЊ РїСѓРЅРєС‚ РѕС‚РїСЂР°РІР»РµРЅРёСЏ</option>";
 															$query="select id, name from auto_point order by name";
 															$result=mysql_query($query);
 															$number=mysql_numrows($result);
@@ -364,10 +630,10 @@
 															}
 														print"</select>
 													</div>
-													<div class=left>Номер маршрута</div>
+													<div class=left>РќРѕРјРµСЂ РјР°СЂС€СЂСѓС‚Р°</div>
 													<div>
 														<select name=route>
-															<option value=0>Не учитывать номер маршрута</option>";
+															<option value=0>РќРµ СѓС‡РёС‚С‹РІР°С‚СЊ РЅРѕРјРµСЂ РјР°СЂС€СЂСѓС‚Р°</option>";
 															$query="select id, nomer from auto_route order by nomer";
 															$result=mysql_query($query);
 															$number=mysql_numrows($result);
@@ -379,17 +645,17 @@
 															}
 														print"</select>
 													</div>
-													<div class=left>Туда-обратно</div>
+													<div class=left>РўСѓРґР°-РѕР±СЂР°С‚РЅРѕ</div>
 													<div>
 														<select name=ticket>
-															<option value=0 "; if( $ticket==0 ){ print"selected"; } print" >В один конец</option>
-															<option value=1 "; if( $ticket==1 ){ print"selected"; } print" >Туда-обратно</option>
+															<option value=0 "; if( $ticket==0 ){ print"selected"; } print" >Р’ РѕРґРёРЅ РєРѕРЅРµС†</option>
+															<option value=1 "; if( $ticket==1 ){ print"selected"; } print" >РўСѓРґР°-РѕР±СЂР°С‚РЅРѕ</option>
 														</select>
 													</div>
-													<div class=left>Пункт назначения</div>
+													<div class=left>РџСѓРЅРєС‚ РЅР°Р·РЅР°С‡РµРЅРёСЏ</div>
 													<div>
 														<select name=point_prib>
-															<option value=0>Не учитывать пункт назначения</option>";
+															<option value=0>РќРµ СѓС‡РёС‚С‹РІР°С‚СЊ РїСѓРЅРєС‚ РЅР°Р·РЅР°С‡РµРЅРёСЏ</option>";
 															$query="select id, name from auto_point order by name";
 															$result=mysql_query($query);
 															$number=mysql_numrows($result);
@@ -401,20 +667,20 @@
 															}
 														print"</select>
 													</div>
-													<!--<div class=left>Тип рейса</div>
+													<!--<div class=left>РўРёРї СЂРµР№СЃР°</div>
 													<div>
 														<select name=type>
-															<option value=0>Не учитывать</option>
-															<option value=1 "; if( $type==1 ){ print"selected"; } print" >Город</option>
-															<option value=2 "; if( $type==2 ){ print"selected"; } print" >Пригород</option>
-															<option value=3 "; if( $type==3 ){ print"selected"; } print" >Межгород</option>
-															<option value=4 "; if( $type==4 ){ print"selected"; } print" >Международные рейсы</option>
+															<option value=0>РќРµ СѓС‡РёС‚С‹РІР°С‚СЊ</option>
+															<option value=1 "; if( $type==1 ){ print"selected"; } print" >Р“РѕСЂРѕРґ</option>
+															<option value=2 "; if( $type==2 ){ print"selected"; } print" >РџСЂРёРіРѕСЂРѕРґ</option>
+															<option value=3 "; if( $type==3 ){ print"selected"; } print" >РњРµР¶РіРѕСЂРѕРґ</option>
+															<option value=4 "; if( $type==4 ){ print"selected"; } print" >РњРµР¶РґСѓРЅР°СЂРѕРґРЅС‹Рµ СЂРµР№СЃС‹</option>
 														</select>
 													</div>-->
 													<div class=left>&nbsp;</div>
 													<div>
-														<input type=submit name=find value=Искать style='width: 123px;'>
-														<input type=button value=Сброс onclick='window.location.href=\"index.php?r=$r\"' style='width: 123px;'>
+														<input type=submit name=find value=РСЃРєР°С‚СЊ style='width: 123px;'>
+														<input type=button value=РЎР±СЂРѕСЃ onclick='window.location.href=\"index.php?r=$r\"' style='width: 123px;'>
 													</div>
 												</form>";
 
@@ -424,7 +690,7 @@
 												$query="select id from route where id='0' ";
 												
 											}
-											elseif( $r==5 )	// новости
+											elseif( $r==5 )	// РЅРѕРІРѕСЃС‚Рё
 											{
 												$view_page=8;
 												if( isset( $_GET["n"] ) )
@@ -451,7 +717,7 @@
 															<td>
 																<span class=blue>$date</span> &nbsp; <b class=blue>$name</b>
 																<div style='text-align: justify; margin-top: 10px;'>$content</div>
-																<br><div style='text-align: right;'><a href=index.php?r=$r onclick='window.history.back(); return false;' title='Назад'>назад</a></div><br>
+																<br><div style='text-align: right;'><a href=index.php?r=$r onclick='window.history.back(); return false;' title='РќР°Р·Р°Рґ'>РЅР°Р·Р°Рґ</a></div><br>
 															</td>
 														</tr>";
 													}
@@ -465,7 +731,7 @@
 												}
 												if( $number!=0 ){ print"</table>"; }
 											}
-											elseif( $r==3 )	// вопрос-ответ
+											elseif( $r==3 )	// РІРѕРїСЂРѕСЃ-РѕС‚РІРµС‚
 											{
 
 												$query = "select content from pages where id='$r' ";
@@ -500,32 +766,32 @@
 														$headers= "MIME-Version: 1.0\r\n";
 														$headers .= "Content-type: text/html; charset=windows-1251\r\n";
 														$headers .= "From:".$_POST["email"]."<".$_POST["email"].">\r\n";
-														$message="<b>ОБРАТНАЯ СВЯЗЬ</b><br><br><b>Имя:</b> ".$_POST["name"]."<br><b>Сообщение:</b> ".$_POST["message"]."<br><b>E-mail:</b> ".$_POST["email"];
-														mail("$admin_email4", "Новое сообщение в гостевой книге", "$message", $headers);
+														$message="<b>РћР‘Р РђРўРќРђРЇ РЎР’РЇР—Р¬</b><br><br><b>РРјСЏ:</b> ".$_POST["name"]."<br><b>РЎРѕРѕР±С‰РµРЅРёРµ:</b> ".$_POST["message"]."<br><b>E-mail:</b> ".$_POST["email"];
+														mail("$admin_email4", "РќРѕРІРѕРµ СЃРѕРѕР±С‰РµРЅРёРµ РІ РіРѕСЃС‚РµРІРѕР№ РєРЅРёРіРµ", "$message", $headers);
 
-														$error="Заявка успешно отправлена";
+														$error="Р—Р°СЏРІРєР° СѓСЃРїРµС€РЅРѕ РѕС‚РїСЂР°РІР»РµРЅР°";
 														$_POST["name"]="";
 														$_POST["email"]="";
 														$_POST["message"]="";
 													}
 													else
 													{
-														$error="Вы некорректно заполнили ключевые поля";
+														$error="Р’С‹ РЅРµРєРѕСЂСЂРµРєС‚РЅРѕ Р·Р°РїРѕР»РЅРёР»Рё РєР»СЋС‡РµРІС‹Рµ РїРѕР»СЏ";
 													}
 												}
 
 												print"<form action=index.php?r=$r method=post>
 													<div class=orange></div><br>
-													<div class=left>Имя</div>
+													<div class=left>РРјСЏ</div>
 													<div><input type=text name=name value='".$_POST["name"]."'></div>
-													<div class=left>Сообщение</div>
+													<div class=left>РЎРѕРѕР±С‰РµРЅРёРµ</div>
 													<div><textarea name=message rows=5>".$_POST["message"]."</textarea></div>
 													<div class=left>E-mail</div>
 													<div><input type=text name=email value='".$_POST["email"]."'></div>
 													<div class=left><img src='js/secpic/secpic.php'></div>
 													<div>
-														<input type=text name=code value='Код с картинки'>
-														<input type=submit name=send value='Отправить'>
+														<input type=text name=code value='РљРѕРґ СЃ РєР°СЂС‚РёРЅРєРё'>
+														<input type=submit name=send value='РћС‚РїСЂР°РІРёС‚СЊ'>
 													</div><br />
 													<div class=left>&nbsp;</div>
 													<div>$error</div>
@@ -556,7 +822,7 @@
 												}
 												if( $number!=0 ){ print"</table>"; }
 											}
-											elseif( $r==18 )	// фотогалерея
+											elseif( $r==18 )	// С„РѕС‚РѕРіР°Р»РµСЂРµСЏ
 											{
 												print"<link rel='stylesheet' href='js/lightbox/lightbox.css' type='text/css' media='screen' />
 												<script src='js/lightbox/prototype.js' type='text/javascript'></script>
@@ -598,61 +864,61 @@
 												}
 												if( $col==1 ){ print"<td colspan=3></td></tr>"; }
 												if( $col==2 ){ print"<td></td></tr>"; }
-												if( $number==0 ){ print"<tr><td><p>Фотогалерея не заполнена...</p></td></tr>"; }
+												if( $number==0 ){ print"<tr><td><p>Р¤РѕС‚РѕРіР°Р»РµСЂРµСЏ РЅРµ Р·Р°РїРѕР»РЅРµРЅР°...</p></td></tr>"; }
 												print"</table>";
 											}
-											elseif( $r==28 )	// бланк резюме
+											elseif( $r==28 )	// Р±Р»Р°РЅРє СЂРµР·СЋРјРµ
 											{
 												if( isset( $_POST["send"] ) )
 												{
 													if( isset( $_POST["accept"] ) )
 													{
-														$msg = "<b>Фамилия:</b> ".$_POST["surname"]."<br>";
-														$msg .= "<b>Имя:</b> ".$_POST["name"]."<br>";
-														$msg .= "<b>Отчество:</b> ".$_POST["patronymic"]."<br>";
-														$msg .= "<b>Дата рождения:</b> ".$_POST["day"].".".$_POST["month"].".".$_POST["year"]."<br>";
-														$msg .= "<b>Пол:</b> ".$_POST["sex"]."<br>";
-														$msg .= "<b>Город проживания:</b> ".$_POST["region"]." ".$_POST["area"]."<br>";
-														$msg .= "<b>Дети:</b> <br>";
-														for( $i=0;$i<5;$i++ ){ if( $_POST["kids$i"]!="" ){ $msg.="<b>Ребенок ".($i+1).":</b> ".$_POST["kids$i"]."<br>"; } }
-														$msg .= "<b>Образование:</b> <br><br>";
+														$msg = "<b>Р¤Р°РјРёР»РёСЏ:</b> ".$_POST["surname"]."<br>";
+														$msg .= "<b>РРјСЏ:</b> ".$_POST["name"]."<br>";
+														$msg .= "<b>РћС‚С‡РµСЃС‚РІРѕ:</b> ".$_POST["patronymic"]."<br>";
+														$msg .= "<b>Р”Р°С‚Р° СЂРѕР¶РґРµРЅРёСЏ:</b> ".$_POST["day"].".".$_POST["month"].".".$_POST["year"]."<br>";
+														$msg .= "<b>РџРѕР»:</b> ".$_POST["sex"]."<br>";
+														$msg .= "<b>Р“РѕСЂРѕРґ РїСЂРѕР¶РёРІР°РЅРёСЏ:</b> ".$_POST["region"]." ".$_POST["area"]."<br>";
+														$msg .= "<b>Р”РµС‚Рё:</b> <br>";
+														for( $i=0;$i<5;$i++ ){ if( $_POST["kids$i"]!="" ){ $msg.="<b>Р РµР±РµРЅРѕРє ".($i+1).":</b> ".$_POST["kids$i"]."<br>"; } }
+														$msg .= "<b>РћР±СЂР°Р·РѕРІР°РЅРёРµ:</b> <br><br>";
 														for( $i=0;$i<$_POST["education_count"];$i++ )
 														{
-															$msg.="<b>Образование ".($i+1).":</b> ".$_POST["education$i"]."<br>";
-															$msg.="<b>Учебное заведение ".($i+1).":</b> ".$_POST["institut$i"]."<br>";
-															$msg.="<b>Специальность ".($i+1).":</b> ".$_POST["speciality$i"]."<br>";
-															$msg.="<b>Квалификация ".($i+1).":</b> ".$_POST["qualification$i"]."<br>";
-															$msg.="<b>Год окончания ".($i+1).":</b> ".$_POST["education_year$i"]."<br><br>";
+															$msg.="<b>РћР±СЂР°Р·РѕРІР°РЅРёРµ ".($i+1).":</b> ".$_POST["education$i"]."<br>";
+															$msg.="<b>РЈС‡РµР±РЅРѕРµ Р·Р°РІРµРґРµРЅРёРµ ".($i+1).":</b> ".$_POST["institut$i"]."<br>";
+															$msg.="<b>РЎРїРµС†РёР°Р»СЊРЅРѕСЃС‚СЊ ".($i+1).":</b> ".$_POST["speciality$i"]."<br>";
+															$msg.="<b>РљРІР°Р»РёС„РёРєР°С†РёСЏ ".($i+1).":</b> ".$_POST["qualification$i"]."<br>";
+															$msg.="<b>Р“РѕРґ РѕРєРѕРЅС‡Р°РЅРёСЏ ".($i+1).":</b> ".$_POST["education_year$i"]."<br><br>";
 														}
-														$msg .= "<b>Дополнительное образование:</b> <br><br>";
+														$msg .= "<b>Р”РѕРїРѕР»РЅРёС‚РµР»СЊРЅРѕРµ РѕР±СЂР°Р·РѕРІР°РЅРёРµ:</b> <br><br>";
 														for( $i=0;$i<$_POST["education_extra_count"];$i++ )
 														{
-															$msg.="<b>Учебное заведение ".($i+1).":</b> ".$_POST["institut_extra$i"]."<br>";
-															$msg.="<b>Специальность ".($i+1).":</b> ".$_POST["speciality_extra$i"]."<br>";
-															$msg.="<b>Год окончания ".($i+1).":</b> ".$_POST["education_year_extra$i"]."<br><br>";
+															$msg.="<b>РЈС‡РµР±РЅРѕРµ Р·Р°РІРµРґРµРЅРёРµ ".($i+1).":</b> ".$_POST["institut_extra$i"]."<br>";
+															$msg.="<b>РЎРїРµС†РёР°Р»СЊРЅРѕСЃС‚СЊ ".($i+1).":</b> ".$_POST["speciality_extra$i"]."<br>";
+															$msg.="<b>Р“РѕРґ РѕРєРѕРЅС‡Р°РЅРёСЏ ".($i+1).":</b> ".$_POST["education_year_extra$i"]."<br><br>";
 														}
 
-														$msg .= "<b>Трудовая деятельность:</b> <br><br>";
+														$msg .= "<b>РўСЂСѓРґРѕРІР°СЏ РґРµСЏС‚РµР»СЊРЅРѕСЃС‚СЊ:</b> <br><br>";
 
 														for( $i=0;$i<$_POST["work_count"];$i++ )
 														{
-															$msg.="<b>Наименование организации ".($i+1).":</b> ".$_POST["manufacture$i"]."<br>";
-															$msg.="<b>Местоположение ".($i+1).":</b> ".$_POST["place$i"]."<br>";
-															$msg.="<b>Должность, подразделение ".($i+1).":</b> ".$_POST["work$i"]."<br>";
-															$msg.="<b>Выполняемые обязанности ".($i+1).":</b> ".$_POST["duty$i"]."<br><br>";
+															$msg.="<b>РќР°РёРјРµРЅРѕРІР°РЅРёРµ РѕСЂРіР°РЅРёР·Р°С†РёРё ".($i+1).":</b> ".$_POST["manufacture$i"]."<br>";
+															$msg.="<b>РњРµСЃС‚РѕРїРѕР»РѕР¶РµРЅРёРµ ".($i+1).":</b> ".$_POST["place$i"]."<br>";
+															$msg.="<b>Р”РѕР»Р¶РЅРѕСЃС‚СЊ, РїРѕРґСЂР°Р·РґРµР»РµРЅРёРµ ".($i+1).":</b> ".$_POST["work$i"]."<br>";
+															$msg.="<b>Р’С‹РїРѕР»РЅСЏРµРјС‹Рµ РѕР±СЏР·Р°РЅРЅРѕСЃС‚Рё ".($i+1).":</b> ".$_POST["duty$i"]."<br><br>";
 														}
 
 
-														$msg .= "<b>На какую должность претендует соискатель:</b> ".$_POST["post"]."<br>";
-														$msg .= "<b>Знание ПК:</b> ".$_POST["pk"]."<br>";
-														$msg .= "<b>Дополнительная информация:</b> ".$_POST["extra"]."<br>";
-														$msg .= "<b>Телефон:</b> ".$_POST["phone"]."<br>";
+														$msg .= "<b>РќР° РєР°РєСѓСЋ РґРѕР»Р¶РЅРѕСЃС‚СЊ РїСЂРµС‚РµРЅРґСѓРµС‚ СЃРѕРёСЃРєР°С‚РµР»СЊ:</b> ".$_POST["post"]."<br>";
+														$msg .= "<b>Р—РЅР°РЅРёРµ РџРљ:</b> ".$_POST["pk"]."<br>";
+														$msg .= "<b>Р”РѕРїРѕР»РЅРёС‚РµР»СЊРЅР°СЏ РёРЅС„РѕСЂРјР°С†РёСЏ:</b> ".$_POST["extra"]."<br>";
+														$msg .= "<b>РўРµР»РµС„РѕРЅ:</b> ".$_POST["phone"]."<br>";
 														$msg .= "<b>E-mail:</b> ".$_POST["email"]."<br>";
 
 														$boundary = "".strtoupper(md5(uniqid(rand())));
 														$headers = "Date: ". date('D, d M Y h:i:s O') ."\r\n";
 														$headers .= "From: ".$_POST["email"]."\r\n";
-														$headers .= "Subject: Резюме с сайта ТПАТП\r\n";
+														$headers .= "Subject: Р РµР·СЋРјРµ СЃ СЃР°Р№С‚Р° РўРџРђРўРџ\r\n";
 														$headers .= "X-Mailer: PHPMail Tool\r\n";
 														$headers .= "MIME-Version: 1.0\r\n";
 														$headers .= "Content-Type: multipart/mixed; boundary=\"".$boundary."\"\r\n\r\n";
@@ -660,11 +926,11 @@
 														$str .= "Content-Type: text/html; charset=windows-1251\r\n";
 														$str .= "Content-Transfer-Encoding: 8bit\r\n\r\n";
 														$str .= $msg."\r\n\r\n";
-														$subject = "Резюме с сайта ТПАТП";
+														$subject = "Р РµР·СЋРјРµ СЃ СЃР°Р№С‚Р° РўРџРђРўРџ";
 														mail($admin_email3, $subject, $str, $headers);
-														print"<script>alert('Ваше резюме отправлено');</script>";
+														print"<script>alert('Р’Р°С€Рµ СЂРµР·СЋРјРµ РѕС‚РїСЂР°РІР»РµРЅРѕ');</script>";
 													}
-													else{ print"<script>alert('Вы не дали свое согласие на хранение данных, Ваше резюме не будет отправлено');</script>"; }
+													else{ print"<script>alert('Р’С‹ РЅРµ РґР°Р»Рё СЃРІРѕРµ СЃРѕРіР»Р°СЃРёРµ РЅР° С…СЂР°РЅРµРЅРёРµ РґР°РЅРЅС‹С…, Р’Р°С€Рµ СЂРµР·СЋРјРµ РЅРµ Р±СѓРґРµС‚ РѕС‚РїСЂР°РІР»РµРЅРѕ');</script>"; }
 												}
 
 												print"<script src=js/calendar/calendar_ru.js></script>
@@ -674,7 +940,7 @@
 														if( document.form.education_count.value<3 )
 														{
 															document.getElementById('education').style.display='block';
-															document.getElementById('education').innerHTML+=\"<br><div class=left>Образование *</div><div><input type=radio name='education\"+document.form.education_count.value+\"' value=начальное class=radio checked> начальное<input type=radio name='education\"+document.form.education_count.value+\"' value=среднее class=radio> среднее</div><div class=left>&nbsp;</div><div><input type=radio name='education\"+document.form.education_count.value+\"' value=средне-профессиональное class=radio> средне-профессиональное<input type=radio name='education\"+document.form.education_count.value+\"' value=высшее class=radio> высшее</div><div class=left>&nbsp;</div><div><span class=small_text>Учебное заведение:</span><br><input type=text name='institut\"+document.form.education_count.value+\"'></div><div class=left>&nbsp;</div><div><span class=small_text>Специальность:</span><br><input type=text name='speciality\"+document.form.education_count.value+\"'></div><div class=left>&nbsp;</div><div><span class=small_text>Квалификация:</span><br><input type=text name='qualification\"+document.form.education_count.value+\"'></div><div class=left>&nbsp;</div><div>Год окончания <select name='education_year\"+document.form.education_count.value+\"' style='width: 60px;'>"; for( $i=date("Y")-90; $i<date("Y")+1; $i++ ){ print"<option>$i</option>"; } print"</select></div><br><br>\";
+															document.getElementById('education').innerHTML+=\"<br><div class=left>РћР±СЂР°Р·РѕРІР°РЅРёРµ *</div><div><input type=radio name='education\"+document.form.education_count.value+\"' value=РЅР°С‡Р°Р»СЊРЅРѕРµ class=radio checked> РЅР°С‡Р°Р»СЊРЅРѕРµ<input type=radio name='education\"+document.form.education_count.value+\"' value=СЃСЂРµРґРЅРµРµ class=radio> СЃСЂРµРґРЅРµРµ</div><div class=left>&nbsp;</div><div><input type=radio name='education\"+document.form.education_count.value+\"' value=СЃСЂРµРґРЅРµ-РїСЂРѕС„РµСЃСЃРёРѕРЅР°Р»СЊРЅРѕРµ class=radio> СЃСЂРµРґРЅРµ-РїСЂРѕС„РµСЃСЃРёРѕРЅР°Р»СЊРЅРѕРµ<input type=radio name='education\"+document.form.education_count.value+\"' value=РІС‹СЃС€РµРµ class=radio> РІС‹СЃС€РµРµ</div><div class=left>&nbsp;</div><div><span class=small_text>РЈС‡РµР±РЅРѕРµ Р·Р°РІРµРґРµРЅРёРµ:</span><br><input type=text name='institut\"+document.form.education_count.value+\"'></div><div class=left>&nbsp;</div><div><span class=small_text>РЎРїРµС†РёР°Р»СЊРЅРѕСЃС‚СЊ:</span><br><input type=text name='speciality\"+document.form.education_count.value+\"'></div><div class=left>&nbsp;</div><div><span class=small_text>РљРІР°Р»РёС„РёРєР°С†РёСЏ:</span><br><input type=text name='qualification\"+document.form.education_count.value+\"'></div><div class=left>&nbsp;</div><div>Р“РѕРґ РѕРєРѕРЅС‡Р°РЅРёСЏ <select name='education_year\"+document.form.education_count.value+\"' style='width: 60px;'>"; for( $i=date("Y")-90; $i<date("Y")+1; $i++ ){ print"<option>$i</option>"; } print"</select></div><br><br>\";
  															document.form.education_count.value=parseInt( document.form.education_count.value )+1;
 														}
 													}
@@ -684,7 +950,7 @@
 														if( document.form.education_extra_count.value<3 )
 														{
 															document.getElementById('education_extra').style.display='block';
-															document.getElementById('education_extra').innerHTML+=\"<br><div class=left>Дополнительное образование</div><div><span class=small_text>Учебное заведение:</span><br><input type=text name='institut_extra\"+document.form.education_extra_count.value+\"'></div><div class=left>&nbsp;</div><div><span class=small_text>Специальность, квалификация:</span><br><input type=text name='speciality_extra\"+document.form.education_extra_count.value+\"'></div><div class=left>&nbsp;</div><div>Год окончания <select name='education_year_extra\"+document.form.education_extra_count.value+\"' style='width: 60px;'>"; for( $i=date("Y")-90; $i<date("Y")+1; $i++ ){ print"<option>$i</option>"; } print"</select></div><br><br>\";
+															document.getElementById('education_extra').innerHTML+=\"<br><div class=left>Р”РѕРїРѕР»РЅРёС‚РµР»СЊРЅРѕРµ РѕР±СЂР°Р·РѕРІР°РЅРёРµ</div><div><span class=small_text>РЈС‡РµР±РЅРѕРµ Р·Р°РІРµРґРµРЅРёРµ:</span><br><input type=text name='institut_extra\"+document.form.education_extra_count.value+\"'></div><div class=left>&nbsp;</div><div><span class=small_text>РЎРїРµС†РёР°Р»СЊРЅРѕСЃС‚СЊ, РєРІР°Р»РёС„РёРєР°С†РёСЏ:</span><br><input type=text name='speciality_extra\"+document.form.education_extra_count.value+\"'></div><div class=left>&nbsp;</div><div>Р“РѕРґ РѕРєРѕРЅС‡Р°РЅРёСЏ <select name='education_year_extra\"+document.form.education_extra_count.value+\"' style='width: 60px;'>"; for( $i=date("Y")-90; $i<date("Y")+1; $i++ ){ print"<option>$i</option>"; } print"</select></div><br><br>\";
  															document.form.education_extra_count.value=parseInt( document.form.education_extra_count.value )+1;
 														}
 													}
@@ -694,7 +960,7 @@
 														if( document.form.work_count.value<3 )
 														{
 															document.getElementById('work').style.display='block';
-															document.getElementById('work').innerHTML+=\"<br><div class=left>Трудовая деятельность<br>по убывающей</div><div><span class=small_text>Наименование организации:</span><br><input type=text name='manufacture\"+document.form.work_count.value+\"'></div><div class=left>&nbsp;</div><div><span class=small_text>Местоположение:</span><br><input type=text name='place\"+document.form.work_count.value+\"'></div><div class=left>&nbsp;</div><div><span class=small_text>Должность, подразделение:</span><br><textarea rows=3 name='work\"+document.form.work_count.value+\"'></textarea></div><div class=left>&nbsp;</div><div><span class=small_text>Выполняемые обязанности:</span><br><textarea rows=3 name='duty\"+document.form.work_count.value+\"'></textarea></div><div class=left>&nbsp;</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </div><br>\";
+															document.getElementById('work').innerHTML+=\"<br><div class=left>РўСЂСѓРґРѕРІР°СЏ РґРµСЏС‚РµР»СЊРЅРѕСЃС‚СЊ<br>РїРѕ СѓР±С‹РІР°СЋС‰РµР№</div><div><span class=small_text>РќР°РёРјРµРЅРѕРІР°РЅРёРµ РѕСЂРіР°РЅРёР·Р°С†РёРё:</span><br><input type=text name='manufacture\"+document.form.work_count.value+\"'></div><div class=left>&nbsp;</div><div><span class=small_text>РњРµСЃС‚РѕРїРѕР»РѕР¶РµРЅРёРµ:</span><br><input type=text name='place\"+document.form.work_count.value+\"'></div><div class=left>&nbsp;</div><div><span class=small_text>Р”РѕР»Р¶РЅРѕСЃС‚СЊ, РїРѕРґСЂР°Р·РґРµР»РµРЅРёРµ:</span><br><textarea rows=3 name='work\"+document.form.work_count.value+\"'></textarea></div><div class=left>&nbsp;</div><div><span class=small_text>Р’С‹РїРѕР»РЅСЏРµРјС‹Рµ РѕР±СЏР·Р°РЅРЅРѕСЃС‚Рё:</span><br><textarea rows=3 name='duty\"+document.form.work_count.value+\"'></textarea></div><div class=left>&nbsp;</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </div><br>\";
  															document.form.work_count.value=parseInt( document.form.work_count.value )+1;
 														}
 													}
@@ -703,157 +969,157 @@
 													<input type=hidden name=education_count value=1>
 													<input type=hidden name=education_extra_count value=1>
 													<input type=hidden name=work_count value=1>
-													<div class=left>Фамилия *</div>
+													<div class=left>Р¤Р°РјРёР»РёСЏ *</div>
 													<div><input type=text name=surname></div>
-													<div class=left>Имя *</div>
+													<div class=left>РРјСЏ *</div>
 													<div><input type=text name=name></div>
-													<div class=left>Отчество *</div>
+													<div class=left>РћС‚С‡РµСЃС‚РІРѕ *</div>
 													<div><input type=text name=patronymic></div>
-													<div class=left>Дата рождения *</div>
+													<div class=left>Р”Р°С‚Р° СЂРѕР¶РґРµРЅРёСЏ *</div>
 													<div>
 														<select name=day style='width: 40px;'>"; for($i=1;$i<32;$i++){ print"<option values=$i>$i</option>"; } print"</select>
 														<select name=month style='width: 40px;'>"; for($i=1;$i<13;$i++){ print"<option values=$i>$i</option>"; } print"</select>
 														<select name=year style='width: 60px;'>"; for($i=date("Y")-90;$i<date("Y")+1;$i++){ print"<option values=$i "; if( $i==date("Y")-18 ){ print"selected"; } print" >$i</option>"; } print"</select>
 													</div>
-													<div class=left>Пол *</div>
+													<div class=left>РџРѕР» *</div>
 													<div>
 														<select name=sex>
-															<option>Мужской</option>
-															<option>Женский</option>
+															<option>РњСѓР¶СЃРєРѕР№</option>
+															<option>Р–РµРЅСЃРєРёР№</option>
 														</select>
 													</div>
-													<div class=left><span class=small_text>&nbsp;</span><br>Город проживания *</div>
+													<div class=left><span class=small_text>&nbsp;</span><br>Р“РѕСЂРѕРґ РїСЂРѕР¶РёРІР°РЅРёСЏ *</div>
 													<div>
-														<span class=small_text>регион</span><br>
+														<span class=small_text>СЂРµРіРёРѕРЅ</span><br>
 														<input type=text name=region>
 													</div>
 													<div class=left>&nbsp;</div>
 													<div>
-														<span class=small_text>населенный пункт</span><br>
+														<span class=small_text>РЅР°СЃРµР»РµРЅРЅС‹Р№ РїСѓРЅРєС‚</span><br>
 														<input type=text name=area>
 													</div><br>
-													<div class=left><span class=small_text>&nbsp;</span><br>Дети</div>";
+													<div class=left><span class=small_text>&nbsp;</span><br>Р”РµС‚Рё</div>";
 													for( $i=0;$i<5;$i++ )
 													{
 														if( $i!=0 ){ print"<div class=left>&nbsp;</div>"; }
 														print"<div>
-															<span class=small_text>возраст ".($i+1)." ребенка</span><br>
+															<span class=small_text>РІРѕР·СЂР°СЃС‚ ".($i+1)." СЂРµР±РµРЅРєР°</span><br>
 															<input type=text name='kids$i'>
 														</div>";
 													}
-													print"<br><div class=left>Образование *</div>
+													print"<br><div class=left>РћР±СЂР°Р·РѕРІР°РЅРёРµ *</div>
 													<div>
-														<input type=radio name='education0' value=начальное class=radio checked> начальное
-														<input type=radio name='education0' value=среднее class=radio> среднее
+														<input type=radio name='education0' value=РЅР°С‡Р°Р»СЊРЅРѕРµ class=radio checked> РЅР°С‡Р°Р»СЊРЅРѕРµ
+														<input type=radio name='education0' value=СЃСЂРµРґРЅРµРµ class=radio> СЃСЂРµРґРЅРµРµ
 													</div>
 													<div class=left>&nbsp;</div>
 													<div>
-														<input type=radio name='education0' value=средне-профессиональное class=radio> средне-профессиональное
-														<input type=radio name='education0' value=высшее class=radio> высшее
+														<input type=radio name='education0' value=СЃСЂРµРґРЅРµ-РїСЂРѕС„РµСЃСЃРёРѕРЅР°Р»СЊРЅРѕРµ class=radio> СЃСЂРµРґРЅРµ-РїСЂРѕС„РµСЃСЃРёРѕРЅР°Р»СЊРЅРѕРµ
+														<input type=radio name='education0' value=РІС‹СЃС€РµРµ class=radio> РІС‹СЃС€РµРµ
 													</div>
 													<div class=left>&nbsp;</div>
 													<div>
-														<span class=small_text>Учебное заведение:</span><br>
+														<span class=small_text>РЈС‡РµР±РЅРѕРµ Р·Р°РІРµРґРµРЅРёРµ:</span><br>
 														<input type=text name='institut0'>
 													</div>
 													<div class=left>&nbsp;</div>
 													<div>
-														<span class=small_text>Специальность:</span><br>
+														<span class=small_text>РЎРїРµС†РёР°Р»СЊРЅРѕСЃС‚СЊ:</span><br>
 														<input type=text name='speciality0'>
 													</div>
 													<div class=left>&nbsp;</div>
 													<div>
-														<span class=small_text>Квалификация:</span><br>
+														<span class=small_text>РљРІР°Р»РёС„РёРєР°С†РёСЏ:</span><br>
 														<input type=text name='qualification0'>
 													</div>
 													<div class=left>&nbsp;</div>
 													<div>
-														Год окончания <select name='education_year0' style='width: 60px;'>"; for( $i=date("Y")-90; $i<date("Y")+1; $i++ ){ print"<option "; if( $i==date("Y") ){ print"selected"; } print" >$i</option>"; } print"</select>
-														<a href=## onclick='func_education(); return false;'>добавить еще одно место учебы</a>
+														Р“РѕРґ РѕРєРѕРЅС‡Р°РЅРёСЏ <select name='education_year0' style='width: 60px;'>"; for( $i=date("Y")-90; $i<date("Y")+1; $i++ ){ print"<option "; if( $i==date("Y") ){ print"selected"; } print" >$i</option>"; } print"</select>
+														<a href=## onclick='func_education(); return false;'>РґРѕР±Р°РІРёС‚СЊ РµС‰Рµ РѕРґРЅРѕ РјРµСЃС‚Рѕ СѓС‡РµР±С‹</a>
 													</div><br>
 													<div id=education></div><br>
 													
-													<div class=left>Дополнительное образование</div>
+													<div class=left>Р”РѕРїРѕР»РЅРёС‚РµР»СЊРЅРѕРµ РѕР±СЂР°Р·РѕРІР°РЅРёРµ</div>
 													<div>
-														<span class=small_text>Учебное заведение:</span><br>
+														<span class=small_text>РЈС‡РµР±РЅРѕРµ Р·Р°РІРµРґРµРЅРёРµ:</span><br>
 														<input type=text name='institut_extra0'>
 													</div>
 													<div class=left>&nbsp;</div>
 													<div>
-														<span class=small_text>Специальность, квалификация:</span><br>
+														<span class=small_text>РЎРїРµС†РёР°Р»СЊРЅРѕСЃС‚СЊ, РєРІР°Р»РёС„РёРєР°С†РёСЏ:</span><br>
 														<input type=text name='speciality_extra0'>
 													</div>
 													<div class=left>&nbsp;</div>
 													<div>
-														Год окончания <select name='education_year_extra0' style='width: 60px;'>"; for( $i=date("Y")-90; $i<date("Y")+1; $i++ ){ print"<option "; if( $i==date("Y") ){ print"selected"; } print" >$i</option>"; } print"</select>
-														<a href=## onclick='func_education_extra(); return false;'>добавить еще одно место учебы</a>
+														Р“РѕРґ РѕРєРѕРЅС‡Р°РЅРёСЏ <select name='education_year_extra0' style='width: 60px;'>"; for( $i=date("Y")-90; $i<date("Y")+1; $i++ ){ print"<option "; if( $i==date("Y") ){ print"selected"; } print" >$i</option>"; } print"</select>
+														<a href=## onclick='func_education_extra(); return false;'>РґРѕР±Р°РІРёС‚СЊ РµС‰Рµ РѕРґРЅРѕ РјРµСЃС‚Рѕ СѓС‡РµР±С‹</a>
 													</div><br>
 													<div id=education_extra></div><br>
 
-													<div class=left>Трудовая деятельность<br>по убывающей</div>
+													<div class=left>РўСЂСѓРґРѕРІР°СЏ РґРµСЏС‚РµР»СЊРЅРѕСЃС‚СЊ<br>РїРѕ СѓР±С‹РІР°СЋС‰РµР№</div>
 													<div>
-														<span class=small_text>Наименование организации:</span><br>
+														<span class=small_text>РќР°РёРјРµРЅРѕРІР°РЅРёРµ РѕСЂРіР°РЅРёР·Р°С†РёРё:</span><br>
 														<input type=text name='manufacture0'>
 													</div>
 													<div class=left>&nbsp;</div>
 													<div>
-														<span class=small_text>Местоположение:</span><br>
+														<span class=small_text>РњРµСЃС‚РѕРїРѕР»РѕР¶РµРЅРёРµ:</span><br>
 														<input type=text name='place0'>
 													</div>
 													<div class=left>&nbsp;</div>
 													<div>
-														<span class=small_text>Должность, подразделение:</span><br>
+														<span class=small_text>Р”РѕР»Р¶РЅРѕСЃС‚СЊ, РїРѕРґСЂР°Р·РґРµР»РµРЅРёРµ:</span><br>
 														<textarea rows=3 name='work0'></textarea>
 													</div>
 													<div class=left>&nbsp;</div>
 													<div>
-														<span class=small_text>Выполняемые обязанности:</span><br>
+														<span class=small_text>Р’С‹РїРѕР»РЅСЏРµРјС‹Рµ РѕР±СЏР·Р°РЅРЅРѕСЃС‚Рё:</span><br>
 														<textarea rows=3 name='duty0'></textarea>
 													</div>
 													<div class=left>&nbsp;</div>
 													<div>
 														&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
-														<a href=## onclick='func_work(); return false;'>добавить еще одно место работы</a>
+														<a href=## onclick='func_work(); return false;'>РґРѕР±Р°РІРёС‚СЊ РµС‰Рµ РѕРґРЅРѕ РјРµСЃС‚Рѕ СЂР°Р±РѕС‚С‹</a>
 													</div>
 													<br>
 													<div id=work></div><br>
 
-													<div class=left>На какую должность<br>претендует соискатель *</div>
+													<div class=left>РќР° РєР°РєСѓСЋ РґРѕР»Р¶РЅРѕСЃС‚СЊ<br>РїСЂРµС‚РµРЅРґСѓРµС‚ СЃРѕРёСЃРєР°С‚РµР»СЊ *</div>
 													<div><input type=text name=post><br><span class=small_text>&nbsp;</span></div>
-													<div class=left>Знание ПК</div>
+													<div class=left>Р—РЅР°РЅРёРµ РџРљ</div>
 													<div>
-														<span class=small_text>Уровень:</span><br>
-														<input type=radio name=pk value='навыки отсутствуют' class=radio checked> навыки отсутствуют
+														<span class=small_text>РЈСЂРѕРІРµРЅСЊ:</span><br>
+														<input type=radio name=pk value='РЅР°РІС‹РєРё РѕС‚СЃСѓС‚СЃС‚РІСѓСЋС‚' class=radio checked> РЅР°РІС‹РєРё РѕС‚СЃСѓС‚СЃС‚РІСѓСЋС‚
 													</div>
 													<div class=left>&nbsp;</div>
-													<div><input type=radio name=pk value='уровень пользователя' class=radio> уровень пользователя</div>
+													<div><input type=radio name=pk value='СѓСЂРѕРІРµРЅСЊ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ' class=radio> СѓСЂРѕРІРµРЅСЊ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ</div>
 													<div class=left>&nbsp;</div>
-													<div><input type=radio name=pk value='уровень продвинутого пользователя' class=radio> уровень продвинутого пользователя</div>
+													<div><input type=radio name=pk value='СѓСЂРѕРІРµРЅСЊ РїСЂРѕРґРІРёРЅСѓС‚РѕРіРѕ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ' class=radio> СѓСЂРѕРІРµРЅСЊ РїСЂРѕРґРІРёРЅСѓС‚РѕРіРѕ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ</div>
 													<div class=left>&nbsp;</div>
 													<div>
-														<span class=small_text>Какими программами владеете?</span><br>
+														<span class=small_text>РљР°РєРёРјРё РїСЂРѕРіСЂР°РјРјР°РјРё РІР»Р°РґРµРµС‚Рµ?</span><br>
 														<textarea rows=3 name=programs></textarea>
 													</div><br>
-													<div class=left>Дополнительная информация</div>
+													<div class=left>Р”РѕРїРѕР»РЅРёС‚РµР»СЊРЅР°СЏ РёРЅС„РѕСЂРјР°С†РёСЏ</div>
 													<div><textarea rows=3 name=extra></textarea></div>
-													<div class=left>Телефон *</div>
+													<div class=left>РўРµР»РµС„РѕРЅ *</div>
 													<div><input type=text name=phone></div>
 													<div class=left>E-mail</div>
 													<div><input type=text name=email></div><br>
-													<div><div style='width: 560px;'>В соответствии с Трудовым кодексом Российской Федерации и Федеральным законом «О&nbsp;персональных данных», я своей волей и в своем интересе выражаю ОАО «Тобольское&nbsp;ПАТП», зарегистрированному по адресу: 626150 Тюменская область             г. Тобольск ул. С.Ремезова, 89, согласие на хранение моих персональных данных в течение пяти лет в целях содействия моему трудоустройству.</div></div><br>
+													<div><div style='width: 560px;'>Р’ СЃРѕРѕС‚РІРµС‚СЃС‚РІРёРё СЃ РўСЂСѓРґРѕРІС‹Рј РєРѕРґРµРєСЃРѕРј Р РѕСЃСЃРёР№СЃРєРѕР№ Р¤РµРґРµСЂР°С†РёРё Рё Р¤РµРґРµСЂР°Р»СЊРЅС‹Рј Р·Р°РєРѕРЅРѕРј В«Рћ&nbsp;РїРµСЂСЃРѕРЅР°Р»СЊРЅС‹С… РґР°РЅРЅС‹С…В», СЏ СЃРІРѕРµР№ РІРѕР»РµР№ Рё РІ СЃРІРѕРµРј РёРЅС‚РµСЂРµСЃРµ РІС‹СЂР°Р¶Р°СЋ РћРђРћ В«РўРѕР±РѕР»СЊСЃРєРѕРµ&nbsp;РџРђРўРџВ», Р·Р°СЂРµРіРёСЃС‚СЂРёСЂРѕРІР°РЅРЅРѕРјСѓ РїРѕ Р°РґСЂРµСЃСѓ: 626150 РўСЋРјРµРЅСЃРєР°СЏ РѕР±Р»Р°СЃС‚СЊ             Рі. РўРѕР±РѕР»СЊСЃРє СѓР». РЎ.Р РµРјРµР·РѕРІР°, 89, СЃРѕРіР»Р°СЃРёРµ РЅР° С…СЂР°РЅРµРЅРёРµ РјРѕРёС… РїРµСЂСЃРѕРЅР°Р»СЊРЅС‹С… РґР°РЅРЅС‹С… РІ С‚РµС‡РµРЅРёРµ РїСЏС‚Рё Р»РµС‚ РІ С†РµР»СЏС… СЃРѕРґРµР№СЃС‚РІРёСЏ РјРѕРµРјСѓ С‚СЂСѓРґРѕСѓСЃС‚СЂРѕР№СЃС‚РІСѓ.</div></div><br>
 													<div class=left>&nbsp;</div>
-													<div><input type=checkbox class=radio name=accept> Согласие на хранение личных данных</div><br>
+													<div><input type=checkbox class=radio name=accept> РЎРѕРіР»Р°СЃРёРµ РЅР° С…СЂР°РЅРµРЅРёРµ Р»РёС‡РЅС‹С… РґР°РЅРЅС‹С…</div><br>
 													<div class=left>&nbsp;</div>
-													<div><input type=submit name=send value='Отправить резюме' style='width: 150px;'></div>";
+													<div><input type=submit name=send value='РћС‚РїСЂР°РІРёС‚СЊ СЂРµР·СЋРјРµ' style='width: 150px;'></div>";
 												print"</form>";
 											}
-											else	// остальные разделы
+											else	// РѕСЃС‚Р°Р»СЊРЅС‹Рµ СЂР°Р·РґРµР»С‹
 											{
 												if( $r==29 || $r==30 || $r==31 || $r==32 ){ print"<div class=cell_padding>"; }
 													print"$content";
 												if( $r==29 || $r==30 || $r==31 || $r==32 ){ print"</div>"; }
 
-												if( $r==35 )	// технический осмотр
+												if( $r==35 )	// С‚РµС…РЅРёС‡РµСЃРєРёР№ РѕСЃРјРѕС‚СЂ
 												{
 													$error="";
 
@@ -875,43 +1141,43 @@
 															$headers= "MIME-Version: 1.0\r\n";
 															$headers .= "Content-type: text/html; charset=windows-1251\r\n";
 															$headers .= "From:$admin_email5<$admin_email5>\r\n";
-															$message="<b>ПРЕДВАРИТЕЛЬНАЯ ЗАПИСЬ НА ГТО</b><br><br><b>ФИО:</b> ".$_POST["fio"]."<br><b>Гос. регистрационный знак ТС:</b> ".$_POST["number"]."<br><b>Серия, номер свидетельства о регистрации ТС:</b> ".$_POST["seria"]."<br><b>Контактный e-mail заявителя:</b> ".$_POST["email"]."<br><b>Контактный телефон заявителя:</b> ".$_POST["phone"]."<br><b>Желаемые дата и время для записи:</b> ".$_POST["date"]."<br>";
-															mail("$admin_email5", "Предварительная запись на ГТО", "$message", $headers);
+															$message="<b>РџР Р•Р”Р’РђР РРўР•Р›Р¬РќРђРЇ Р—РђРџРРЎР¬ РќРђ Р“РўРћ</b><br><br><b>Р¤РРћ:</b> ".$_POST["fio"]."<br><b>Р“РѕСЃ. СЂРµРіРёСЃС‚СЂР°С†РёРѕРЅРЅС‹Р№ Р·РЅР°Рє РўРЎ:</b> ".$_POST["number"]."<br><b>РЎРµСЂРёСЏ, РЅРѕРјРµСЂ СЃРІРёРґРµС‚РµР»СЊСЃС‚РІР° Рѕ СЂРµРіРёСЃС‚СЂР°С†РёРё РўРЎ:</b> ".$_POST["seria"]."<br><b>РљРѕРЅС‚Р°РєС‚РЅС‹Р№ e-mail Р·Р°СЏРІРёС‚РµР»СЏ:</b> ".$_POST["email"]."<br><b>РљРѕРЅС‚Р°РєС‚РЅС‹Р№ С‚РµР»РµС„РѕРЅ Р·Р°СЏРІРёС‚РµР»СЏ:</b> ".$_POST["phone"]."<br><b>Р–РµР»Р°РµРјС‹Рµ РґР°С‚Р° Рё РІСЂРµРјСЏ РґР»СЏ Р·Р°РїРёСЃРё:</b> ".$_POST["date"]."<br>";
+															mail("$admin_email5", "РџСЂРµРґРІР°СЂРёС‚РµР»СЊРЅР°СЏ Р·Р°РїРёСЃСЊ РЅР° Р“РўРћ", "$message", $headers);
 
-															$error="Заявка успешно отправлена";
+															$error="Р—Р°СЏРІРєР° СѓСЃРїРµС€РЅРѕ РѕС‚РїСЂР°РІР»РµРЅР°";
 														}
 														else
 														{
-															$error="Вы некорректно заполнили ключевые поля";
+															$error="Р’С‹ РЅРµРєРѕСЂСЂРµРєС‚РЅРѕ Р·Р°РїРѕР»РЅРёР»Рё РєР»СЋС‡РµРІС‹Рµ РїРѕР»СЏ";
 														}
 													}
 
 													print"<script src=js/calendar/calendar_ru.js></script>";
 													print"<br><form action=index.php?r=$r method=post>
-														<div class=blue><b class=blue>Онлайн заявка</b><br>* - отмечены обязательные поля для заполнения</div><br>
-														<div class=left2>ФИО</div>
+														<div class=blue><b class=blue>РћРЅР»Р°Р№РЅ Р·Р°СЏРІРєР°</b><br>* - РѕС‚РјРµС‡РµРЅС‹ РѕР±СЏР·Р°С‚РµР»СЊРЅС‹Рµ РїРѕР»СЏ РґР»СЏ Р·Р°РїРѕР»РЅРµРЅРёСЏ</div><br>
+														<div class=left2>Р¤РРћ</div>
 														<div><input type=text name=fio></div>
-														<div class=left2>Гос. регистрационный знак ТС <span class=blue>*</span></div>
+														<div class=left2>Р“РѕСЃ. СЂРµРіРёСЃС‚СЂР°С†РёРѕРЅРЅС‹Р№ Р·РЅР°Рє РўРЎ <span class=blue>*</span></div>
 														<div><input type=text name=number></div>
-														<div class=left2>Серия, номер свидетельства о регистрации ТС <span class=blue>*</span></div>
+														<div class=left2>РЎРµСЂРёСЏ, РЅРѕРјРµСЂ СЃРІРёРґРµС‚РµР»СЊСЃС‚РІР° Рѕ СЂРµРіРёСЃС‚СЂР°С†РёРё РўРЎ <span class=blue>*</span></div>
 														<div><input type=text name=seria></div>
-														<div class=left2>Контактный e-mail заявителя <span class=blue>*</span></div>
+														<div class=left2>РљРѕРЅС‚Р°РєС‚РЅС‹Р№ e-mail Р·Р°СЏРІРёС‚РµР»СЏ <span class=blue>*</span></div>
 														<div><input type=text name=email></div>
-														<div class=left2>Контактный телефон заявителя</div>
+														<div class=left2>РљРѕРЅС‚Р°РєС‚РЅС‹Р№ С‚РµР»РµС„РѕРЅ Р·Р°СЏРІРёС‚РµР»СЏ</div>
 														<div><input type=text name=phone value='+7' maxlength=12></div>
-														<div class=left2>Желаемые дата и время для записи</div>
+														<div class=left2>Р–РµР»Р°РµРјС‹Рµ РґР°С‚Р° Рё РІСЂРµРјСЏ РґР»СЏ Р·Р°РїРёСЃРё</div>
 														<div><input type=text name=date></div>
 														<div class=left2><img src='js/secpic/secpic.php'></div>
 														<div>
-															<input type=text name=code value='Код с картинки'>
-															<input type=submit name=send value='Отправить заявку'>
+															<input type=text name=code value='РљРѕРґ СЃ РєР°СЂС‚РёРЅРєРё'>
+															<input type=submit name=send value='РћС‚РїСЂР°РІРёС‚СЊ Р·Р°СЏРІРєСѓ'>
 														</div><br>
 														<div class=left2>&nbsp;</div>
 														<div>$error</div>
 													</form>";
 												}
 
-												if( $r==6 )	// заказ автобусов
+												if( $r==6 )	// Р·Р°РєР°Р· Р°РІС‚РѕР±СѓСЃРѕРІ
 												{
 													$error="";
 
@@ -933,14 +1199,14 @@
 															$headers= "MIME-Version: 1.0\r\n";
 															$headers .= "Content-type: text/html; charset=windows-1251\r\n";
 															$headers .= "From:$admin_email<$admin_email>\r\n";
-															$message="<b>ЗАКАЗ АВТОБУСА</b><br><br><b>Марка:</b> ".$_POST["marka"]."<br><b>Дата:</b> ".$_POST["date"]."<br><b>Время:</b> ".$_POST["time"]."<br><b>Продолжительность:</b> ".$_POST["time_long"]." мин.<br><b>Путь: откуда:</b> ".$_POST["from"]."<br><b>Путь : куда:</b> ".$_POST["to"]."<br><b>Контактное лицо:</b> ".$_POST["fio"]."<br><b>Контактный телефон:</b> ".$_POST["phone"];
-															mail("$admin_email", "Онлайн заявка на заказ автобуса", "$message", $headers);
+															$message="<b>Р—РђРљРђР— РђР’РўРћР‘РЈРЎРђ</b><br><br><b>РњР°СЂРєР°:</b> ".$_POST["marka"]."<br><b>Р”Р°С‚Р°:</b> ".$_POST["date"]."<br><b>Р’СЂРµРјСЏ:</b> ".$_POST["time"]."<br><b>РџСЂРѕРґРѕР»Р¶РёС‚РµР»СЊРЅРѕСЃС‚СЊ:</b> ".$_POST["time_long"]." РјРёРЅ.<br><b>РџСѓС‚СЊ: РѕС‚РєСѓРґР°:</b> ".$_POST["from"]."<br><b>РџСѓС‚СЊ : РєСѓРґР°:</b> ".$_POST["to"]."<br><b>РљРѕРЅС‚Р°РєС‚РЅРѕРµ Р»РёС†Рѕ:</b> ".$_POST["fio"]."<br><b>РљРѕРЅС‚Р°РєС‚РЅС‹Р№ С‚РµР»РµС„РѕРЅ:</b> ".$_POST["phone"];
+															mail("$admin_email", "РћРЅР»Р°Р№РЅ Р·Р°СЏРІРєР° РЅР° Р·Р°РєР°Р· Р°РІС‚РѕР±СѓСЃР°", "$message", $headers);
 
-															$error="Заявка успешно отправлена";
+															$error="Р—Р°СЏРІРєР° СѓСЃРїРµС€РЅРѕ РѕС‚РїСЂР°РІР»РµРЅР°";
 														}
 														else
 														{
-															$error="Вы некорректно заполнили ключевые поля";
+															$error="Р’С‹ РЅРµРєРѕСЂСЂРµРєС‚РЅРѕ Р·Р°РїРѕР»РЅРёР»Рё РєР»СЋС‡РµРІС‹Рµ РїРѕР»СЏ";
 														}
 													}
 
@@ -949,7 +1215,7 @@
 													$result=mysql_query($query);
 													$number=mysql_numrows($result);
 													if( $number!=0 ){ print"<br><table><tr>"; }
-													print"<td width=20><a href=index.php?r=$r&page=".($page-$view_page)." title='Назад' "; if( $page==0 ){ print"onclick='return false;'"; } print"><img src=images/left.jpg></a></td>";
+													print"<td width=20><a href=index.php?r=$r&page=".($page-$view_page)." title='РќР°Р·Р°Рґ' "; if( $page==0 ){ print"onclick='return false;'"; } print"><img src=images/left.jpg></a></td>";
 													for( $i=0;$i<$number;$i++ )
 													{
 														$id=mysql_result( $result,$i,'id' );
@@ -960,21 +1226,21 @@
 														print"<td class=marka>
 															<div class=picture style='background: url( uploadfiles/$picture_01.jpg ) center center no-repeat;'><a rel=lightbox[$i] href=uploadfiles/".$picture_01."_b.jpg><img src=images/transparent.gif width=123 height=123></a></div>
 															<div class=picture style='background: url( uploadfiles/$picture_02.jpg ) center center no-repeat;'><a rel=lightbox[$i] href=uploadfiles/".$picture_02."_b.jpg><img src=images/transparent.gif width=123 height=123></a></div>
-															<div>Марка: $name<br>Мест: $place</div>
+															<div>РњР°СЂРєР°: $name<br>РњРµСЃС‚: $place</div>
 														</td>";
 													}
 													$number_= ceil( mysql_numrows( mysql_query( str_replace( "limit $page, $view_page", "", $query ) ) ) / $view_page );
-													print"<td width=20 align=right><a href=index.php?r=$r&page=".($page+$view_page)." title='Вперед' "; if( $number_ * $view_page - $view_page <= $page ){ print"onclick='return false;'"; } print"><img src=images/right.jpg></a></td>";
+													print"<td width=20 align=right><a href=index.php?r=$r&page=".($page+$view_page)." title='Р’РїРµСЂРµРґ' "; if( $number_ * $view_page - $view_page <= $page ){ print"onclick='return false;'"; } print"><img src=images/right.jpg></a></td>";
 													if( $number!=0 ){ print"</tr></table>"; }
 													$query="select id from bus where id=0";
 
 													print"<script src=js/calendar/calendar_ru.js></script>";
 													print"<br><form action=index.php?r=$r method=post>
-														<div class=orange>Онлайн заявка</div><br>
-														<div class=left>Марка</div>
+														<div class=orange>РћРЅР»Р°Р№РЅ Р·Р°СЏРІРєР°</div><br>
+														<div class=left>РњР°СЂРєР°</div>
 														<div>
 															<select name=marka>
-																<option value='Марка не важна'>Марка не важна</option>";
+																<option value='РњР°СЂРєР° РЅРµ РІР°Р¶РЅР°'>РњР°СЂРєР° РЅРµ РІР°Р¶РЅР°</option>";
 																	$query2="select id, name from bus order by id desc";
 																	$result=mysql_query($query2);
 																	$number=mysql_numrows($result);
@@ -986,9 +1252,9 @@
 																	}
 															print"</select>
 														</div>
-														<div class=left>Дата</div>
+														<div class=left>Р”Р°С‚Р°</div>
 														<div><input type=text name=date value='".date("d.m.Y")."' onfocus='this.select();lcs(this)' onclick='event.cancelBubble=true;this.select();lcs(this);'></div>
-														<div class=left>Время, ч. мин.</div>
+														<div class=left>Р’СЂРµРјСЏ, С‡. РјРёРЅ.</div>
 														<div>
 															<select name=time>";
 																for( $i=0; $i<24;$i++ )
@@ -997,20 +1263,20 @@
 																}
 															print"</select>
 														</div>
-														<div class=left>Продолжительность, мин</div>
+														<div class=left>РџСЂРѕРґРѕР»Р¶РёС‚РµР»СЊРЅРѕСЃС‚СЊ, РјРёРЅ</div>
 														<div><input type=text name=time_long value=240></div>
-														<div class=left>Путь: откуда</div>
+														<div class=left>РџСѓС‚СЊ: РѕС‚РєСѓРґР°</div>
 														<div><input type=text name=from></div>
-														<div class=left>Путь: куда</div>
+														<div class=left>РџСѓС‚СЊ: РєСѓРґР°</div>
 														<div><input type=text name=to></div>
-														<div class=left>Контактное лицо</div>
+														<div class=left>РљРѕРЅС‚Р°РєС‚РЅРѕРµ Р»РёС†Рѕ</div>
 														<div><input type=text name=fio></div>
-														<div class=left>Контактный телефон</div>
+														<div class=left>РљРѕРЅС‚Р°РєС‚РЅС‹Р№ С‚РµР»РµС„РѕРЅ</div>
 														<div><input type=text name=phone value='+7' maxlength=12></div>
 														<div class=left><img src='js/secpic/secpic.php'></div>
 														<div>
-															<input type=text name=code value='Код с картинки'>
-															<input type=submit name=send value='Отправить заявку'>
+															<input type=text name=code value='РљРѕРґ СЃ РєР°СЂС‚РёРЅРєРё'>
+															<input type=submit name=send value='РћС‚РїСЂР°РІРёС‚СЊ Р·Р°СЏРІРєСѓ'>
 														</div><br>
 														<div class=left>&nbsp;</div>
 														<div>$error</div>
@@ -1021,14 +1287,14 @@
 													<script src='js/lightbox/lightbox.js' type='text/javascript'></script>";
 												}
 
-												if( $r==9 )	// снабжения нелеквиды
+												if( $r==9 )	// СЃРЅР°Р±Р¶РµРЅРёСЏ РЅРµР»РµРєРІРёРґС‹
 												{
 
 													if( !isset( $_GET['n'] ) ) {
 														$_GET['n'] = 0;
 													}
 
-													print"<br><a href=index.php?r=$r class=name "; if( $_GET["n"] == 1 ){ print"style='color: #b3b3b3; border-bottom: 1px dashed #b3b3b3;'"; } print">Реализуем</a> &nbsp; &nbsp; <a href=index.php?r=$r&n=1 class=name "; if( $_GET["n"] == 0 ){ print"style='color: #b3b3b3; border-bottom: 1px dashed #b3b3b3;'"; } print">Купим</a><br><br>";
+													print"<br><a href=index.php?r=$r class=name "; if( $_GET["n"] == 1 ){ print"style='color: #b3b3b3; border-bottom: 1px dashed #b3b3b3;'"; } print">Р РµР°Р»РёР·СѓРµРј</a> &nbsp; &nbsp; <a href=index.php?r=$r&n=1 class=name "; if( $_GET["n"] == 0 ){ print"style='color: #b3b3b3; border-bottom: 1px dashed #b3b3b3;'"; } print">РљСѓРїРёРј</a><br><br>";
 													$view_page=20;
 													$query="select name, file from file2 where type='".$_GET["n"]."' order by id desc limit $page, $view_page";
 													$result=mysql_query($query);
@@ -1038,13 +1304,13 @@
 													{
 														$name=mysql_result($result,$i,'name');
 														$file=mysql_result($result,$i,'file');
-														print"<tr valign=top><td><div><a href=uploadfiles/$file title='Скачать'>$name</a></div></td></tr>
+														print"<tr valign=top><td><div><a href=uploadfiles/$file title='РЎРєР°С‡Р°С‚СЊ'>$name</a></div></td></tr>
 														<tr height=9><td></td></tr>";
 													}
 													if( $number!=0 ){ print"</table>"; }
 												}
 											}
-											pages( $query, $r, $view_page, $page, $extrapage );	// постраничный вывод
+											pages( $query, $r, $view_page, $page, $extrapage );	// РїРѕСЃС‚СЂР°РЅРёС‡РЅС‹Р№ РІС‹РІРѕРґ
 										print"</div>
 									</td>
 									<!--<td width=200 align=right><div style='text-align: right;'>"; baner($r); print"</div></td>-->
@@ -1061,34 +1327,16 @@
 						<td style='background: url(images/shadow_right.jpg) left top repeat-y;'>&nbsp;</td>
 					</tr>";
 				}
-				/*
-				print"<tr height=230 valign=top align=center>
-					<td style='background: url(images/shadow_left.jpg) right top repeat-y;'>&nbsp;</td>
-					<td style='background: url(images/footer.jpg) center bottom no-repeat;'>
-						<table width=944 align=center>
-							<tr><td colspan=2 align=right><img src=images/path.gif height=60></td></tr>
-							<tr valign=top>
-								<td><a href=index.php?r=10 title='Тобольский автовокзал'><img src=images/button_bus_station.gif></a></td>
-								<td align=right><a href=http://e-traffic.ru title='Продажа билетов' target='_blank'><img src=images/button_ticket.gif></a></td>
-							</tr>
-							<tr height=90 align=right valign=bottom>
-								<td align=left><!--LiveInternet counter--><script type=\"text/javascript\">document.write(\"<a href='http://www.liveinternet.ru/click' target=_blank><img src='//counter.yadro.ru/hit?t18.11;r\" + escape(document.referrer) + ((typeof(screen)==\"undefined\")?\"\":\";s\"+screen.width+\"*\"+screen.height+\"*\"+(screen.colorDepth?screen.colorDepth:screen.pixelDepth)) + \";u\" + escape(document.URL) + \";\" + Math.random() + \"' border=0 width=88 height=31 alt='' title='LiveInternet: показано число просмотров за 24 часа, посетителей за 24 часа и за сегодня'><\/a>\")</script><!--/LiveInternet--></td>
-								<td><a href=http://tri-t.ru title='Рекламное агентство «Три Т»'>© 2010 Тобольское ПАТП<br>Создание сайта «Три Т» <img src=images/trit.gif></a></td>
-							</tr>
-						</table>
-					</td>
-					<td style='background: url(images/shadow_right.jpg) left top repeat-y;'>&nbsp;</td>
-				</tr>";
-				*/
+
 				echo "<tr height=100 valign=top align=center>
 					<td style='background: url(images/shadow_left.jpg) right top repeat-y;'>&nbsp;</td>
 					<td "; if( $r == 1 ){ echo "class='mainPage'"; } else { echo "class='mainPageNo'"; } echo ">
 							<table width=944 align=center>
 								<tr height=100 align=right>
-									<td align=left><!--LiveInternet counter--><script type=\"text/javascript\">document.write(\"<a href='http://www.liveinternet.ru/click' target=_blank><img src='//counter.yadro.ru/hit?t18.11;r\" + escape(document.referrer) + ((typeof(screen)==\"undefined\")?\"\":\";s\"+screen.width+\"*\"+screen.height+\"*\"+(screen.colorDepth?screen.colorDepth:screen.pixelDepth)) + \";u\" + escape(document.URL) + \";\" + Math.random() + \"' border=0 width=88 height=31 alt='' title='LiveInternet: показано число просмотров за 24 часа, посетителей за 24 часа и за сегодня'><\/a>\")</script><!--/LiveInternet--></td>
-									<td><a href=index.php?r=10 title='Тобольский автовокзал'><img src=images/button_bus_station.gif></a></td>
-									<td align=right><a href=http://e-traffic.ru title='Продажа билетов' target='_blank'><img src=images/button_ticket.gif></a></td>
-									<td align=right><a href=http://tri-t.ru title='Рекламное агентство «Три Т»'>© 2010 Тобольское ПАТП<br>Создание сайта «Три Т»</a></td>
+									<td align=left><!--LiveInternet counter--><script type=\"text/javascript\">document.write(\"<a href='http://www.liveinternet.ru/click' target=_blank><img src='//counter.yadro.ru/hit?t18.11;r\" + escape(document.referrer) + ((typeof(screen)==\"undefined\")?\"\":\";s\"+screen.width+\"*\"+screen.height+\"*\"+(screen.colorDepth?screen.colorDepth:screen.pixelDepth)) + \";u\" + escape(document.URL) + \";\" + Math.random() + \"' border=0 width=88 height=31 alt='' title='LiveInternet: РїРѕРєР°Р·Р°РЅРѕ С‡РёСЃР»Рѕ РїСЂРѕСЃРјРѕС‚СЂРѕРІ Р·Р° 24 С‡Р°СЃР°, РїРѕСЃРµС‚РёС‚РµР»РµР№ Р·Р° 24 С‡Р°СЃР° Рё Р·Р° СЃРµРіРѕРґРЅСЏ'><\/a>\")</script><!--/LiveInternet--></td>
+									<td><a href=index.php?r=10 title='РўРѕР±РѕР»СЊСЃРєРёР№ Р°РІС‚РѕРІРѕРєР·Р°Р»'><img src=images/button_bus_station.gif></a></td>
+									<td align=right><a href=http://e-traffic.ru title='РџСЂРѕРґР°Р¶Р° Р±РёР»РµС‚РѕРІ' target='_blank'><img src=images/button_ticket.gif></a></td>
+									<td align=right><a href=http://tri-t.ru title='Р РµРєР»Р°РјРЅРѕРµ Р°РіРµРЅС‚СЃС‚РІРѕ В«РўСЂРё РўВ»'>В© 2010 РўРѕР±РѕР»СЊСЃРєРѕРµ РџРђРўРџ<br>РЎРѕР·РґР°РЅРёРµ СЃР°Р№С‚Р° В«РўСЂРё РўВ»</a></td>
 								</tr>
 							</table>
 					</td>
@@ -1098,3 +1346,4 @@
 		</table>
 	</body>
 </html>
+*/?>
