@@ -2,3 +2,4 @@ uploadfiles/*
 userfiles/*
 Capfile
 config/*
+admin/config.php

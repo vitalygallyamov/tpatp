@@ -22,7 +22,7 @@
 		$keywords=mysql_result($result,$i,'keywords');
 		$razdel=mysql_result($result,$i,'razdel');
 	}
-	if( $number==0 ){ header( "location: index.php" ); }
+	if( $number==0 ){ header( "location: /index.php" ); }
 ?>
 <!DOCTYPE HTML>
 <html>
