@@ -15,7 +15,7 @@
 		print"<META HTTP-EQUIV='Refresh' Content='0; URL=../'>";
 	}
 
-	require_once("../admin/config.php");	// подключение файла настроек базы данных
+	require_once("../admin/config.php");	// РїРѕРґРєР»СЋС‡РµРЅРёРµ С„Р°Р№Р»Р° РЅР°СЃС‚СЂРѕРµРє Р±Р°Р·С‹ РґР°РЅРЅС‹С…
 	if( !isset( $_REQUEST["r"] ) )
 	{
 		$result=mysql_query($query);
@@ -25,7 +25,7 @@
 			$r=mysql_result($result,$i,'id');
 		}
 	}
-	else{ $r=$_REQUEST["r"]; }	//определение текущего раздела
+	else{ $r=$_REQUEST["r"]; }	//РѕРїСЂРµРґРµР»РµРЅРёРµ С‚РµРєСѓС‰РµРіРѕ СЂР°Р·РґРµР»Р°
 
 	if( $r==8 ){ $r=20; }
 	if( $r==20 ){ $r=33; }
@@ -34,11 +34,11 @@
 
 <html>
 	<head>
-		<title>ПАССАЖИРСКОЕ АВТОТРАНСПОРТНОЕ ПРЕДПРИЯТИЕ</title>
+		<title>РџРђРЎРЎРђР–РР РЎРљРћР• РђР’РўРћРўР РђРќРЎРџРћР РўРќРћР• РџР Р•Р”РџР РРЇРўРР•</title>
 		<link rel=stylesheet type='text/css' href='../style.css'>
 		<meta HTTP-EQUIV="Content-Type" content="text/html; charset=windows-1251">
 
-		<!--начало подключения редактора-->
+		<!--РЅР°С‡Р°Р»Рѕ РїРѕРґРєР»СЋС‡РµРЅРёСЏ СЂРµРґР°РєС‚РѕСЂР°-->
 		<script language='javascript' type='text/javascript' src='../js/tiny_mce/tiny_mce.js'></script> 
 		<script type="text/javascript" src="../js/tiny_mce/plugins/tinybrowser/tb_tinymce.js.php"></script>
 		<script language="javascript" type="text/javascript"> 
@@ -68,7 +68,7 @@
 				content_css : "css/content.css"
 			}); 
 		</script>
-		<!--окончание подключения редактора-->
+		<!--РѕРєРѕРЅС‡Р°РЅРёРµ РїРѕРґРєР»СЋС‡РµРЅРёСЏ СЂРµРґР°РєС‚РѕСЂР°-->
 
 	</head>
 	<body>
@@ -77,8 +77,8 @@
 				<td style='background: url(../images/shadow_left.jpg) right top repeat-y;'>&nbsp;</td>
 				<td width=1000 bgcolor=#f7f7f7 colspan=2 align=center>
 					<table width=940 align=center>
-						<td><a href=index.php title='На главную'><img src=../images/logo_white.jpg></a></td>
-						<td valign=bottom align=right class=help_of_station>Справочная тобольского автовокзала:<br>(3456) 325-325, 505-595</td>
+						<td><a href=index.php title='РќР° РіР»Р°РІРЅСѓСЋ'><img src=../images/logo_white.jpg></a></td>
+						<td valign=bottom align=right class=help_of_station>РЎРїСЂР°РІРѕС‡РЅР°СЏ С‚РѕР±РѕР»СЊСЃРєРѕРіРѕ Р°РІС‚РѕРІРѕРєР·Р°Р»Р°:<br>(3456) 325-325, 505-595</td>
 					</table>
 				</td>
 				<td style='background: url(../images/shadow_right.jpg) left top repeat-y;'>&nbsp;</td>
@@ -88,7 +88,7 @@
 				<td width=250 bgcolor=#f7f7f7>
 					<div style='margin: 10px;'>
 						<?php
-							/* вывод левого меню */
+							/* РІС‹РІРѕРґ Р»РµРІРѕРіРѕ РјРµРЅСЋ */
 							$query=str_replace( "limit 0, 1", "", $query );
 							//$query="select id, name from pages where ( razdel='0' and id<>'23' ) order by id";
 							$result=mysql_query($query);
@@ -125,15 +125,15 @@
 										$image = picture_fixed( "banerPicture", 1000, 300 );
 										if( !empty( $image ) ) {
 											mysql_query( "insert into main values ( NULL, '".$image."', '".$_POST['banerHref']."' )" );
-											echo "<div>Запись успешно добавлена</div><br />";
+											echo "<div>Р—Р°РїРёСЃСЊ СѓСЃРїРµС€РЅРѕ РґРѕР±Р°РІР»РµРЅР°</div><br />";
 										} else {
-											echo "<div>Не корректный фармат картинки</div><br />";
+											echo "<div>РќРµ РєРѕСЂСЂРµРєС‚РЅС‹Р№ С„Р°СЂРјР°С‚ РєР°СЂС‚РёРЅРєРё</div><br />";
 										}
 									}
 
 									if( isset( $_GET['banerDel'] ) ) {
 										mysql_query("delete from main where id = '".$_GET['banerDel']."' ");
-										echo "<div>Запись успешно удалена</div><br />";
+										echo "<div>Р—Р°РїРёСЃСЊ СѓСЃРїРµС€РЅРѕ СѓРґР°Р»РµРЅР°</div><br />";
 									}
 
 									if( isset( $_POST['banerEdit'] ) ) {
@@ -148,38 +148,38 @@
 												mysql_query( "update main set picture='".$image."' where id='".$data['id']."' " );
 											}
 										}
-										echo "<div>Запись успешно изменена</div><br />";
+										echo "<div>Р—Р°РїРёСЃСЊ СѓСЃРїРµС€РЅРѕ РёР·РјРµРЅРµРЅР°</div><br />";
 									}
 
-									echo "<div class='left'>Банер [1000px / 300px]</div>
+									echo "<div class='left'>Р‘Р°РЅРµСЂ [1000px / 300px]</div>
 									<div><input type='file' name='banerPicture' /></div>
-									<div class='left'>Ссылка</div>
+									<div class='left'>РЎСЃС‹Р»РєР°</div>
 									<div><input type='text' name='banerHref' value='http://' /></div>
 									<div class='left'>&nbsp;</div>
-									<div><input type='submit' name='banerAdd' value='Добавить' /></div><br /><br />";
+									<div><input type='submit' name='banerAdd' value='Р”РѕР±Р°РІРёС‚СЊ' /></div><br /><br />";
 
 									$query = "select * from main order by id desc";
 									$result = mysql_query( $query );
 									$number = mysql_numrows( $result );
 									while( $data = mysql_fetch_array( $result ) ) {
 										echo "<img src='../uploadfiles/".$data['picture'].".jpg' align='right' width=120 height=40>
-										<div class='left'>Банер [1000px / 300px]</div>
+										<div class='left'>Р‘Р°РЅРµСЂ [1000px / 300px]</div>
 										<div><input type='file' name='banerPicture".$data['id']."' /></div>
-										<div class='left'>Ссылка</div>
+										<div class='left'>РЎСЃС‹Р»РєР°</div>
 										<div><input type='text' name='banerHref".$data['id']."' value='".$data['href']."' /></div>
 										<div class='left'>&nbsp;</div>
-										<div><a href='index.php' onclick='if( window.confirm( \"Вы действительно хотите удалить данную запись?\" ) ){ window.location.href=\"index.php?r=$r&banerDel=".$data['id']."\"; } return false;'>Удалить</a></div><br />";
+										<div><a href='index.php' onclick='if( window.confirm( \"Р’С‹ РґРµР№СЃС‚РІРёС‚РµР»СЊРЅРѕ С…РѕС‚РёС‚Рµ СѓРґР°Р»РёС‚СЊ РґР°РЅРЅСѓСЋ Р·Р°РїРёСЃСЊ?\" ) ){ window.location.href=\"index.php?r=$r&banerDel=".$data['id']."\"; } return false;'>РЈРґР°Р»РёС‚СЊ</a></div><br />";
 									}
 									if( !empty( $number ) ) {
 										echo "<div class='left'>&nbsp;</div>
-										<div><input type='submit' name='banerEdit' value='Изменить'></div>";
+										<div><input type='submit' name='banerEdit' value='РР·РјРµРЅРёС‚СЊ'></div>";
 									}
 
 
 
 
 								}
-								elseif( $r==23 )	/* редактирование банеров */
+								elseif( $r==23 )	/* СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ Р±Р°РЅРµСЂРѕРІ */
 								{
 									if( !isset( $_REQUEST["razdel2"] ) ){ $razdel2=0; }else{ $razdel2=$_REQUEST["razdel2"]; }
 									if( isset( $_POST["add"] ) )
@@ -190,11 +190,11 @@
 									}
 									if( isset( $_GET["del"] ) ){ mysql_query(" delete from baner where id='".$_GET["del"]."' "); }
 
-									print"<div class=left>Банер [180px | 120px]</div>
+									print"<div class=left>Р‘Р°РЅРµСЂ [180px | 120px]</div>
 									<div><input type=file name=baner></div>
-									<div class=left>Ссылка</div>
+									<div class=left>РЎСЃС‹Р»РєР°</div>
 									<div><input type=text name=href value='http://'></div>
-									<div class=left>Раздел</div>
+									<div class=left>Р Р°Р·РґРµР»</div>
 									<div>
 										<select name=razdel>";
 											$query="select id, name from pages where id>1 and id<23 and razdel='0' order by id";
@@ -218,11 +218,11 @@
 										print"</select>
 									</div>
 									<div class=left>&nbsp;</div>
-									<div><input type=submit name=add value=Добавить></div><br><br>
-									<div class=left>Раздел</div>
+									<div><input type=submit name=add value=Р”РѕР±Р°РІРёС‚СЊ></div><br><br>
+									<div class=left>Р Р°Р·РґРµР»</div>
 									<div>
 										<select name=razdel2 onchange='document.form.submit();'>
-											<option value=0>Выберите раздел для редактирования банеров</option>";
+											<option value=0>Р’С‹Р±РµСЂРёС‚Рµ СЂР°Р·РґРµР» РґР»СЏ СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёСЏ Р±Р°РЅРµСЂРѕРІ</option>";
 											$query="select id, name from pages where id>1 and id<23 and razdel='0' order by id";
 											$result=mysql_query($query);
 											$number=mysql_numrows($result);
@@ -250,11 +250,11 @@
 									{
 										$id=mysql_result($result,$i,'id');
 										$baner=mysql_result($result,$i,'baner');
-										print"<div class=left>Банер $id</div>
-										<div><a href=index.php?r=$r&razdel2=$razdel2&del=$id onclick=\"if(window.confirm('Вы действительно хотите удалить данный отзыв?')){location.href='index.php?r=$r&razdel2=$razdel2&del=$id';} return false;\">Удалить</a></div>";
+										print"<div class=left>Р‘Р°РЅРµСЂ $id</div>
+										<div><a href=index.php?r=$r&razdel2=$razdel2&del=$id onclick=\"if(window.confirm('Р’С‹ РґРµР№СЃС‚РІРёС‚РµР»СЊРЅРѕ С…РѕС‚РёС‚Рµ СѓРґР°Р»РёС‚СЊ РґР°РЅРЅС‹Р№ РѕС‚Р·С‹РІ?')){location.href='index.php?r=$r&razdel2=$razdel2&del=$id';} return false;\">РЈРґР°Р»РёС‚СЊ</a></div>";
 									}
 								}
-								elseif( $r==4 ) /*расписание движения*/
+								elseif( $r==4 ) /*СЂР°СЃРїРёСЃР°РЅРёРµ РґРІРёР¶РµРЅРёСЏ*/
 								{
 									if( !isset( $_REQUEST["route"] ) ){ $route=0; }else{ $route=$_REQUEST["route"]; }
 									if( !isset( $_REQUEST["hide1"] ) ){ $hide1=0; }else{ $hide1=$_REQUEST["hide1"]; }
@@ -269,7 +269,7 @@
 										}
 										else
 										{
-											print"<script>alert('Не заполнены все поля');</script>";
+											print"<script>alert('РќРµ Р·Р°РїРѕР»РЅРµРЅС‹ РІСЃРµ РїРѕР»СЏ');</script>";
 										}
 									}
 
@@ -296,7 +296,7 @@
 										}
 										else
 										{
-											print"<script>alert('Не заполнены все поля');</script>";
+											print"<script>alert('РќРµ Р·Р°РїРѕР»РЅРµРЅС‹ РІСЃРµ РїРѕР»СЏ');</script>";
 										}
 									}
 
@@ -308,7 +308,7 @@
 										}
 										else
 										{
-											print"<script>alert('Не заполнены все поля');</script>";
+											print"<script>alert('РќРµ Р·Р°РїРѕР»РЅРµРЅС‹ РІСЃРµ РїРѕР»СЏ');</script>";
 										}
 									}
 
@@ -367,38 +367,38 @@
 										$content=mysql_result($result,$i,'content');
 									}
 
-									print"<div class=left>Контент</div>
+									print"<div class=left>РљРѕРЅС‚РµРЅС‚</div>
 									<div><textarea name=content rows=10 class=mceEditor>$content</textarea></div>
 									<div class=left>&nbsp;</div>
-									<div><input type=submit name=edit value=Изменить></div><br><br>";
+									<div><input type=submit name=edit value=РР·РјРµРЅРёС‚СЊ></div><br><br>";
 
-									print"<div class=left>Номер маршрута</div>
+									print"<div class=left>РќРѕРјРµСЂ РјР°СЂС€СЂСѓС‚Р°</div>
 									<div><input type=text name=nomer></div>
-									<div class=left>Дни следования</div>
-									<div><input type=text name=days value='Все дни'></div>
-									<div class=left>Тип маршрута</div>
+									<div class=left>Р”РЅРё СЃР»РµРґРѕРІР°РЅРёСЏ</div>
+									<div><input type=text name=days value='Р’СЃРµ РґРЅРё'></div>
+									<div class=left>РўРёРї РјР°СЂС€СЂСѓС‚Р°</div>
 									<div>
 										<select name=type>
-											<option value=1>Город</option>
-											<option value=2>Пригород</option>
-											<option value=3>Дачные</option>
-											<option value=4>Межгород</option>
+											<option value=1>Р“РѕСЂРѕРґ</option>
+											<option value=2>РџСЂРёРіРѕСЂРѕРґ</option>
+											<option value=3>Р”Р°С‡РЅС‹Рµ</option>
+											<option value=4>РњРµР¶РіРѕСЂРѕРґ</option>
 										</select>
 									</div>
 									<div class=left>&nbsp;</div>
-									<div><input type=submit name=add_route value='Добавить маршрут'></div><br><br>";
+									<div><input type=submit name=add_route value='Р”РѕР±Р°РІРёС‚СЊ РјР°СЂС€СЂСѓС‚'></div><br><br>";
 
 									if( $hide1!=0 )
 									{
-										print"<div><a href=index.php?r=$r&route=$route&hide1=0&hide2=$hide2>Скрыть маршруты</a></div>";
+										print"<div><a href=index.php?r=$r&route=$route&hide1=0&hide2=$hide2>РЎРєСЂС‹С‚СЊ РјР°СЂС€СЂСѓС‚С‹</a></div>";
 										$query="select id, nomer, days, type from auto_route order by nomer";
 										$result=mysql_query($query);
 										$number=mysql_numrows($result);
 										if( $number!=0 )
 										{
-											print"<input type=text value='Номер маршрута' style='background: #dddddd; width: 100px;' readonly>
-											<input type=text value='Дни следования' style='background: #dddddd; width: 150px;' readonly>
-											<input type=text value='Тип маршрута' style='background: #dddddd; width: 200px;' readonly>
+											print"<input type=text value='РќРѕРјРµСЂ РјР°СЂС€СЂСѓС‚Р°' style='background: #dddddd; width: 100px;' readonly>
+											<input type=text value='Р”РЅРё СЃР»РµРґРѕРІР°РЅРёСЏ' style='background: #dddddd; width: 150px;' readonly>
+											<input type=text value='РўРёРї РјР°СЂС€СЂСѓС‚Р°' style='background: #dddddd; width: 200px;' readonly>
 											<input type=text value='del' style='background: #dddddd; width: 30px;' readonly>
 											<br>";
 										}
@@ -411,28 +411,28 @@
 											print"<input type=text name='nomer$id' value='$nomer' style='width: 100px;'>
 											<input type=text name='days$id' value='$days' style='width: 150px;'>
 											<select name='type$id' style='width: 200px;'>
-												<option value=1 "; if( $type==1 ){ print"selected"; } print" >Город</option>
-												<option value=2 "; if( $type==2 ){ print"selected"; } print" >Пригород</option>
-												<option value=3 "; if( $type==3 ){ print"selected"; } print" >Дачные</option>
-												<option value=4 "; if( $type==4 ){ print"selected"; } print" >Межгород</option>
+												<option value=1 "; if( $type==1 ){ print"selected"; } print" >Р“РѕСЂРѕРґ</option>
+												<option value=2 "; if( $type==2 ){ print"selected"; } print" >РџСЂРёРіРѕСЂРѕРґ</option>
+												<option value=3 "; if( $type==3 ){ print"selected"; } print" >Р”Р°С‡РЅС‹Рµ</option>
+												<option value=4 "; if( $type==4 ){ print"selected"; } print" >РњРµР¶РіРѕСЂРѕРґ</option>
 											</select>
-											<input type=button value='del' style='width: 30px;' onclick=\"if(window.confirm('Вы действительно хотите удалить данную запись?')){location.href='index.php?r=$r&del_path=$id';}\">
+											<input type=button value='del' style='width: 30px;' onclick=\"if(window.confirm('Р’С‹ РґРµР№СЃС‚РІРёС‚РµР»СЊРЅРѕ С…РѕС‚РёС‚Рµ СѓРґР°Р»РёС‚СЊ РґР°РЅРЅСѓСЋ Р·Р°РїРёСЃСЊ?')){location.href='index.php?r=$r&del_path=$id';}\">
 											<br>";
 										}
-										if( $number!=0 ){ print"<input type=submit name=edit_route value='Изменить'><br><br><br>"; }
+										if( $number!=0 ){ print"<input type=submit name=edit_route value='РР·РјРµРЅРёС‚СЊ'><br><br><br>"; }
 									}
 									else
 									{
-										print"<div><a href=index.php?r=$r&route=$route&hide1=1&hide2=$hide2>Отобразить маршруты</a></div><br><br><br>";
+										print"<div><a href=index.php?r=$r&route=$route&hide1=1&hide2=$hide2>РћС‚РѕР±СЂР°Р·РёС‚СЊ РјР°СЂС€СЂСѓС‚С‹</a></div><br><br><br>";
 									}
 
 									if( $hide2!=0 )
 									{
-										print"<div><a href=index.php?r=$r&route=$route&hide1=$hide1&hide2=0>Скрыть пункты</a></div>";
-										print"<div class=left>Название пункта</div>
+										print"<div><a href=index.php?r=$r&route=$route&hide1=$hide1&hide2=0>РЎРєСЂС‹С‚СЊ РїСѓРЅРєС‚С‹</a></div>";
+										print"<div class=left>РќР°Р·РІР°РЅРёРµ РїСѓРЅРєС‚Р°</div>
 										<div><input type=text name=name></div>
 										<div class=left>&nbsp;</div>
-										<div><input type=submit name=add_point value='Добавить пункт'></div><br><br>";
+										<div><input type=submit name=add_point value='Р”РѕР±Р°РІРёС‚СЊ РїСѓРЅРєС‚'></div><br><br>";
 
 
 
@@ -442,7 +442,7 @@
 										$number=mysql_numrows($result);
 										if( $number!=0 )
 										{
-											print"<input type=text value='Название пункта' style='background: #dddddd;' readonly>
+											print"<input type=text value='РќР°Р·РІР°РЅРёРµ РїСѓРЅРєС‚Р°' style='background: #dddddd;' readonly>
 											<input type=text value='del' style='background: #dddddd; width: 30px;' readonly>
 											<br>";
 										}
@@ -451,14 +451,14 @@
 											$id=mysql_result($result,$i,'id');
 											$name=mysql_result($result,$i,'name');
 											print"<input type=text name='name$id' value='$name'>
-											<input type=button value='del' style='width: 30px;' onclick=\"if(window.confirm('Вы действительно хотите удалить данную запись?')){location.href='index.php?r=$r&del_point=$id';}\">
+											<input type=button value='del' style='width: 30px;' onclick=\"if(window.confirm('Р’С‹ РґРµР№СЃС‚РІРёС‚РµР»СЊРЅРѕ С…РѕС‚РёС‚Рµ СѓРґР°Р»РёС‚СЊ РґР°РЅРЅСѓСЋ Р·Р°РїРёСЃСЊ?')){location.href='index.php?r=$r&del_point=$id';}\">
 											<br>";
 										}
-										if( $number!=0 ){ print"<input type=submit name=edit_point value='Изменить'><br><br><br>"; }
+										if( $number!=0 ){ print"<input type=submit name=edit_point value='РР·РјРµРЅРёС‚СЊ'><br><br><br>"; }
 									}
 									else
 									{
-										print"<div><a href=index.php?r=$r&route=$route&hide1=$hide1&hide2=1>Отобразить пункты</a></div><br><br><br>";
+										print"<div><a href=index.php?r=$r&route=$route&hide1=$hide1&hide2=1>РћС‚РѕР±СЂР°Р·РёС‚СЊ РїСѓРЅРєС‚С‹</a></div><br><br><br>";
 									}
 
 
@@ -467,10 +467,10 @@
 
 
 
-									print"<div class=left>Маршрут</div>
+									print"<div class=left>РњР°СЂС€СЂСѓС‚</div>
 									<div>
 										<select name=route onchange='document.form.submit();'>
-											<option value=0>Выберите маршрут</option>";
+											<option value=0>Р’С‹Р±РµСЂРёС‚Рµ РјР°СЂС€СЂСѓС‚</option>";
 											$query="select id, nomer from auto_route order by nomer";
 											$result=mysql_query($query);
 											$number=mysql_numrows($result);
@@ -484,10 +484,10 @@
 									</div>";
 									if( $route!=0 )
 									{
-										print"<div class=left>Пункт отправления</div>
+										print"<div class=left>РџСѓРЅРєС‚ РѕС‚РїСЂР°РІР»РµРЅРёСЏ</div>
 										<div>
 											<select name=point_otp>
-												<option value=0>Выберите пункт отправления</option>";
+												<option value=0>Р’С‹Р±РµСЂРёС‚Рµ РїСѓРЅРєС‚ РѕС‚РїСЂР°РІР»РµРЅРёСЏ</option>";
 												$query="select id, name from auto_point order by name";
 												$result=mysql_query($query);
 												$number=mysql_numrows($result);
@@ -499,12 +499,12 @@
 												}
 											print"</select>
 										</div>
-										<div class=left>Время отправления</div>
+										<div class=left>Р’СЂРµРјСЏ РѕС‚РїСЂР°РІР»РµРЅРёСЏ</div>
 										<div><input type=text name=time_otp value='11:00'></div>
-										<div class=left>Пункт прибытия</div>
+										<div class=left>РџСѓРЅРєС‚ РїСЂРёР±С‹С‚РёСЏ</div>
 										<div>
 											<select name=point_prib>
-												<option value=0>Выберите пункт прибытия</option>";
+												<option value=0>Р’С‹Р±РµСЂРёС‚Рµ РїСѓРЅРєС‚ РїСЂРёР±С‹С‚РёСЏ</option>";
 												$query="select id, name from auto_point order by name";
 												$result=mysql_query($query);
 												$number=mysql_numrows($result);
@@ -516,25 +516,25 @@
 												}
 											print"</select>
 										</div>
-										<div class=left>Время прибытия</div>
+										<div class=left>Р’СЂРµРјСЏ РїСЂРёР±С‹С‚РёСЏ</div>
 										<div><input type=text name=time_prib value='11:00'></div>
-										<div class=left>Расстояние, м</div>
+										<div class=left>Р Р°СЃСЃС‚РѕСЏРЅРёРµ, Рј</div>
 										<div><input type=text name=distance value='1000'></div>
-										<div class=left>Стоимость, руб</div>
+										<div class=left>РЎС‚РѕРёРјРѕСЃС‚СЊ, СЂСѓР±</div>
 										<div><input type=text name=cost value='100.00'></div>
 										<div class=left>&nbsp;</div>
-										<div><input type=submit name=add_path value='Добавить путь'></div><br><br>";
+										<div><input type=submit name=add_path value='Р”РѕР±Р°РІРёС‚СЊ РїСѓС‚СЊ'></div><br><br>";
 										$query="select id, point_otp, time_otp, point_prib, time_prib, distance, cost from auto_path where route='$route' order by id";
 										$result=mysql_query($query);
 										$number=mysql_numrows($result);
 										if( $number!=0 )
 										{
-											print"<input type=text value='Пункт отправления' style='width: 200px; font-weight: bold; background: #dddddd;' readonly>
-											<input type=text value='Время' style='width: 50px; font-weight: bold; background: #dddddd;' readonly>
-											<input type=text value='Пункт прибытия' style='width: 200px; font-weight: bold; background: #dddddd;' readonly>
-											<input type=text value='Время' style='width: 50px; font-weight: bold; background: #dddddd;' readonly>
-											<input type=text value='Расстояние' style='width: 80px; font-weight: bold; background: #dddddd;' readonly>
-											<input type=text value='Стоимость' style='width: 70px; font-weight: bold; background: #dddddd;' readonly>
+											print"<input type=text value='РџСѓРЅРєС‚ РѕС‚РїСЂР°РІР»РµРЅРёСЏ' style='width: 200px; font-weight: bold; background: #dddddd;' readonly>
+											<input type=text value='Р’СЂРµРјСЏ' style='width: 50px; font-weight: bold; background: #dddddd;' readonly>
+											<input type=text value='РџСѓРЅРєС‚ РїСЂРёР±С‹С‚РёСЏ' style='width: 200px; font-weight: bold; background: #dddddd;' readonly>
+											<input type=text value='Р’СЂРµРјСЏ' style='width: 50px; font-weight: bold; background: #dddddd;' readonly>
+											<input type=text value='Р Р°СЃСЃС‚РѕСЏРЅРёРµ' style='width: 80px; font-weight: bold; background: #dddddd;' readonly>
+											<input type=text value='РЎС‚РѕРёРјРѕСЃС‚СЊ' style='width: 70px; font-weight: bold; background: #dddddd;' readonly>
 											<input type=text value='del' style='width: 30px; font-weight: bold; background: #dddddd;' readonly>
 											<br>";
 										}
@@ -548,7 +548,7 @@
 											$distance=mysql_result( $result,$i,'distance' );
 											$cost=mysql_result( $result,$i,'cost' );
 											print"<select name='point_otp$id' style='width: 200px;'>
-												<option value=0>Выберите пункт отправления</option>";
+												<option value=0>Р’С‹Р±РµСЂРёС‚Рµ РїСѓРЅРєС‚ РѕС‚РїСЂР°РІР»РµРЅРёСЏ</option>";
 												$query2="select id, name from auto_point order by name";
 												$result2=mysql_query($query2);
 												$number2=mysql_numrows($result2);
@@ -561,7 +561,7 @@
 											print"</select>
 											<input type=text name='time_otp$id' value='$time_otp' style='width: 50px;'>
 											<select name='point_prib$id' style='width: 200px;'>
-												<option value=0>Выберите пункт прибытия</option>";
+												<option value=0>Р’С‹Р±РµСЂРёС‚Рµ РїСѓРЅРєС‚ РїСЂРёР±С‹С‚РёСЏ</option>";
 												$query2="select id, name from auto_point order by name";
 												$result2=mysql_query($query2);
 												$number2=mysql_numrows($result2);
@@ -575,13 +575,13 @@
 											<input type=text name='time_prib$id' value='$time_prib' style='width: 50px;'>
 											<input type=text name='distance$id' value='$distance' style='width: 80px;'>
 											<input type=text name='cost$id' value='$cost' style='width: 70px;'>
-											<input type=button value=del style='width: 30px;' onclick=\"if(window.confirm('Вы действительно хотите удалить данную запись?')){location.href='index.php?r=$r&route=$route&del=$id';}\">
+											<input type=button value=del style='width: 30px;' onclick=\"if(window.confirm('Р’С‹ РґРµР№СЃС‚РІРёС‚РµР»СЊРЅРѕ С…РѕС‚РёС‚Рµ СѓРґР°Р»РёС‚СЊ РґР°РЅРЅСѓСЋ Р·Р°РїРёСЃСЊ?')){location.href='index.php?r=$r&route=$route&del=$id';}\">
 											<br>";
 										}
-										if( $number!=0 ){ print"<input type=submit name=edit_path value='Изменить'>"; }
+										if( $number!=0 ){ print"<input type=submit name=edit_path value='РР·РјРµРЅРёС‚СЊ'>"; }
 									}
 								}
-								elseif( $r==17 )	/*акционерам и инвесторам*/
+								elseif( $r==17 )	/*Р°РєС†РёРѕРЅРµСЂР°Рј Рё РёРЅРІРµСЃС‚РѕСЂР°Рј*/
 								{
 									if( !isset( $_REQUEST["razdel"] ) ){ $razdel=0; }else{ $razdel=$_REQUEST["razdel"]; }
 
@@ -608,14 +608,14 @@
 
 									if( isset( $_GET["del_file"] ) ){ mysql_query(" delete from file where id='".$_GET["del_file"]."' "); }
 
-									print"<div class=left>Заголовок</div>
+									print"<div class=left>Р—Р°РіРѕР»РѕРІРѕРє</div>
 									<div><input type=text name=name></div>
 									<div class=left>&nbsp;</div>
-									<div><input type=submit name=add value=Добавить></div><br><br>
-									<div class=left>Раздел</div>
+									<div><input type=submit name=add value=Р”РѕР±Р°РІРёС‚СЊ></div><br><br>
+									<div class=left>Р Р°Р·РґРµР»</div>
 									<div>
 										<select name=razdel onchange='document.form.submit();'>
-											<option value=0>Выберите для редактирования</option>";
+											<option value=0>Р’С‹Р±РµСЂРёС‚Рµ РґР»СЏ СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёСЏ</option>";
 											$query="select id, name from file_razdel order by id desc";
 											$result=mysql_query($query);
 											$number=mysql_numrows($result);
@@ -636,20 +636,20 @@
 										{
 											$id=mysql_result($result,$i,'id');
 											$name=mysql_result($result,$i,'name');
-											print"<div class=left>Заголовок</div>
+											print"<div class=left>Р—Р°РіРѕР»РѕРІРѕРє</div>
 											<div><input type=text name=name2 value='$name'></div>
 											<div class=left>&nbsp;</div>
 											<div>
-												<input type=submit name=edit value=Изменить>
-												<input type=button value=Удалить onclick=\"if(window.confirm('Вы действительно хотите удалить данную запись?')){location.href='index.php?r=$r&del=$id';}\">
+												<input type=submit name=edit value=РР·РјРµРЅРёС‚СЊ>
+												<input type=button value=РЈРґР°Р»РёС‚СЊ onclick=\"if(window.confirm('Р’С‹ РґРµР№СЃС‚РІРёС‚РµР»СЊРЅРѕ С…РѕС‚РёС‚Рµ СѓРґР°Р»РёС‚СЊ РґР°РЅРЅСѓСЋ Р·Р°РїРёСЃСЊ?')){location.href='index.php?r=$r&del=$id';}\">
 											</div><br><br>";
 										}
-										print"<div class=left>Заголовок файла</div>
+										print"<div class=left>Р—Р°РіРѕР»РѕРІРѕРє С„Р°Р№Р»Р°</div>
 										<div><input type=text name=name_file></div>
-										<div class=left>Файл</div>
+										<div class=left>Р¤Р°Р№Р»</div>
 										<div><input type=file name=file_file></div>
 										<div class=left>&nbsp;</div>
-										<div><input type=submit name=add_file value=Добавить></div><br><br>";
+										<div><input type=submit name=add_file value=Р”РѕР±Р°РІРёС‚СЊ></div><br><br>";
 
 										$query="select id, name, file from file where razdel='$razdel' order by id desc";
 										$result=mysql_query($query);
@@ -659,14 +659,14 @@
 											$id=mysql_result($result,$i,'id');
 											$name=mysql_result($result,$i,'name');
 											$file=mysql_result($result,$i,'file');
-											print"<div class=left>Заголовок</div>
+											print"<div class=left>Р—Р°РіРѕР»РѕРІРѕРє</div>
 											<div><input type=text name=name_file2 value='$name' readonly></div>
 											<div class=left>&nbsp;</div>
-											<div><input type=button value='Удалить файл' onclick=\"if(window.confirm('Вы действительно хотите удалить данную запись?')){location.href='index.php?r=$r&razdel=$razdel&del_file=$id';}\"></div><br><br>";
+											<div><input type=button value='РЈРґР°Р»РёС‚СЊ С„Р°Р№Р»' onclick=\"if(window.confirm('Р’С‹ РґРµР№СЃС‚РІРёС‚РµР»СЊРЅРѕ С…РѕС‚РёС‚Рµ СѓРґР°Р»РёС‚СЊ РґР°РЅРЅСѓСЋ Р·Р°РїРёСЃСЊ?')){location.href='index.php?r=$r&razdel=$razdel&del_file=$id';}\"></div><br><br>";
 										}
 									}
 								}
-								elseif( $r==16 || $r==19 )	/*законодательство, поздравления*/
+								elseif( $r==16 || $r==19 )	/*Р·Р°РєРѕРЅРѕРґР°С‚РµР»СЊСЃС‚РІРѕ, РїРѕР·РґСЂР°РІР»РµРЅРёСЏ*/
 								{
 									if( !isset( $_REQUEST["razdel"] ) ){ $razdel=0; }else{ $razdel=$_REQUEST["razdel"]; }
 									if( isset( $_POST["add"] ) )
@@ -682,16 +682,16 @@
 
 									if( isset( $_GET["del"] ) ){ mysql_query(" delete from law where id='".$_GET["del"]."' "); }
 
-									print"<div class=left>Заголовок</div>
+									print"<div class=left>Р—Р°РіРѕР»РѕРІРѕРє</div>
 									<div><input type=text name=name></div>
-									<div class=left>Контент</div>
+									<div class=left>РљРѕРЅС‚РµРЅС‚</div>
 									<div><textarea name=content rows=10 class=mceEditor></textarea></div>
 									<div class=left>&nbsp;</div>
-									<div><input type=submit name=add value=Добавить></div><br><br>
-									<div class=left>"; if( $r==19 ){ print"Поздравление"; }else{ print"Законодательство"; } print"</div>
+									<div><input type=submit name=add value=Р”РѕР±Р°РІРёС‚СЊ></div><br><br>
+									<div class=left>"; if( $r==19 ){ print"РџРѕР·РґСЂР°РІР»РµРЅРёРµ"; }else{ print"Р—Р°РєРѕРЅРѕРґР°С‚РµР»СЊСЃС‚РІРѕ"; } print"</div>
 									<div>
 										<select name=razdel onchange='document.form.submit();'>
-											<option value=0>Выберите для редактирования</option>";
+											<option value=0>Р’С‹Р±РµСЂРёС‚Рµ РґР»СЏ СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёСЏ</option>";
 											$query="select id, name from law where razdel='$r' order by id desc";
 											$result=mysql_query($query);
 											$number=mysql_numrows($result);
@@ -713,20 +713,20 @@
 											$id=mysql_result($result,$i,'id');
 											$name=mysql_result($result,$i,'name');
 											$content=mysql_result($result,$i,'content');
-											print"<div class=left>Заголовок</div>
+											print"<div class=left>Р—Р°РіРѕР»РѕРІРѕРє</div>
 											<div><input type=text name=name2 value='$name'></div>
-											<div class=left>Контент</div>
+											<div class=left>РљРѕРЅС‚РµРЅС‚</div>
 											<div><textarea name=content2 rows=10 class=mceEditor>$content</textarea></div>
 											<div class=left>&nbsp;</div>
 											<div>
-												<input type=submit name=edit value=Изменить>
-												<input type=button value=Удалить onclick=\"if(window.confirm('Вы действительно хотите удалить данную запись?')){location.href='index.php?r=$r&del=$id';}\">
+												<input type=submit name=edit value=РР·РјРµРЅРёС‚СЊ>
+												<input type=button value=РЈРґР°Р»РёС‚СЊ onclick=\"if(window.confirm('Р’С‹ РґРµР№СЃС‚РІРёС‚РµР»СЊРЅРѕ С…РѕС‚РёС‚Рµ СѓРґР°Р»РёС‚СЊ РґР°РЅРЅСѓСЋ Р·Р°РїРёСЃСЊ?')){location.href='index.php?r=$r&del=$id';}\">
 											</div><br><br>";
 										}
 									}
 									
 								}
-								elseif( $r==15 )	/*книга почета*/
+								elseif( $r==15 )	/*РєРЅРёРіР° РїРѕС‡РµС‚Р°*/
 								{
 									if( !isset( $_REQUEST["razdel"] ) ){ $razdel=0; }else{ $razdel=$_REQUEST["razdel"]; }
 									if( isset( $_POST["add"] ) )
@@ -745,18 +745,18 @@
 
 									if( isset( $_GET["del"] ) ){ mysql_query(" delete from law where id='".$_GET["del"]."' "); }
 
-									print"<div class=left>Заголовок</div>
+									print"<div class=left>Р—Р°РіРѕР»РѕРІРѕРє</div>
 									<div><input type=text name=name></div>
-									<div class=left>Контент</div>
+									<div class=left>РљРѕРЅС‚РµРЅС‚</div>
 									<div><textarea name=content rows=10 class=mceEditor></textarea></div>
-									<div class=left>Картинка [125px]</div>
+									<div class=left>РљР°СЂС‚РёРЅРєР° [125px]</div>
 									<div><input type=file name=picture></div>
 									<div class=left>&nbsp;</div>
-									<div><input type=submit name=add value=Добавить></div><br><br>
-									<div class=left>Законодательство</div>
+									<div><input type=submit name=add value=Р”РѕР±Р°РІРёС‚СЊ></div><br><br>
+									<div class=left>Р—Р°РєРѕРЅРѕРґР°С‚РµР»СЊСЃС‚РІРѕ</div>
 									<div>
 										<select name=razdel onchange='document.form.submit();'>
-											<option value=0>Выберите для редактирования</option>";
+											<option value=0>Р’С‹Р±РµСЂРёС‚Рµ РґР»СЏ СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёСЏ</option>";
 											$query="select id, name from book order by id desc";
 											$result=mysql_query($query);
 											$number=mysql_numrows($result);
@@ -780,22 +780,22 @@
 											$content=mysql_result($result,$i,'content');
 											$picture=mysql_result($result,$i,'picture');
 											if( $picture!=0 ){ print"<img src=../uploadfiles/$picture.jpg align=right width=20 height=20>"; }
-											print"<div class=left>Заголовок</div>
+											print"<div class=left>Р—Р°РіРѕР»РѕРІРѕРє</div>
 											<div><input type=text name=name2 value='$name'></div>
-											<div class=left>Контент</div>
+											<div class=left>РљРѕРЅС‚РµРЅС‚</div>
 											<div><textarea name=content2 rows=10 class=mceEditor>$content</textarea></div>
-											<div class=left>Картинка [125px]</div>
+											<div class=left>РљР°СЂС‚РёРЅРєР° [125px]</div>
 											<div><input type=file name=picture2></div>
 											<div class=left>&nbsp;</div>
 											<div>
-												<input type=submit name=edit value=Изменить>
-												<input type=button value=Удалить onclick=\"if(window.confirm('Вы действительно хотите удалить данную запись?')){location.href='index.php?r=$r&del=$id';}\">
+												<input type=submit name=edit value=РР·РјРµРЅРёС‚СЊ>
+												<input type=button value=РЈРґР°Р»РёС‚СЊ onclick=\"if(window.confirm('Р’С‹ РґРµР№СЃС‚РІРёС‚РµР»СЊРЅРѕ С…РѕС‚РёС‚Рµ СѓРґР°Р»РёС‚СЊ РґР°РЅРЅСѓСЋ Р·Р°РїРёСЃСЊ?')){location.href='index.php?r=$r&del=$id';}\">
 											</div><br><br>";
 										}
 									}
 									
 								}
-								elseif( $r==5 )	/*новости*/
+								elseif( $r==5 )	/*РЅРѕРІРѕСЃС‚Рё*/
 								{
 									print"<script src=../js/calendar/calendar_ru.js></script>";
 
@@ -815,18 +815,18 @@
 
 									if( isset( $_GET["del"] ) ){ mysql_query(" delete from news where id='".$_GET["del"]."' "); }
 
-									print"<div class=left>Дата</div>
+									print"<div class=left>Р”Р°С‚Р°</div>
 									<div><input type=text name=date readonly value='".date("d.m.Y")."' onfocus='this.select();lcs(this)' onclick='event.cancelBubble=true;this.select();lcs(this);'></div>
-									<div class=left>Заголовок</div>
+									<div class=left>Р—Р°РіРѕР»РѕРІРѕРє</div>
 									<div><input type=text name=name></div>
-									<div class=left>Контент</div>
+									<div class=left>РљРѕРЅС‚РµРЅС‚</div>
 									<div><textarea name=content rows=10 class=mceEditor></textarea></div>
 									<div class=left>&nbsp;</div>
-									<div><input type=submit name=add value=Добавить></div><br><br>
-									<div class=left>Новость</div>
+									<div><input type=submit name=add value=Р”РѕР±Р°РІРёС‚СЊ></div><br><br>
+									<div class=left>РќРѕРІРѕСЃС‚СЊ</div>
 									<div>
 										<select name=razdel onchange='document.form.submit();'>
-											<option value=0>Выберите для редактирования</option>";
+											<option value=0>Р’С‹Р±РµСЂРёС‚Рµ РґР»СЏ СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёСЏ</option>";
 											$query="select id, name from news order by dat desc, id desc";
 											$result=mysql_query($query);
 											$number=mysql_numrows($result);
@@ -849,22 +849,22 @@
 											$date=date( "d.m.Y", mysql_result($result,$i,'dat') );
 											$name=mysql_result($result,$i,'name');
 											$content=mysql_result($result,$i,'content');
-											print"<div class=left>Дата</div>
+											print"<div class=left>Р”Р°С‚Р°</div>
 											<div><input type=text name=date2 value='$date' readonly onfocus='this.select();lcs(this)' onclick='event.cancelBubble=true;this.select();lcs(this);'></div>
-											<div class=left>Заголовок</div>
+											<div class=left>Р—Р°РіРѕР»РѕРІРѕРє</div>
 											<div><input type=text name=name2 value='$name'></div>
-											<div class=left>Контент</div>
+											<div class=left>РљРѕРЅС‚РµРЅС‚</div>
 											<div><textarea name=content2 rows=10 class=mceEditor>$content</textarea></div>
 											<div class=left>&nbsp;</div>
 											<div>
-												<input type=submit name=edit value=Изменить>
-												<input type=button value=Удалить onclick=\"if(window.confirm('Вы действительно хотите удалить данную запись?')){location.href='index.php?r=$r&del=$id';}\">
+												<input type=submit name=edit value=РР·РјРµРЅРёС‚СЊ>
+												<input type=button value=РЈРґР°Р»РёС‚СЊ onclick=\"if(window.confirm('Р’С‹ РґРµР№СЃС‚РІРёС‚РµР»СЊРЅРѕ С…РѕС‚РёС‚Рµ СѓРґР°Р»РёС‚СЊ РґР°РЅРЅСѓСЋ Р·Р°РїРёСЃСЊ?')){location.href='index.php?r=$r&del=$id';}\">
 											</div><br><br>";
 										}
 									}
 									
 								}
-								elseif( $r==25 )	/*вопрос-ответ*/
+								elseif( $r==25 )	/*РІРѕРїСЂРѕСЃ-РѕС‚РІРµС‚*/
 								{
 
 
@@ -884,16 +884,16 @@
 	
 										if( isset( $_GET["del"] ) ){ mysql_query(" delete from question2 where id='".$_GET["del"]."' "); }
 
-										print"<div class=left>Вопрос</div>
+										print"<div class=left>Р’РѕРїСЂРѕСЃ</div>
 										<div><textarea name=question rows=5></textarea></div>
-										<div class=left>Ответ</div>
+										<div class=left>РћС‚РІРµС‚</div>
 										<div><textarea name=answer rows=5></textarea></div>
 										<div class=left>&nbsp;</div>
-										<div><input type=submit name=add value=Добавить></div><br><br>
-										<div class=left>Вопрос</div>
+										<div><input type=submit name=add value=Р”РѕР±Р°РІРёС‚СЊ></div><br><br>
+										<div class=left>Р’РѕРїСЂРѕСЃ</div>
 										<div>
 											<select name=razdel onchange='document.form.submit();'>
-												<option value=0>Выберите для редактирования</option>";
+												<option value=0>Р’С‹Р±РµСЂРёС‚Рµ РґР»СЏ СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёСЏ</option>";
 												$query="select id, question from question2 order by id desc";
 												$result=mysql_query($query);
 												$number=mysql_numrows($result);
@@ -916,14 +916,14 @@
 												$question=mysql_result($result,$i,'question');
 												$answer=mysql_result($result,$i,'answer');
 
-												print"<div class=left>Вопрос</div>
+												print"<div class=left>Р’РѕРїСЂРѕСЃ</div>
 												<div><textarea name=question2 rows=5>$question</textarea></div>
-												<div class=left>Ответ</div>
+												<div class=left>РћС‚РІРµС‚</div>
 												<div><textarea name=answer2 rows=5>$answer</textarea></div>
 												<div class=left>&nbsp;</div>
 												<div>
-													<input type=submit name=edit value=Изменить>
-													<input type=button value=Удалить onclick=\"if(window.confirm('Вы действительно хотите удалить данную запись?')){location.href='index.php?r=$r&del=$id';}\">
+													<input type=submit name=edit value=РР·РјРµРЅРёС‚СЊ>
+													<input type=button value=РЈРґР°Р»РёС‚СЊ onclick=\"if(window.confirm('Р’С‹ РґРµР№СЃС‚РІРёС‚РµР»СЊРЅРѕ С…РѕС‚РёС‚Рµ СѓРґР°Р»РёС‚СЊ РґР°РЅРЅСѓСЋ Р·Р°РїРёСЃСЊ?')){location.href='index.php?r=$r&del=$id';}\">
 												</div><br><br>";
 											}
 										}
@@ -935,7 +935,7 @@
 
 
 								}
-								elseif( $r==18 )	/* редактирование фотогаллереи */
+								elseif( $r==18 )	/* СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ С„РѕС‚РѕРіР°Р»Р»РµСЂРµРё */
 								{
 									if( !isset( $_REQUEST["razdel"] ) ){ $razdel=0; }else{ $razdel=$_REQUEST["razdel"]; }
 									if( isset( $_POST["add"] ) )
@@ -963,16 +963,16 @@
 
 									if( isset( $_GET["del_picture"] ) ){ mysql_query(" delete from photo where id='".$_GET["del_picture"]."' "); }
 
-									print"<div class=left>Заголовок</div>
+									print"<div class=left>Р—Р°РіРѕР»РѕРІРѕРє</div>
 									<div><input type=text name=name></div>
-									<div class=left>Превью</div>
+									<div class=left>РџСЂРµРІСЊСЋ</div>
 									<div><input type=file name=preview></div>
 									<div class=left>&nbsp;</div>
-									<div><input type=submit name=add value=Добавить></div><br><br>
-									<div class=left>Альбом</div>
+									<div><input type=submit name=add value=Р”РѕР±Р°РІРёС‚СЊ></div><br><br>
+									<div class=left>РђР»СЊР±РѕРј</div>
 									<div>
 										<select name=razdel onchange='document.form.submit();'>
-											<option value=0>Выберите для редактирования</option>";
+											<option value=0>Р’С‹Р±РµСЂРёС‚Рµ РґР»СЏ СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёСЏ</option>";
 											$query="select id, name from album order by id desc";
 											$result=mysql_query($query);
 											$number=mysql_numrows($result);
@@ -995,20 +995,20 @@
 											$name=mysql_result($result,$i,'name');
 											$preview=mysql_result($result,$i,'preview');
 											print"<img src=../uploadfiles/$preview.jpg align=right width=20 height=20>
-											<div class=left>Заголовок</div>
+											<div class=left>Р—Р°РіРѕР»РѕРІРѕРє</div>
 											<div><input type=text name=name2 value='$name'></div>
-											<div class=left>Превью</div>
+											<div class=left>РџСЂРµРІСЊСЋ</div>
 											<div><input type=file name=preview2></div>
 											<div class=left>&nbsp;</div>
 											<div>
-												<input type=submit name=edit value=Изменить>
-												<input type=button value=Удалить onclick=\"if(window.confirm('Вы действительно хотите удалить данную запись?')){location.href='index.php?r=$r&del=$id';}\">
+												<input type=submit name=edit value=РР·РјРµРЅРёС‚СЊ>
+												<input type=button value=РЈРґР°Р»РёС‚СЊ onclick=\"if(window.confirm('Р’С‹ РґРµР№СЃС‚РІРёС‚РµР»СЊРЅРѕ С…РѕС‚РёС‚Рµ СѓРґР°Р»РёС‚СЊ РґР°РЅРЅСѓСЋ Р·Р°РїРёСЃСЊ?')){location.href='index.php?r=$r&del=$id';}\">
 											</div><br><br>";
 										}
-										print"<div class=left>Каринка</div>
+										print"<div class=left>РљР°СЂРёРЅРєР°</div>
 										<div><input type=file name=picture></div>
 										<div class=left>&nbsp;</div>
-										<input type=submit name=add_picture value=Добавить><br><br>";
+										<input type=submit name=add_picture value=Р”РѕР±Р°РІРёС‚СЊ><br><br>";
 
 										$query="select id, picture from photo where razdel='$razdel' order by id desc";
 										$result=mysql_query($query);
@@ -1018,12 +1018,12 @@
 											$id=mysql_result($result,$i,'id');
 											$picture=mysql_result($result,$i,'picture');
 											print"<div class=left><img src=../uploadfiles/$picture.jpg width=20 height=20></div>
-											<div><a href=index.php?r=$r&razdel=$razdel&del_picture=$id onclick=\"if(window.confirm('Вы действительно хотите удалить данную картинку?')){location.href='index.php?r=$r&razdel=$razdel&del_picture=$id';} return false;\">Удалить</a></div><br><br>";
+											<div><a href=index.php?r=$r&razdel=$razdel&del_picture=$id onclick=\"if(window.confirm('Р’С‹ РґРµР№СЃС‚РІРёС‚РµР»СЊРЅРѕ С…РѕС‚РёС‚Рµ СѓРґР°Р»РёС‚СЊ РґР°РЅРЅСѓСЋ РєР°СЂС‚РёРЅРєСѓ?')){location.href='index.php?r=$r&razdel=$razdel&del_picture=$id';} return false;\">РЈРґР°Р»РёС‚СЊ</a></div><br><br>";
 										}
 
 									}
 								}
-								elseif( $r!=1 )	/* редактирование оставшихся разделов */
+								elseif( $r!=1 )	/* СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ РѕСЃС‚Р°РІС€РёС…СЃСЏ СЂР°Р·РґРµР»РѕРІ */
 								{
 									if( isset( $_POST["edit"] ) ){ mysql_query(" update pages set content='".$_POST["content"]."' where id='$r' "); }
 									$query="select content from pages where id='$r'";
@@ -1034,10 +1034,10 @@
 										$content=mysql_result($result,$i,'content');
 									}
 
-									print"<div class=left>Контент</div>
+									print"<div class=left>РљРѕРЅС‚РµРЅС‚</div>
 									<div><textarea name=content rows=10 class=mceEditor>$content</textarea></div>
 									<div class=left>&nbsp;</div>
-									<div><input type=submit name=edit value=Изменить></div><br><br>";
+									<div><input type=submit name=edit value=РР·РјРµРЅРёС‚СЊ></div><br><br>";
 
 									if( $r==6 )
 									{
@@ -1068,20 +1068,20 @@
 
 										if( isset( $_GET["del_bus"] ) ){ mysql_query( " delete from bus where id='".$_GET["del_bus"]."' " ); }
 
-										print"<div class=left>Марка автобуса</div>
+										print"<div class=left>РњР°СЂРєР° Р°РІС‚РѕР±СѓСЃР°</div>
 										<div><input type=text name=name></div>
-										<div class=left>Количество мест</div>
+										<div class=left>РљРѕР»РёС‡РµСЃС‚РІРѕ РјРµСЃС‚</div>
 										<div><input type=text name=place></div>
-										<div class=left>Изображение 1</div>
+										<div class=left>РР·РѕР±СЂР°Р¶РµРЅРёРµ 1</div>
 										<div><input type=file name=picture_01></div>
-										<div class=left>Изображение 2</div>
+										<div class=left>РР·РѕР±СЂР°Р¶РµРЅРёРµ 2</div>
 										<div><input type=file name=picture_02></div>
 										<div class=left>&nbsp;</div>
-										<div><input type=submit name=add_bus value=Добавить></div><br><br>
-										<div class=left>Марка</div>
+										<div><input type=submit name=add_bus value=Р”РѕР±Р°РІРёС‚СЊ></div><br><br>
+										<div class=left>РњР°СЂРєР°</div>
 										<div>
 											<select name=razdel onchange='document.form.submit();'>
-												<option value=0>Выберите для редактирования</option>";
+												<option value=0>Р’С‹Р±РµСЂРёС‚Рµ РґР»СЏ СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёСЏ</option>";
 												$query="select id, name from bus order by id desc";
 												$result=mysql_query($query);
 												$number=mysql_numrows($result);
@@ -1108,18 +1108,18 @@
 												$picture_02=mysql_result($result,$i,'picture_02');
 												print"<img src=../uploadfiles/$picture_02.jpg align=right width=40 height=40>
 												<img src=../uploadfiles/$picture_01.jpg align=right width=40 height=40>";
-												print"<div class=left>Марка автобуса</div>
+												print"<div class=left>РњР°СЂРєР° Р°РІС‚РѕР±СѓСЃР°</div>
 												<div><input type=text name=name2 value='$name'></div>
-												<div class=left>Количество мест</div>
+												<div class=left>РљРѕР»РёС‡РµСЃС‚РІРѕ РјРµСЃС‚</div>
 												<div><input type=text name=place2 value='$place'></div>
-												<div class=left>Изображение 1</div>
+												<div class=left>РР·РѕР±СЂР°Р¶РµРЅРёРµ 1</div>
 												<div><input type=file name=picture_012></div>
-												<div class=left>Изображение 2</div>
+												<div class=left>РР·РѕР±СЂР°Р¶РµРЅРёРµ 2</div>
 												<div><input type=file name=picture_022></div>
 												<div class=left>&nbsp;</div>
 												<div>
-													<input type=submit name=edit_bus value=Изменить>
-													<input type=button value=Удалить onclick=\"if(window.confirm('Вы действительно хотите удалить данную запись?')){location.href='index.php?r=$r&del_bus=$id';}\">
+													<input type=submit name=edit_bus value=РР·РјРµРЅРёС‚СЊ>
+													<input type=button value=РЈРґР°Р»РёС‚СЊ onclick=\"if(window.confirm('Р’С‹ РґРµР№СЃС‚РІРёС‚РµР»СЊРЅРѕ С…РѕС‚РёС‚Рµ СѓРґР°Р»РёС‚СЊ РґР°РЅРЅСѓСЋ Р·Р°РїРёСЃСЊ?')){location.href='index.php?r=$r&del_bus=$id';}\">
 												</div><br><br>";
 
 											}
@@ -1130,7 +1130,7 @@
 
 
 
-									if( $r==9 )	/*снабжения нелеквиды*/
+									if( $r==9 )	/*СЃРЅР°Р±Р¶РµРЅРёСЏ РЅРµР»РµРєРІРёРґС‹*/
 									{
 										if( isset( $_POST["add_file"] ) )
 										{
@@ -1141,19 +1141,19 @@
 	
 										if( isset( $_GET["del_file"] ) ){ mysql_query(" delete from file2 where id='".$_GET["del_file"]."' "); }
 	
-										print"<div class=left>Заголовок файла</div>
+										print"<div class=left>Р—Р°РіРѕР»РѕРІРѕРє С„Р°Р№Р»Р°</div>
 										<div><input type=text name=name_file></div>
-										<div class=left>Файл</div>
+										<div class=left>Р¤Р°Р№Р»</div>
 										<div><input type=file name=file_file></div>
-										<div class=left>Тип</div>
+										<div class=left>РўРёРї</div>
 										<div>
 											<select name=file_type>
-												<option value=0>Реализуем</option>
-												<option value=1>Купим</option>
+												<option value=0>Р РµР°Р»РёР·СѓРµРј</option>
+												<option value=1>РљСѓРїРёРј</option>
 											</select>
 										</div>
 										<div class=left>&nbsp;</div>
-										<div><input type=submit name=add_file value=Добавить></div><br><br>";
+										<div><input type=submit name=add_file value=Р”РѕР±Р°РІРёС‚СЊ></div><br><br>";
 	
 										$query="select id, name, file, type from file2 order by id desc";
 										$result=mysql_query($query);
@@ -1164,13 +1164,13 @@
 											$name=mysql_result($result,$i,'name');
 											$file=mysql_result($result,$i,'file');
 											$type=mysql_result($result,$i,'type');
-											if( $type==0 ){ $type="Реализуем"; }else{ $type="Купим"; }
-											print"<div class=left>Заголовок</div>
+											if( $type==0 ){ $type="Р РµР°Р»РёР·СѓРµРј"; }else{ $type="РљСѓРїРёРј"; }
+											print"<div class=left>Р—Р°РіРѕР»РѕРІРѕРє</div>
 											<div><input type=text name=name_file2 value='$name' readonly></div>
-											<div class=left>Тип</div>
+											<div class=left>РўРёРї</div>
 											<div><input type=text readonly value='$type'></div>
 											<div class=left>&nbsp;</div>
-											<div><input type=button value='Удалить файл' onclick=\"if(window.confirm('Вы действительно хотите удалить данную запись?')){location.href='index.php?r=$r&del_file=$id';}\"></div><br><br>";
+											<div><input type=button value='РЈРґР°Р»РёС‚СЊ С„Р°Р№Р»' onclick=\"if(window.confirm('Р’С‹ РґРµР№СЃС‚РІРёС‚РµР»СЊРЅРѕ С…РѕС‚РёС‚Рµ СѓРґР°Р»РёС‚СЊ РґР°РЅРЅСѓСЋ Р·Р°РїРёСЃСЊ?')){location.href='index.php?r=$r&del_file=$id';}\"></div><br><br>";
 										}
 									}
 									if( $r==3 ) {
@@ -1188,20 +1188,20 @@
 	
 										if( isset( $_GET["del"] ) ){ mysql_query(" delete from question where id='".$_GET["del"]."' "); }
 
-										print"<div class=left>Имя</div>
+										print"<div class=left>РРјСЏ</div>
 										<div><input type=text name=name></div>
 										<div class=left>E-mail</div>
 										<div><input type=text name=email></div>
-										<div class=left>Вопрос</div>
+										<div class=left>Р’РѕРїСЂРѕСЃ</div>
 										<div><textarea name=question rows=5></textarea></div>
-										<div class=left>Ответ</div>
+										<div class=left>РћС‚РІРµС‚</div>
 										<div><textarea name=answer rows=5></textarea></div>
 										<div class=left>&nbsp;</div>
-										<div><input type=submit name=add value=Добавить></div><br><br>
-										<div class=left>Вопрос</div>
+										<div><input type=submit name=add value=Р”РѕР±Р°РІРёС‚СЊ></div><br><br>
+										<div class=left>Р’РѕРїСЂРѕСЃ</div>
 										<div>
 											<select name=razdel onchange='document.form.submit();'>
-												<option value=0>Выберите для редактирования</option>";
+												<option value=0>Р’С‹Р±РµСЂРёС‚Рµ РґР»СЏ СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёСЏ</option>";
 												$query="select id, question from question order by id desc";
 												$result=mysql_query($query);
 												$number=mysql_numrows($result);
@@ -1227,20 +1227,20 @@
 												$email=mysql_result($result,$i,'email');
 												$ip=mysql_result($result,$i,'ip');
 
-												print"<div class=left>Имя</div>
+												print"<div class=left>РРјСЏ</div>
 												<div><input type=text name=name2 value='$name'></div>
 												<div class=left>E-mail</div>
 												<div><input type=text name=email2 value='$email'></div>
-												<div class=left>Вопрос</div>
+												<div class=left>Р’РѕРїСЂРѕСЃ</div>
 												<div><textarea name=question2 rows=5>$question</textarea></div>
-												<div class=left>Ответ</div>
+												<div class=left>РћС‚РІРµС‚</div>
 												<div><textarea name=answer2 rows=5>$answer</textarea></div>
 												<div class=left>ip</div>
 												<div><input type='text' name=ip2 value='$ip' readonly='readonly'></div>
 												<div class=left>&nbsp;</div>
 												<div>
-													<input type=submit name=edit value=Изменить>
-													<input type=button value=Удалить onclick=\"if(window.confirm('Вы действительно хотите удалить данную запись?')){location.href='index.php?r=$r&del=$id';}\">
+													<input type=submit name=edit value=РР·РјРµРЅРёС‚СЊ>
+													<input type=button value=РЈРґР°Р»РёС‚СЊ onclick=\"if(window.confirm('Р’С‹ РґРµР№СЃС‚РІРёС‚РµР»СЊРЅРѕ С…РѕС‚РёС‚Рµ СѓРґР°Р»РёС‚СЊ РґР°РЅРЅСѓСЋ Р·Р°РїРёСЃСЊ?')){location.href='index.php?r=$r&del=$id';}\">
 												</div><br><br>";
 											}
 										}
@@ -1248,7 +1248,7 @@
 
 								}
 
-								/* редактирование title, keywords, description */
+								/* СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ title, keywords, description */
 
 								if( $r!=23 )
 								{
@@ -1269,7 +1269,7 @@
 									<div class=left>description</div>
 									<div><textarea name=description rows=3>$description</textarea></div>
 									<div class=left>&nbsp;</div>
-									<div><input type=submit name=edit_title value=Изменить></div><br><br>";
+									<div><input type=submit name=edit_title value=РР·РјРµРЅРёС‚СЊ></div><br><br>";
 								}
 							?>
 						</div>

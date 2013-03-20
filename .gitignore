@@ -3,3 +3,4 @@ userfiles/*
 Capfile
 config/*
 admin/config.php
+admin/.htaccess
