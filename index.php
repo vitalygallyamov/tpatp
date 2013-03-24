@@ -10,6 +10,7 @@
 	$view_page=4;	// количество выводимых записей по умолчанию
 	$extrapage="";	// дополнительные параметры в выводе страниц, для передачи в гет запрос
 	require_once("admin/config.php");
+    require_once("functions.php");
 	$query="select name, content, title, description, keywords, razdel from pages where id='$r'";
 	$result=mysql_query($query);
 	$number=mysql_numrows($result);
@@ -22,7 +23,7 @@
 		$keywords=mysql_result($result,$i,'keywords');
 		$razdel=mysql_result($result,$i,'razdel');
 	}
-	if( $number==0 ){ header( "location: /index.php" ); }
+	if( $number==0 ){ header( "location: index.php" ); }
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -49,19 +50,20 @@
         $(function(){
             $('#schedule-form select, #schedule-form input:checkbox').styler();
             $('#slider-box').slider({width: 714, height: 240});
+
+            $('#left-block ul .sub-item-active').parents('.root-item').addClass('root-active');
         });
     })(jQuery);
     </script>
 
-	<title>ТПАТП</title>
+	<title><?=$title?> | Пассажирское автотранспортное предприятие</title>
 </head>
 
 <body>
-
 <div id="main">
     <div class="center-block">
         <header>
-            <a href="/"><img alt="ТПАТП" src="images/logo.png"/></a>
+            <a href="/"><img alt="ТПАТП" src="css/images/logo.png"/></a>
             <a class="contact-butt" href="#contacts">Контакты</a>
             <div class="phones">
                 <div>Телефон / факс приемной:&nbsp;&nbsp;&nbsp;&nbsp;<span>8 (3456) <span>25-26-37</span></span></div>
@@ -71,35 +73,11 @@
         <div id="content">
             <div id="left-block">
                 <nav>
-                    <ul class="root">
-                        <li class="root-item"><a href="#menu">О компании</a></li>
-                        <li class="root-item"><a href="#menu">О компании</a></li>
-                        <li class="root-item root-active">
-                            <a href="#menu">Пассажирам</a>
-                            <ul class="sub-menu">
-                                <li class="sub-item sub-item-active">
-                                    <a href="#menu">&mdash;&nbsp;&nbsp;Расписание движения</a>
-                                    <ul class="sub-sub-menu">
-                                        <li class="sub-sub-item"><a href="#menu">&ndash;&nbsp;&nbsp;Расписание движения</a></li>
-                                        <li class="sub-sub-item"><a href="#menu">&ndash;&nbsp;&nbsp;Расписание движения</a></li>
-                                        <li class="sub-sub-item"><a href="#menu">&ndash;&nbsp;&nbsp;Расписание движения</a></li>
-                                    </ul>
-                                </li>
-                                <li class="sub-item"><a href="#menu">&mdash;&nbsp;&nbsp;Расписание движения</a></li>
-                                <li class="sub-item"><a href="#menu">&mdash;&nbsp;&nbsp;Расписание движения</a></li>
-                            </ul>
-                        </li>
-                        <li class="root-item"><a href="#menu">О компании</a></li>
-                        <li class="root-item"><a href="#menu">О компании</a></li>
-                        <li class="root-item"><a href="#menu">О компании</a></li>
-                        <li class="root-item"><a href="#menu">О компании</a></li>
-                        <li class="root-item"><a href="#menu">О компании</a></li>
-                        <li class="root-item"><a href="#menu">О компании</a></li>
-                    </ul>
+                    <?=getMainMenu($r);?>
                 </nav>
                 <section>
                     <h2>Поздравляем!</h2>
-                    <img src="images/tmp/happy.jpg" width="229" height="229" />
+                    <img src="css/images/tmp/happy.jpg" width="229" height="229" />
                     <p>Поздравляем всех девушек и женщин с праздником 8 марта! Всегда будьте такими же красивыми, любимыми и замечательными!</p>
                 </section>
             </div>
@@ -152,35 +130,42 @@
                 <section id="buses">
                     <h2>Наши автобусы</h2>
                     <div class="slider">
-                        <img style="float: left;" alt="Автобус" src="images/bus.jpg" width="225" height="181" />
+                        <img style="float: left;" alt="Автобус" src="css/images/bus.jpg" width="225" height="181" />
                         <div style="clear: both;" class="arrows">потом</div>
                     </div>
                 </section>
                 <div class="both"></div>
                 <div id="main-slider">
                     <div id="slider-box">
-                        <div class="move-left"><img src="images/left_arrow.png" /></div>
-                        <div class="move-right"><img src="images/right_arrow.png" /></div>
+                        <div class="move-left"><img src="css/images/left_arrow.png" /></div>
+                        <div class="move-right"><img src="css/images/right_arrow.png" /></div>
                         <div class="slider-nav"></div>
                         <div class="slider">
-                            <div class="s-item"><img src="images/slider-image.jpg" /></div>
-                            <div class="s-item"><img src="images/slider-image.jpg" /></div>
-                            <div class="s-item"><img src="images/slider-image.jpg" /></div>
-                            <div class="s-item"><img src="images/slider-image.jpg" /></div>
+                            <?
+                            $query = "select * from main order by id desc";
+                            $result = mysql_query( $query );
+                            while( $data = mysql_fetch_array( $result ) ) {
+                                echo "<div class='s-item'><a href='".$data['href']."' "; if( empty( $data['href'] ) || $data['href'] == 'http://' ){ echo "onclick='return false;'"; } echo "><img height='240' src='uploadfiles/{$data['picture']}.jpg' /></a></div>";
+                            }
+                            ?>
+                            <div class="s-item"><img src="css/images/slider-image.jpg" /></div>
+                            <div class="s-item"><img src="css/images/slider-image.jpg" /></div>
+                            <div class="s-item"><img src="css/images/slider-image.jpg" /></div>
+                            <div class="s-item"><img src="css/images/slider-image.jpg" /></div>
                         </div>
                     </div>
                 </div>
                 <section id="news-block">
                     <h2>Новости</h2>
                     <article>
-                        <a href=""><img src="images/tmp/news_img.jpg" width="95" height="69" /></a>
+                        <a href=""><img src="css/images/tmp/news_img.jpg" width="95" height="69" /></a>
                         <div class="news-date">16.01.2013 / 15:26</div>
                         <h3><a href="#news">Дополнительные рейсы в крещение</a></h3>
                         <p>Уважаемые пассажиры!!! В связи с православным праздником Крещение Господне 19 января 2013 года с 12...</p>
                         <div class="both"></div>
                     </article>
                     <article style="border: none;">
-                        <a href=""><img src="images/tmp/news_img.jpg" width="95" height="69" /></a>
+                        <a href=""><img src="css/images/tmp/news_img.jpg" width="95" height="69" /></a>
                         <div class="news-date">16.01.2013 / 15:26</div>
                         <h3><a href="#news">Дополнительные рейсы в крещение</a></h3>
                         <p>Продолжая добрую традицию Тобольского ПАТП, 26 декября 2012 г. в автобусах городских маршрутов появи...</p>
@@ -202,78 +187,82 @@
                 </section>
                 <div class="both"></div>
                 <?}else{?>
-                <div id="breadcrumbs">
-                    <ul>
-                        <li><a href="/">Главная</a></li>
-                        <li>&gt;</li>
-                        <li>Новости</li>
-                    </ul>
-                </div>
-                <section id="text">
-                    <a class="green" href="#submit">Записаться на ТО</a>
-                    <h1>Технический осмотр</h1>
-                    <h2>Общие положения</h2>
-                    <p>Согласно Федеральному закону Российской Федерации от 01.07.2011 года № 170-ФЗ «О техническом осмотре транспортных средств…» находящиеся в эксплуатации на территории Российской Федерации и зарегистрированные в установленном порядке транспортные средства подлежат обязательному техническому осмотру.</p>
-                    <p>
+                    <div id="breadcrumbs">
                         <ul>
-                            <li>легковые такси;</li>
-                            <li><a href="#bus">автобусы;</a></li>
-                            <li>грузовые автомобили, предназначенные и оборудованные для перевозок пассажиров, с числом мест для сидения более чем восемь (за исключением места для водителя);</li>
-                            <li>специализированные транспортные средства и прицепы к ним, предназначенные и оборудованные для перевозок опасных грузов;</li>
+                            <li><a href="/">Главная</a></li>
+                            <li>&gt;</li>
+                            <li>Новости</li>
                         </ul>
-                    </p>
-                    <p>Правительством Российской Федерации принято Постановление от 5 декабря 2011 года № 1008 «О проведении технического осмотра транспортных средств»,  утвердившее Правила  проведения технического осмотра транспортных средств.</p>                    <p>Технический осмотр проводится по выбору владельца транспортного средства или его представителя любым оператором технического осмотра в любом пункте технического осмотра вне зависимости от места регистрации транспортного средства.</p>
-                    <p><strong>Транспортные средства подлежат государственному техническому осмотру со следующей периодичностью:</strong>
-                        <ol>
-                            <li>Если иное не установлено федеральными законами, транспортные средства подлежат техническому осмотру со следующей периодичностью:
-                                <ol>
-                                    <li>легковые такси;</li>
-                                    <li><a href="#bus">автобусы;</a></li>
-                                    <li>грузовые автомобили, предназначенные и оборудованные для перевозок пассажиров, с числом мест для сидения более чем восемь (за исключением места для водителя);</li>
-                                    <li>специализированные транспортные средства и прицепы к ним, предназначенные и оборудованные для перевозок опасных грузов;</li>
-                                </ol>
-                            </li>
-                            <li>Каждые двенадцать месяцев в отношении следующих транспортных средств, с года выпуска в обращение которых прошло более чем семь лет,   включая год их выпуска в обращение (за исключением транспортных средств, указанных в пунктах 1 и 3 настоящей части):
-                                <ol>
-                                    <li>легковые автомобили, разрешенная максимальная масса которых составляет до трех тонн пятисот килограмм;</li>
-                                    <li>грузовые автомобили, разрешенная максимальная масса которых составляет до трех тонн пятисот килограмм;</li>
-                                    <li>грузовые автомобили, предназначенные и оборудованные для перевозок пассажиров, с числом мест для сидения более чем восемь (за исключением места для водителя);</li>
-                                    <li>специализированные транспортные средства и прицепы к ним, предназначенные и оборудованные для перевозок опасных грузов;</li>
-                                </ol>
-                            </li>
-                        </ol>
-                    </p>
-                    <h2>Перечень стационарных пунктов технического осмотра</h2>
-                    <table>
-                        <tr>
-                            <th>Полное наименование</th>
-                            <th>Юридический адрес</th>
-                            <th>Типы проверяемых транспортных средств</th>
-                        </tr>
-                        <tr>
-                            <td>ООО «Автодиагност»</td>
-                            <td>г. Тобольск,<br />ул. С. Ремезова, 89.<br />тел. (3456) 249-002</td>
-                            <td>Все типы транспортных средств.<br />Ограничение по высоте  - 3.7м.</td>
-                        </tr>
-                        <tr>
-                            <td>ООО «Автодиагност»</td>
-                            <td>г. Тобольск,<br />ул. С. Ремезова, 89.<br />тел. (3456) 249-002</td>
-                            <td>Легковые автомобили и прицепы к ним,<br />грузовые автомобили с разрешенной максимальной массой до 3,5 т.</td>
-                        </tr>
-                    </table>
-                    <p>
-                        <ol>
-                            <li>Каждые двенадцать месяцев в отношении следующих транспортных средств, с года выпуска в обращение которых прошло более чем семь лет,   включая год их выпуска в обращение (за исключением транспортных средств, указанных в пунктах 1 и 3 настоящей части):
-                                <ol>
-                                    <li>легковые автомобили, разрешенная максимальная масса которых составляет до трех тонн пятисот килограмм;</li>
-                                    <li>грузовые автомобили, разрешенная максимальная масса которых составляет до трех тонн пятисот килограмм;</li>
-                                    <li>грузовые автомобили, предназначенные и оборудованные для перевозок пассажиров, с числом мест для сидения более чем восемь (за исключением места для водителя);</li>
-                                    <li>специализированные транспортные средства и прицепы к ним, предназначенные и оборудованные для перевозок опасных грузов;</li>
-                                </ol>
-                            </li>
-                        </ol>
-                    </p>
-                </section>
+                    </div>
+                    <?if($r == 5){ //Новости
+                        $view_page = 10;
+                        if( isset( $_GET["n"] ) ) //Детально
+                        {
+                            $query = "select id, dat, name, content from news where id='".$_GET["n"]."'";
+                        }
+                        else
+                        {
+                            $query = "select id, dat, name, content from news order by dat desc, id desc limit $page, $view_page";
+
+                            print '<section id="news"><h1>Новости</h1>';
+
+                        }
+                        $result=mysql_query($query);
+                        $number=mysql_numrows($result);
+                        for($i=0;$i<$number;$i++)
+                        {
+                            $id=mysql_result($result,$i,'id');
+                            $date=date( "d.m.Y" ,mysql_result($result,$i,'dat') );
+                            $name=mysql_result($result,$i,'name');
+                            $content=mysql_result($result,$i,'content');
+                            $content2=substr( trim( strip_tags( $content ) ), 0, 150 )."...";
+                            if( isset( $_GET["n"] ) )
+                            {?>
+                            <section>
+                                <h2><?=$name?></h2>
+                                <div><?=$content?></div>
+                            </section>
+                            <?}else{?>
+                                <article>
+                                    <div class="news-image"><img src="images/tmp/news_img2.jpg" width="142" height="97" /></div>
+                                    <div class="news-item">
+                                        <a href="<?="index.php?r=$r&n=$id";?>"><?=$name?></a>
+                                        <div class="news-date"><?=$date?></div>
+                                        <p><?=$content2?></p>
+                                    </div>
+                                    <div class="both"></div>  
+                                </article>
+                            <?}
+                        }?>
+                        <?
+                        $query = "select id, dat, name, content from news order by dat desc, id desc";
+                        $result=mysql_query($query);
+                        $number=mysql_numrows($result);
+                        if (!isset($_GET["n"]) && $number > $view_page){
+                            $count = floor($number / $view_page);
+                        ?>
+                        <div id="pager">
+                            <ul>
+                                <?for($i = 1; $i <= $count; $i++){?>
+                                <li <?if($page == $i){echo 'class="active"';}?>><a href="<?="index.php?r=$r&page=$i"?>"><?=$i?></a></li>
+                                <?}?>
+                                <?
+                                if($page < $count){$next = $page + 1;?>
+                                <li><a class="more-link" href="<?="index.php?r=$r&page=$next"?>">Следующая</a></li>
+                                <?}
+                                ?>
+                            </ul>
+                        </div>
+                        <?}?>
+                        <?
+                        if(!isset($_GET['n'])){ print '</section>';}
+                    }else{?>
+                        <section id="text">
+                            <a class="green" href="#submit">Записаться на ТО</a>
+                            <h1><?=$title?></h1>
+                            <div><?=$content?></div>
+                        </section>
+                    <?}?>
                 <?}?>
             </div>
             <div class="both"></div>
@@ -282,7 +271,7 @@
     <footer>
         <div class="center-block">
             <p>Справочная автовокзала: 8 (3456) <span>25-84-53, 25-65-55</span><br />Россия, 626150 г.Тобольск 6 мкр. строение 44</p>
-            <img src="images/tmp/counter.gif" width="88" height="31" />
+            <img src="css/images/tmp/counter.gif" width="88" height="31" />
         </div>
     </footer>
 </div>

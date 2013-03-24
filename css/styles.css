@@ -10,7 +10,7 @@
 }
 
 body{
-    background: center top no-repeat url("../images/bg-top.jpg");
+    background: center top no-repeat url("images/bg-top.jpg");
     font: normal 14px Tahoma;
 }
 h1, h2, h3, h4{
@@ -23,7 +23,7 @@ a.green, a.grey{
     font-size: 12px;
     padding: 7px 15px;
 }
-a.green{ background: repeat-x center url("../images/green_bg.gif");}
+a.green{ background: repeat-x center url("images/green_bg.gif");}
 form input[type='submit']{
     color: #fff;
     border: none;
@@ -31,14 +31,14 @@ form input[type='submit']{
     text-decoration: none;
     font-size: 12px;
     padding: 7px 15px;
-    background: repeat-x center url("../images/green_bg.gif");
+    background: repeat-x center url("images/green_bg.gif");
 }
-a.grey{background: repeat-x center url("../images/grey_bg.gif");}
+a.grey{background: repeat-x center url("images/grey_bg.gif");}
 .both{clear: both;}
 
 a.more-link{
     padding-right: 15px;
-    background: no-repeat bottom right url("../images/more-link.png");
+    background: no-repeat bottom right url("images/more-link.png");
     color: #0076d3;
     font-size: 12px;
 }
@@ -54,7 +54,7 @@ section h2{
 }
 
 #main{
-    background: center bottom no-repeat url("../images/bg-down.jpg");
+    background: center bottom no-repeat url("images/bg-down.jpg");
     min-height: 1000px;
 }
 .center-block{
@@ -89,7 +89,7 @@ header{
         float: right;
         border: 1px solid #e8e8e8;
         padding: 8px 18px 10px 10px;
-        background: no-repeat #fff 68px 8px url("../images/arrow.gif");
+        background: no-repeat #fff 68px 8px url("images/arrow.gif");
         margin-right: 160px;
         margin-top: 25px;
     }
@@ -101,7 +101,7 @@ header{
         float: left;
     }
         #left-block nav ul.root{
-            list-style-image: url("../images/marker.png");
+            list-style-image: url("images/marker.png");
             list-style-position: inside;
         }
             #left-block nav ul li.root-item{
@@ -110,8 +110,7 @@ header{
                 border-bottom: 1px dotted #c8c8c8;
             }
                 #left-block nav ul li.root-active{
-                    padding-bottom: 0;
-                    background: no-repeat 220px 10px url("../images/active-item.jpg");
+                    background: no-repeat 220px 10px url("images/active-item.jpg");
                 }
             #left-block nav ul li.root-item a, #left-block nav ul li.root-item a:visited{
                 text-decoration: none;
@@ -134,7 +133,7 @@ header{
                 margin-left: 20px;
             }
             #left-block nav ul.sub-menu li.sub-item-active{
-                background: no-repeat 220px 10px url("../images/active-subitem.jpg");
+                background: no-repeat 220px 10px url("images/active-subitem.jpg");
             }
         /*----sub sub menu----*/
         #left-block nav ul.sub-sub-menu{
@@ -207,7 +206,7 @@ header{
         #schedule-block{
             width: 420px;
             float: left;
-            background: url("../images/dotted_bg.gif");
+            background: url("images/dotted_bg.gif");
             padding: 15px 25px;
             -webkit-border-radius: 3px;
             border-radius: 3px;
@@ -286,7 +285,7 @@ header{
             }
             #buses .arrows{
                 height: 59px;
-                background: repeat-x center url("../images/bus-slider-bg.gif");
+                background: repeat-x center url("images/bus-slider-bg.gif");
             }
         #main-slider{
             margin-top: 10px;
@@ -304,10 +303,10 @@ header{
                 width: 11px;
                 height: 11px;
                 margin-left: 10px;
-                background: no-repeat -11px 0 url("../images/slider-nav.png");
+                background: no-repeat -11px 0 url("images/slider-nav.png");
             }
             #main-slider .slider-nav span.current-nav{
-                background: no-repeat 0 0 url("../images/slider-nav.png");
+                background: no-repeat 0 0 url("images/slider-nav.png");
             }
         /*----Блок новости и вакансии---*/
         #news-block, #jobs-block{
@@ -355,7 +354,7 @@ header{
                 font-size: 14px;
             }
             #jobs-block ul{
-                list-style: inside url("../images/jobs-list.gif");
+                list-style: inside url("images/jobs-list.gif");
                 margin-top: 10px;
             }
             #jobs-block ul li{
@@ -460,7 +459,7 @@ section#news{
         border: none;
     }
     #schedule form{
-        background: url("../images/dotted_bg.gif");
+        background: url("images/dotted_bg.gif");
         padding: 15px 25px;
         margin-top: 15px;
     }
@@ -565,7 +564,7 @@ section#news{
         color: #0076d3;
     }
 #text ul{
-    list-style: inside url("../images/jobs-list.gif");
+    list-style: inside url("images/jobs-list.gif");
     font-size: 12px;
     margin-left: 50px;
 }
@@ -655,7 +654,7 @@ section#news{
         }
 /*------guest-book-------*/
 #guest-book ul{
-    list-style: inside url("../images/jobs-list.gif");
+    list-style: inside url("images/jobs-list.gif");
     font-size: 12px;
 }
     #guest-book ul li{
@@ -698,7 +697,7 @@ form.right{
     float: right;
     width: 200px;
     padding: 15px;
-    background: url("../images/dotted_bg.gif");
+    background: url("images/dotted_bg.gif");
     margin-left: 15px;
     margin-bottom: 10px;
 }
@@ -754,7 +753,7 @@ form.right{
             box-shadow:  0px 1px 1px 0px #777;
 }
 #order-bus ul{
-    list-style: inside url("../images/jobs-list.gif");
+    list-style: inside url("images/jobs-list.gif");
 }
     #order-bus .bus-item{
         min-height: 350px;

@@ -36,7 +36,7 @@
 	<head>
 		<title>ПАССАЖИРСКОЕ АВТОТРАНСПОРТНОЕ ПРЕДПРИЯТИЕ</title>
 		<link rel=stylesheet type='text/css' href='../style.css'>
-		<meta HTTP-EQUIV="Content-Type" content="text/html; charset=windows-1251">
+		<meta HTTP-EQUIV="Content-Type" content="text/html; charset=utf-8">
 
 		<!--начало подключения редактора-->
 		<script language='javascript' type='text/javascript' src='../js/tiny_mce/tiny_mce.js'></script> 

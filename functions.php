@@ -1,5 +1,53 @@
 <?php
 
+	function getMainMenu($r_id){
+		/* вывод левого меню */
+		$query="select id, name from pages where razdel='0' and id<>'23'";
+		//$query="select id, name from pages where ( razdel='0' and id<>'23' ) order by id";
+		$result = mysql_query($query);
+		$number = mysql_numrows($result);
+
+		$list = '';
+		if($number > 0){
+			$list .= '<ul class="root">';
+			for($i = 0; $i < $number; $i++)
+			{
+				$id = mysql_result($result, $i, 'id');
+				$name = mysql_result($result, $i, 'name');
+
+				$active = '';
+				if($r_id == $id) $active = 'root-active';
+
+				$list .= "<li class='root-item $active'><a href='index.php?r=$id'>$name</a>";
+				
+				//sub-menu
+				$query = "select id, name from pages where razdel='$id' order by id";
+				$result_sub = mysql_query($query);
+				$number_sub = mysql_numrows($result_sub);
+				if($number_sub > 0){
+					$list .= '<ul class="sub-menu">';
+					for($j = 0; $j < $number_sub; $j++)
+					{
+						$id = mysql_result($result_sub, $j, 'id');
+						$name = mysql_result($result_sub, $j, 'name');
+
+						$active = '';
+						if($r_id == $id) $active = 'sub-item-active';
+						
+						$list .= "<li class='sub-item $active'><a href='index.php?r=$id'>&ndash;&nbsp;&nbsp;$name</a>";
+					}
+					$list .= '</ul>';
+				}
+				//sub-menu
+
+				$list .= '</li>';			
+			}
+			$list .='</ul>';
+		}
+		return $list;
+	}
+
+
 	// убрать все спец символы из текста
 	function stringSimple( $source )
 	{
